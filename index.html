@@ -533,6 +533,102 @@ section { padding: clamp(64px,9vw,110px) clamp(20px,5vw,40px); }
 /* ─── АНИМАЦИИ ПОЯВЛЕНИЯ ─── */
 .reveal { opacity:0; transform:translateY(22px); transition:opacity .7s ease,transform .7s ease; }
 .reveal.visible { opacity:1; transform:translateY(0); }
+
+/* ─── ИЗОБРАЖЕНИЯ ─── */
+.hero-image-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.hero-image-wrap img {
+  position: absolute;
+  right: -60px;
+  bottom: 0;
+  height: 85%;
+  max-height: 700px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.18;
+  filter: blur(1px) saturate(1.4);
+  mask-image: linear-gradient(to left, transparent 0%, rgba(0,0,0,0.6) 30%, rgba(0,0,0,0.6) 70%, transparent 100%),
+              linear-gradient(to top, transparent 0%, black 20%);
+  -webkit-mask-composite: destination-in;
+  mask-composite: intersect;
+}
+@media(max-width:900px){ .hero-image-wrap img { opacity: 0.10; right: -80px; } }
+
+.section-img-block {
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+}
+.section-img-block img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 24px;
+}
+.section-img-block::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  pointer-events: none;
+}
+
+.img-banner {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  object-position: center 30%;
+  border-radius: 24px;
+  display: block;
+  opacity: 0.88;
+  margin: clamp(32px,5vw,56px) 0;
+  border: 1px solid var(--border);
+}
+
+.about-image {
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  height: 460px;
+  flex-shrink: 0;
+}
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  border-radius: 24px;
+}
+.about-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  border: 1px solid rgba(200,169,110,0.25);
+  pointer-events: none;
+}
+
+.compass-img-wrap {
+  text-align: center;
+  margin: clamp(40px,6vw,64px) 0 0;
+}
+.compass-img-wrap img {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 24px;
+  opacity: 0.9;
+  border: 1px solid var(--border);
+  display: inline-block;
+}
 .rd1{transition-delay:.1s} .rd2{transition-delay:.2s} .rd3{transition-delay:.3s} .rd4{transition-delay:.4s}
 
 /* ─── RESPONSIVE ─── */
@@ -577,6 +673,9 @@ section { padding: clamp(64px,9vw,110px) clamp(20px,5vw,40px); }
   <div class="orb orb-1" aria-hidden="true"></div>
   <div class="orb orb-2" aria-hidden="true"></div>
   <div class="stars" id="stars" aria-hidden="true"></div>
+  <div class="hero-image-wrap" aria-hidden="true">
+    <img src="0.jpg" alt="" loading="eager">
+  </div>
 
   <div class="hero-content">
     <div class="hero-eyebrow">
@@ -644,6 +743,9 @@ section { padding: clamp(64px,9vw,110px) clamp(20px,5vw,40px); }
     <div class="pain-bottom reveal">
       <p>Чаще всего причина не в вас лично — а в <strong>родовых программах и кармических задачах Души</strong>, которые работают в фоне всей вашей жизни.</p>
     </div>
+    <div class="reveal" style="margin-top: clamp(40px,5vw,60px);">
+      <img src="4.jpg" alt="Медитация и внутренний покой" class="img-banner">
+    </div>
   </div>
 </section>
 
@@ -688,6 +790,9 @@ section { padding: clamp(64px,9vw,110px) clamp(20px,5vw,40px); }
           <p>Интеграция: вы уходите с ресурсом и ясностью — что и как менять</p>
         </div>
       </div>
+    </div>
+    <div class="reveal" style="margin-top: clamp(40px,5vw,60px);">
+      <img src="3.jpg" alt="Трансформация — свободный феникс" class="img-banner" style="object-position: center 20%;">
     </div>
   </div>
 </section>
@@ -758,7 +863,7 @@ section { padding: clamp(64px,9vw,110px) clamp(20px,5vw,40px); }
         <div class="review-stars">★★★★★</div>
         <p class="review-text">«После сессии наконец-то почувствовала, что живу свою жизнь, а не чью-то чужую. Как будто сняли невидимый груз с плеч, который я несла всю жизнь и даже не замечала.»</p>
         <div class="review-author">
-          <div class="review-name">Анастасия, 33 года</div>
+          <div class="review-name">Анастасия, 34 года</div>
           <div class="review-topic">Запрос: предназначение</div>
         </div>
       </div>
@@ -808,6 +913,9 @@ section { padding: clamp(64px,9vw,110px) clamp(20px,5vw,40px); }
         </div>
       </div>
       <div class="reveal rd1">
+        <div class="about-image" style="margin-bottom: 24px;">
+          <img src="2.jpg" alt="Связь с предками и родом">
+        </div>
         <div class="about-stats">
           <div class="stat-card">
             <div class="stat-num">100+</div>
@@ -840,7 +948,8 @@ section { padding: clamp(64px,9vw,110px) clamp(20px,5vw,40px); }
       <div class="badge">Ответы на вопросы</div>
       <h2 class="stitle" id="faq-title">Часто спрашивают</h2>
     </div>
-
+    <div class="compass-img-wrap reveal">
+      <img src="11.jpg" alt="Компас душевного пути — мудрость, предназначение, судьба">
     <div class="faq-list reveal rd1">
       <div class="faq-item">
         <button class="faq-trigger" aria-expanded="false">
