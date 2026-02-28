@@ -592,10 +592,12 @@ section { padding: clamp(64px,9vw,110px) clamp(20px,5vw,40px); }
   -webkit-mask-composite: destination-in;
   mask-composite: intersect;
 }
-@media(max-width:900px){ .hero-image-wrap img { opacity: 0.10; right: -80px; } }
+/* На мобильном hero-картинку скрываем — она мешает читать текст */
+@media(max-width:600px) { .hero-image-wrap { display: none; } }
+@media(max-width:900px) { .hero-image-wrap img { opacity: 0.08; right: -100px; height: 60%; } }
 
 .section-img-block {
-  border-radius: 24px;
+  border-radius: clamp(14px,3vw,24px);
   overflow: hidden;
   position: relative;
 }
@@ -604,35 +606,37 @@ section { padding: clamp(64px,9vw,110px) clamp(20px,5vw,40px); }
   height: 100%;
   object-fit: cover;
   display: block;
-  border-radius: 24px;
+  border-radius: clamp(14px,3vw,24px);
 }
 .section-img-block::after {
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: 24px;
+  border-radius: clamp(14px,3vw,24px);
   border: 1px solid var(--border);
   pointer-events: none;
 }
 
 .img-banner {
   width: 100%;
-  max-height: 420px;
+  /* Адаптивная высота: на мобильном меньше, на десктопе больше */
+  height: clamp(180px, 40vw, 420px);
   object-fit: cover;
   object-position: center 30%;
-  border-radius: 24px;
+  border-radius: clamp(14px,3vw,24px);
   display: block;
   opacity: 0.88;
-  margin: clamp(32px,5vw,56px) 0;
+  margin: clamp(24px,5vw,56px) 0;
   border: 1px solid var(--border);
 }
 
 .about-image {
   width: 100%;
-  border-radius: 24px;
+  border-radius: clamp(14px,3vw,24px);
   overflow: hidden;
   position: relative;
-  height: 460px;
+  /* Адаптивная высота вместо фиксированной 460px */
+  height: clamp(220px, 55vw, 460px);
   flex-shrink: 0;
 }
 .about-image img {
@@ -641,28 +645,51 @@ section { padding: clamp(64px,9vw,110px) clamp(20px,5vw,40px); }
   object-fit: cover;
   object-position: center top;
   display: block;
-  border-radius: 24px;
+  border-radius: clamp(14px,3vw,24px);
 }
 .about-image::after {
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: 24px;
+  border-radius: clamp(14px,3vw,24px);
   border: 1px solid rgba(200,169,110,0.25);
   pointer-events: none;
 }
 
 .compass-img-wrap {
   text-align: center;
-  margin: clamp(40px,6vw,64px) 0 0;
+  margin: clamp(28px,6vw,64px) 0 0;
 }
 .compass-img-wrap img {
   width: 100%;
   max-width: 700px;
-  border-radius: 24px;
+  border-radius: clamp(14px,3vw,24px);
   opacity: 0.9;
   border: 1px solid var(--border);
   display: inline-block;
+}
+
+/* ─── МОБИЛЬНАЯ ОПТИМИЗАЦИЯ ИЗОБРАЖЕНИЙ ─── */
+@media(max-width:600px) {
+  /* Баннеры — компактнее, без боковых отступов */
+  .img-banner {
+    height: clamp(160px,55vw,240px);
+    border-radius: 14px;
+    margin: 20px 0;
+  }
+
+  /* Картинка предков в секции "Обо мне" — скрываем на маленьких экранах,
+     она дублирует контент и ломает вертикальный ритм */
+  .about-image {
+    height: clamp(200px,60vw,280px);
+    border-radius: 14px;
+    margin-bottom: 0 !important;
+  }
+
+  /* Компас — полная ширина без лишних отступов */
+  .compass-img-wrap img {
+    border-radius: 14px;
+  }
 }
 .rd1{transition-delay:.1s} .rd2{transition-delay:.2s} .rd3{transition-delay:.3s} .rd4{transition-delay:.4s}
 
@@ -674,7 +701,7 @@ section { padding: clamp(64px,9vw,110px) clamp(20px,5vw,40px); }
   .case-body        { grid-template-columns:1fr; }
   .case-col:first-child { border-right:none; border-bottom:1px solid var(--border); }
   .reviews-grid     { grid-template-columns:1fr; }
-  .about-grid       { grid-template-columns:1fr; }
+  .about-grid       { grid-template-columns:1fr; display:flex; flex-direction:column; }
   .method-steps     { grid-template-columns:1fr; }
 }
 @media(max-width:600px){
@@ -682,6 +709,8 @@ section { padding: clamp(64px,9vw,110px) clamp(20px,5vw,40px); }
   .about-stats      { grid-template-columns:1fr 1fr; }
   .btn-tg           { width:100%; max-width:400px; }
   .cta-features     { flex-direction:column; align-items:center; }
+}
+
 /* ─── НАВИГАЦИЯ ─── */
 nav.site-nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -1148,7 +1177,7 @@ body { padding-top: 72px; }
     </div>
 
     <div class="about-grid">
-      <div class="reveal">
+      <div class="reveal" style="order:1;">
         <div class="about-text">
           <p>Я — Проводник в Хрониках Акаши и мастер <strong>системных расстановок</strong>. Работаю на стыке двух глубоких методов, которые в паре дают результаты, недостижимые по отдельности.</p>
           <p>Мои клиенты — это люди, которые уже что-то пробовали: коучинг, психологию, другие практики. Они приходят, когда понимают, что «что-то не пускает» на более глубоком уровне.</p>
@@ -1158,7 +1187,7 @@ body { padding-top: 72px; }
           <p>Онлайн-сессии провожу для клиентов по всему русскоязычному миру. Формат — индивидуальная работа через видеосвязь.</p>
         </div>
       </div>
-      <div class="reveal rd1">
+      <div class="reveal rd1" style="order:2;">
         <div class="about-image" style="margin-bottom: 24px;">
           <img src="2.jpg" alt="Женщина встречает светлых предков в космическом пространстве — системные расстановки и исцеление рода" width="1200" height="630" loading="lazy">
         </div>
