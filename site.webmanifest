@@ -1,0 +1,12 @@
+{
+  "name": "Спроси у Акаши",
+  "short_name": "Акаши",
+  "description": "Чтение Хроник Акаши и системные расстановки онлайн",
+  "icons": [
+    { "src": "/favicon-32x32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ],
+  "theme_color": "#0b0912",
+  "background_color": "#0b0912",
+  "display": "standalone"
+}
