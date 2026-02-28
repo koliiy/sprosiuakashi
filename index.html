@@ -685,57 +685,218 @@ section { padding: clamp(64px,9vw,110px) clamp(20px,5vw,40px); }
 /* ─── НАВИГАЦИЯ ─── */
 nav.site-nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(11,9,18,0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-  padding: 0 clamp(20px,5vw,40px);
+  padding: 0 clamp(20px,5vw,48px);
+  transition: background .4s, box-shadow .4s;
+}
+nav.site-nav.scrolled {
+  background: rgba(11,9,18,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 rgba(200,169,110,0.12);
 }
 .nav-inner {
   max-width: 1060px; margin: 0 auto;
-  display: flex; align-items: center; justify-content: space-between;
-  height: 60px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  height: 72px;
 }
+
+/* ── Логотип (левая часть) ── */
 .nav-logo {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 18px; font-weight: 300; color: var(--cream);
-  text-decoration: none; letter-spacing: 0.04em;
+  font-size: clamp(15px,2vw,19px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--cream);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: color .3s;
 }
-.nav-logo span { color: var(--gold); }
+.nav-logo:hover { color: var(--gold); }
+.nav-logo-star {
+  display: inline-block;
+  color: var(--gold);
+  font-size: 18px;
+  line-height: 1;
+  animation: nav-spin 18s linear infinite;
+  opacity: 0.7;
+}
+@keyframes nav-spin { to { transform: rotate(360deg); } }
+
+/* ── Центральные ссылки ── */
 .nav-links {
-  display: flex; align-items: center; gap: clamp(16px,3vw,32px);
+  display: flex; align-items: center; gap: clamp(20px,3vw,36px);
   list-style: none;
+  padding: 0 clamp(20px,4vw,48px);
+  position: relative;
 }
-.nav-links a {
-  font-size: 13px; color: var(--muted); text-decoration: none;
-  letter-spacing: 0.06em; transition: color .2s;
+.nav-links::before,
+.nav-links::after {
+  content: '✦';
+  color: var(--gold);
+  opacity: 0.25;
+  font-size: 8px;
+  position: absolute;
 }
-.nav-links a:hover { color: var(--gold); }
-.nav-cta {
-  font-size: 13px !important; color: var(--gold) !important;
-  border: 1px solid var(--border); border-radius: 30px;
-  padding: 7px 18px !important;
+.nav-links::before { left: 0; }
+.nav-links::after  { right: 0; }
+
+.nav-links li a {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(221,213,236,0.55);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 3px;
+  transition: color .3s;
 }
-.nav-cta:hover { background: var(--gold-soft) !important; }
-@media(max-width:700px){ .nav-links { display: none; } }
-body { padding-top: 60px; }
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%; right: 50%;
+  height: 1px;
+  background: var(--gold);
+  transition: left .3s, right .3s;
+}
+.nav-links li a:hover { color: var(--cream); }
+.nav-links li a:hover::after { left: 0; right: 0; }
+
+/* ── CTA справа ── */
+.nav-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.nav-cta-link {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(13px,1.5vw,15px);
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 22px;
+  border: 1px solid rgba(200,169,110,0.3);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+  transition: color .3s, border-color .3s;
+}
+.nav-cta-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(200,169,110,0.12), transparent);
+  opacity: 0;
+  transition: opacity .3s;
+}
+.nav-cta-link:hover { color: var(--cream); border-color: rgba(200,169,110,0.6); }
+.nav-cta-link:hover::before { opacity: 1; }
+.nav-cta-link svg { flex-shrink: 0; opacity: 0.7; }
+
+/* ── Мобильное меню ── */
+.nav-burger {
+  display: none;
+  flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer;
+  padding: 8px; margin-left: auto;
+}
+.nav-burger span {
+  display: block; width: 22px; height: 1px;
+  background: var(--gold); transition: all .3s;
+}
+.nav-burger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+.nav-mobile-drawer {
+  display: none;
+  position: fixed; top: 72px; left: 0; right: 0;
+  background: rgba(11,9,18,0.97);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 32px clamp(20px,5vw,48px) 40px;
+  z-index: 99;
+  flex-direction: column; gap: 8px;
+}
+.nav-mobile-drawer.open { display: flex; }
+.nav-mobile-drawer a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px,5vw,30px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--text);
+  text-decoration: none;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  transition: color .2s, padding-left .2s;
+}
+.nav-mobile-drawer a::after { content: '→'; color: var(--gold); opacity: 0; transition: opacity .2s; }
+.nav-mobile-drawer a:hover { color: var(--gold); padding-left: 8px; }
+.nav-mobile-drawer a:hover::after { opacity: 1; }
+.nav-mobile-drawer .mob-cta {
+  margin-top: 20px; border: none;
+  font-size: clamp(13px,3vw,15px); font-style: normal;
+  color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase;
+}
+.nav-mobile-drawer .mob-cta::after { display: none; }
+
+@media(max-width:860px) {
+  .nav-links { display: none; }
+  .nav-cta-link { display: none; }
+  .nav-burger { display: flex; }
+  .nav-inner { grid-template-columns: 1fr auto; }
+}
+
+body { padding-top: 72px; }
 </style>
 </head>
 <body>
 
-<nav class="site-nav" aria-label="Основная навигация">
+<nav class="site-nav" aria-label="Основная навигация" id="site-nav">
   <div class="nav-inner">
-    <a href="#top" class="nav-logo">Спроси у <span>Акаши</span></a>
+    <a href="#top" class="nav-logo">
+      <span class="nav-logo-star">✦</span>
+      Спроси у Акаши
+    </a>
+
     <ul class="nav-links">
       <li><a href="#pain">Ваша ситуация</a></li>
       <li><a href="#solution">Метод</a></li>
       <li><a href="#reviews">Отзывы</a></li>
       <li><a href="#about">Обо мне</a></li>
       <li><a href="#faq">Вопросы</a></li>
-      <li><a href="https://t.me/sprosiuakashi" target="_blank" rel="noopener noreferrer" class="nav-cta">Записаться</a></li>
     </ul>
+
+    <div class="nav-right">
+      <a href="https://t.me/sprosiuakashi" target="_blank" rel="noopener noreferrer" class="nav-cta-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.888-.662 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        Записаться
+      </a>
+      <button class="nav-burger" id="nav-burger" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </nav>
+
+<div class="nav-mobile-drawer" id="nav-drawer" aria-hidden="true">
+  <a href="#pain" class="nav-drawer-link">Ваша ситуация</a>
+  <a href="#solution" class="nav-drawer-link">Метод</a>
+  <a href="#reviews" class="nav-drawer-link">Отзывы</a>
+  <a href="#about" class="nav-drawer-link">Обо мне</a>
+  <a href="#faq" class="nav-drawer-link">Вопросы</a>
+  <a href="https://t.me/sprosiuakashi" target="_blank" rel="noopener noreferrer" class="nav-drawer-link mob-cta">✦ Записаться в Telegram</a>
+</div>
 
 <!-- ══════════════════════════════════════════
      SEO H1 (виден поисковику и пользователю)
@@ -1152,7 +1313,34 @@ if (sc) {
   }
 }
 
-// ─── ПЛАВНЫЙ СКРОЛЛ ───
+// ─── NAV SCROLL ───
+const nav = document.getElementById('site-nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 30);
+}, { passive: true });
+
+// ─── BURGER MENU ───
+const burger = document.getElementById('nav-burger');
+const drawer = document.getElementById('nav-drawer');
+burger.addEventListener('click', () => {
+  const open = drawer.classList.toggle('open');
+  burger.classList.toggle('open', open);
+  burger.setAttribute('aria-expanded', open);
+  drawer.setAttribute('aria-hidden', !open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+// Close on drawer link click
+drawer.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    drawer.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded', false);
+    drawer.setAttribute('aria-hidden', true);
+    document.body.style.overflow = '';
+  });
+});
+
+
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', function(e) {
     const id = this.getAttribute('href').slice(1);
