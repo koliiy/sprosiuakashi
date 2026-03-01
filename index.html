@@ -1310,6 +1310,22 @@
       pointer-events: none;
     }
 
+    .personal-photo {
+      width: 100%;
+      border-radius: clamp(14px, 3vw, 24px);
+      overflow: hidden;
+      margin-bottom: 24px;
+      border: 1px solid rgba(200, 169, 110, 0.25);
+    }
+
+    .personal-photo img {
+      width: 100%;
+      height: auto;
+      /* Позволяет картинке не обрезаться и сохранять пропорции */
+      display: block;
+      border-radius: clamp(14px, 3vw, 24px);
+    }
+
     .compass-img-wrap {
       text-align: center;
       margin: clamp(28px, 6vw, 64px) 0 0;
@@ -1708,6 +1724,89 @@
       }
     }
 
+    /* ─── ФОРМАТЫ РАБОТЫ ─── */
+    .formats-section {
+      padding: clamp(60px, 8vw, 100px) 0;
+    }
+
+    .formats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(16px, 3vw, 24px);
+      margin-top: clamp(32px, 5vw, 48px);
+    }
+
+    .format-card {
+      padding: clamp(24px, 4vw, 32px) clamp(20px, 3vw, 24px);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: clamp(14px, 3vw, 24px);
+      display: flex;
+      flex-direction: column;
+      transition: border-color .3s, transform .3s;
+    }
+
+    .format-card:hover {
+      border-color: rgba(200, 169, 110, 0.4);
+      transform: translateY(-4px);
+    }
+
+    .format-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(22px, 2.5vw, 26px);
+      font-style: italic;
+      color: var(--gold);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .format-card p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 32px;
+      flex-grow: 1;
+    }
+
+    .format-cat {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--cream);
+      opacity: 0.6;
+      margin-bottom: 8px;
+    }
+
+    .format-price {
+      font-size: 16px;
+      color: var(--cream);
+      font-weight: 500;
+      padding-top: 20px;
+      border-top: 1px dashed rgba(200, 169, 110, 0.2);
+    }
+
+    .format-note {
+      text-align: center;
+      margin-top: clamp(32px, 5vw, 48px);
+      padding: clamp(24px, 4vw, 32px) 20px;
+      background: rgba(200, 169, 110, 0.05);
+      border: 1px solid rgba(200, 169, 110, 0.15);
+      border-radius: clamp(14px, 3vw, 24px);
+    }
+
+    .format-note p {
+      color: var(--cream);
+      font-size: clamp(15px, 2vw, 17px);
+      line-height: 1.6;
+    }
+
+    @media(max-width:900px) {
+      .formats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     body {
       padding-top: 72px;
     }
@@ -1737,7 +1836,7 @@
             <path
               d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.888-.662 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
           </svg>
-          Задать вопрос
+          Бесплатная консультация
         </a>
         <button class="nav-burger" id="nav-burger" aria-label="Открыть меню" aria-expanded="false">
           <span></span><span></span><span></span>
@@ -1753,7 +1852,7 @@
     <a href="#about" class="nav-drawer-link">Обо мне</a>
     <a href="#faq" class="nav-drawer-link">Вопросы</a>
     <a href="https://t.me/sprosiuakashi" target="_blank" rel="noopener noreferrer" class="nav-drawer-link mob-cta">✦
-      Записаться в Telegram</a>
+      Бесплатная консультация</a>
   </div>
 
   <!-- ══════════════════════════════════════════
@@ -1811,7 +1910,7 @@
             <path
               d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.888-.662 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
           </svg>
-          Узнать подробности в Telegram
+          Получить бесплатную консультацию
         </a>
       </div>
     </div>
@@ -1919,9 +2018,9 @@
         </div>
       </div>
       <div class="reveal" style="margin-top: clamp(40px,5vw,60px);">
-        <img src="3.jpg"
-          alt="Золотой феникс вырывается из клетки в звёздное небо — символ трансформации и освобождения от родовых программ"
-          class="img-banner" style="object-position: center 20%;" width="1200" height="630" loading="lazy">
+        <img src="2.jpg"
+          alt="Женщина встречает светлых предков в космическом пространстве — системные расстановки и исцеление рода"
+          class="img-banner" width="1200" height="630" loading="lazy">
       </div>
     </div>
   </section>
@@ -1941,7 +2040,7 @@
           <path
             d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.888-.662 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
         </svg>
-        Узнать формат и записаться
+        Получить бесплатную консультацию
       </a>
     </div>
   </div>
@@ -1983,7 +2082,8 @@
             Рода на собственный успех.</p>
           <p class="case-quote">Через <strong>три недели после сессии</strong> она открыла частную практику и
             <strong>собрала первую группу клиентов</strong>, начав зарабатывать на любимом деле без привычного страха и
-            чувства самосаботажа.</p>
+            чувства самосаботажа.
+          </p>
         </div>
       </div>
     </div>
@@ -2066,10 +2166,8 @@
           </div>
         </div>
         <div class="reveal rd1" style="order:2;">
-          <div class="about-image" style="margin-bottom: 24px;">
-            <img src="2.jpg"
-              alt="Женщина встречает светлых предков в космическом пространстве — системные расстановки и исцеление рода"
-              width="1200" height="630" loading="lazy">
+          <div class="personal-photo reveal">
+            <img src="i.png" alt="Фото Елены — Проводник в Хрониках Акаши" loading="lazy">
           </div>
           <div class="about-stats">
             <div class="stat-card">
@@ -2095,7 +2193,45 @@
   </section>
 
   <!-- ══════════════════════════════════════════
-     7. FAQ
+     7. ФОРМАТЫ РАБОТЫ И СТОИМОСТЬ
+══════════════════════════════════════════ -->
+  <section id="formats" class="formats-section" aria-labelledby="formats-title">
+    <div class="container">
+      <div class="reveal tc">
+        <div class="badge">Стоимость и варианты</div>
+        <h2 class="stitle" id="formats-title">Форматы <em>работы</em></h2>
+      </div>
+
+      <div class="formats-grid">
+        <div class="format-card reveal rd1">
+          <div class="format-cat">20 минут</div>
+          <h3>Первичная диагностическая сессия</h3>
+          <p>Знакомство, выявление истинного запроса. Поймём, смогу ли я вам помочь и какой алгоритм работы выбрать.</p>
+          <div class="format-price">Бесплатно</div>
+        </div>
+        <div class="format-card reveal rd2">
+          <div class="format-cat">Хроники (30 минут)</div>
+          <h3>Предварительная сессия</h3>
+          <p>Диагностика предназначения и кармических задач через хроники Акаши. Базовая распаковка причин.</p>
+          <div class="format-price">По запросу в Telegram</div>
+        </div>
+        <div class="format-card reveal rd3">
+          <div class="format-cat">Расстановка (1.5 - 2 часа)</div>
+          <h3>Глубокая сессия</h3>
+          <p>Полноценная проработка блока. Снятие родовых программ, возвращение ресурса и изменение сценария.</p>
+          <div class="format-price">Обсуждаем после диагностики</div>
+        </div>
+      </div>
+
+      <div class="format-note reveal">
+        <p>Напишите мне в Telegram кодовое слово <strong>«Диагностика»</strong>.<br>Я вышлю вам анкету, мы познакомимся,
+          и я расскажу, какой формат подойдет под ваш запрос.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+     8. FAQ
 ══════════════════════════════════════════ -->
   <section id="faq" class="faq-section" aria-labelledby="faq-title">
     <div class="container">
@@ -2190,12 +2326,13 @@
             Готовы узнать,<br>в чём <em>ваш путь</em>?
           </h2>
           <p class="cta-sub">
-            Запишитесь на сессию через Telegram. Я отвечаю лично и помогу выбрать формат, который подойдёт именно вам.
+            Подпишитесь на мой Telegram-канал и получите <strong>бесплатную консультацию</strong>.<br>Я отвечаю лично и
+            помогу выбрать формат, который подойдёт именно вам.
           </p>
           <div class="cta-features">
             <div class="cta-feat"><span>✓</span>Онлайн — из любой точки мира</div>
             <div class="cta-feat"><span>✓</span>Индивидуальный подход</div>
-            <div class="cta-feat"><span>✓</span>Без подготовки и ритуалов</div>
+            <div class="cta-feat"><span>✓</span>Бонус за подписку</div>
           </div>
           <!-- ИСПРАВЛЕНО: убран дублирующийся фрагмент SVG path -->
           <a href="https://t.me/sprosiuakashi" target="_blank" rel="noopener noreferrer" class="btn-tg"
@@ -2204,11 +2341,14 @@
               <path
                 d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.888-.662 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
             </svg>
-            Написать в Telegram @sprosiuakashi
+            Подписаться и получить консультацию
           </a>
         </div>
-        <div class="footer-line reveal">
-          Спроси у Акаши, 2026 &copy; Все права защищены
+        <div class="footer-line reveal"
+          style="display:flex; justify-content:center; align-items:center; gap: 16px; flex-wrap: wrap;">
+          <span>Спроси у Акаши, 2026 &copy; Все права защищены</span>
+          <a href="policy.html" target="_blank"
+            style="color:var(--muted); text-decoration:underline; font-size:12px;">Политика конфиденциальности</a>
         </div>
       </div>
     </div>
