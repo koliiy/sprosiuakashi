@@ -97,9 +97,16 @@
 </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap">
+  <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
-    rel="stylesheet">
+    media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap">
+  </noscript>
 
   <style>
     /* ─── RESET ─── */
@@ -2168,10 +2175,12 @@
 
       <div class="tg-reviews-grid">
         <div class="tg-review-card reveal rd3">
-          <img src="tg-review-1.webp" alt="Отзыв клиента после сессии в Telegram" loading="lazy" decoding="async">
+          <img src="tg-review-1.webp" alt="Отзыв клиента после сессии в Telegram" loading="lazy" decoding="async"
+            width="511" height="135">
         </div>
         <div class="tg-review-card reveal rd4">
-          <img src="tg-review-2.webp" alt="Отзыв клиента после сессии в Telegram" loading="lazy" decoding="async">
+          <img src="tg-review-2.webp" alt="Отзыв клиента после сессии в Telegram" loading="lazy" decoding="async"
+            width="568" height="151">
         </div>
       </div>
 
