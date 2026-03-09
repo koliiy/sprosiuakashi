@@ -1853,10 +1853,37 @@
     body {
       padding-top: 72px;
     }
+
+    /* ─── ДОСТУПНОСТЬ (A11Y) ─── */
+    :focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 0;
+      background: var(--gold);
+      color: var(--ink);
+      padding: 12px 24px;
+      z-index: 1000;
+      font-weight: 600;
+      text-decoration: none;
+      transition: top 0.3s;
+    }
+
+    .skip-link:focus-visible {
+      top: 0;
+      outline: none;
+    }
   </style>
 </head>
 
 <body>
+
+  <a href="#main-content" class="skip-link">Перейти к основному контенту</a>
 
   <nav class="site-nav" aria-label="Основная навигация" id="site-nav">
     <div class="nav-inner">
@@ -1875,7 +1902,7 @@
 
       <div class="nav-right">
         <a href="https://t.me/sprosiuakashi" target="_blank" rel="noopener noreferrer" class="nav-cta-link">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path
               d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.888-.662 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
           </svg>
@@ -1898,58 +1925,193 @@
       Бесплатная консультация</a>
   </div>
 
-  <!-- ══════════════════════════════════════════
+  <main id="main-content">
+
+    <!-- ══════════════════════════════════════════
      SEO H1 (виден поисковику и пользователю)
 ══════════════════════════════════════════ -->
-  <div
-    style="background:var(--deep);padding:clamp(32px,5vw,48px) clamp(20px,5vw,40px);border-bottom:1px solid var(--border);">
-    <div style="max-width:900px;margin:0 auto;">
-      <h1
-        style="font-family:'Cormorant Garamond',serif;font-size:clamp(20px,3.5vw,32px);color:var(--cream);font-weight:300;line-height:1.3;margin-bottom:16px;">
-        Чтение Хроник Акаши и Системные Расстановки онлайн — Проводник Елена
-      </h1>
-      <p style="font-size:clamp(16px, 2.5vw, 18px);color:var(--muted);line-height:1.8;font-weight:300;max-width:780px;">
-        Меня зовут Елена. Я — <strong style="color:var(--text);font-weight:400;">Проводник в Хрониках Акаши</strong> и
-        мастер <strong style="color:var(--text);font-weight:400;">системных расстановок по Хеллингеру</strong>. Провожу
-        онлайн-сессии для тех, кто хочет узнать своё предназначение, найти причины блоков в деньгах и отношениях, и
-        исцелить родовые сценарии.
-      </p>
+    <div
+      style="background:var(--deep);padding:clamp(32px,5vw,48px) clamp(20px,5vw,40px);border-bottom:1px solid var(--border);">
+      <div style="max-width:900px;margin:0 auto;">
+        <h1
+          style="font-family:'Cormorant Garamond',serif;font-size:clamp(20px,3.5vw,32px);color:var(--cream);font-weight:300;line-height:1.3;margin-bottom:16px;">
+          Чтение Хроник Акаши и Системные Расстановки онлайн — Проводник Елена
+        </h1>
+        <p
+          style="font-size:clamp(16px, 2.5vw, 18px);color:var(--muted);line-height:1.8;font-weight:300;max-width:780px;">
+          Меня зовут Елена. Я — <strong style="color:var(--text);font-weight:400;">Проводник в Хрониках Акаши</strong> и
+          мастер <strong style="color:var(--text);font-weight:400;">системных расстановок по Хеллингеру</strong>.
+          Провожу
+          онлайн-сессии для тех, кто хочет узнать своё предназначение, найти причины блоков в деньгах и отношениях, и
+          исцелить родовые сценарии.
+        </p>
+      </div>
     </div>
-  </div>
 
-  <!-- ══════════════════════════════════════════
+    <!-- ══════════════════════════════════════════
      1. HERO
 ══════════════════════════════════════════ -->
-  <section class="hero" id="top">
-    <div class="orb orb-1" aria-hidden="true"></div>
-    <div class="orb orb-2" aria-hidden="true"></div>
-    <div class="stars" id="stars" aria-hidden="true"></div>
-    <div class="hero-image-wrap" aria-hidden="true">
-      <img src="0.webp" alt="Проводник в Хрониках Акаши — небесная богиня знаний с книгой мудрости" width="1024"
-        height="1024" loading="eager" fetchpriority="high" decoding="async">
-    </div>
-
-    <div class="hero-content">
-      <div class="hero-eyebrow">
-        <span class="el"></span>
-        Хроники Акаши · Системные Расстановки
-        <span class="el"></span>
+    <section class="hero" id="top">
+      <div class="orb orb-1" aria-hidden="true"></div>
+      <div class="orb orb-2" aria-hidden="true"></div>
+      <div class="stars" id="stars" aria-hidden="true"></div>
+      <div class="hero-image-wrap" aria-hidden="true">
+        <img src="0.webp" alt="Проводник в Хрониках Акаши — небесная богиня знаний с книгой мудрости" width="1024"
+          height="1024" loading="eager" fetchpriority="high" decoding="async">
       </div>
 
-      <h2 class="hero-h1">
-        Соединяю мудрость <em>Души</em><br>и силу <em>Рода</em>
-      </h2>
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span class="el"></span>
+          Хроники Акаши · Системные Расстановки
+          <span class="el"></span>
+        </div>
 
-      <p class="hero-cta-line">
-        Помогаю выйти из финансового тупика, найти истинное предназначение и построить гармоничные отношения, устранив
-        глубинные блоки.<br>
-        Запишитесь на первую диагностическую сессию в Telegram.
-      </p>
+        <h2 class="hero-h1">
+          Соединяю мудрость <em>Души</em><br>и силу <em>Рода</em>
+        </h2>
 
-      <div class="hero-btn-wrap">
+        <p class="hero-cta-line">
+          Помогаю выйти из финансового тупика, найти истинное предназначение и построить гармоничные отношения, устранив
+          глубинные блоки.<br>
+          Запишитесь на первую диагностическую сессию в Telegram.
+        </p>
+
+        <div class="hero-btn-wrap">
+          <a href="https://t.me/sprosiuakashi" target="_blank" rel="noopener noreferrer" class="btn-tg"
+            aria-label="Записаться на сессию в Telegram">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.888-.662 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
+            </svg>
+            Получить бесплатную консультацию
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-scroll" aria-hidden="true">
+        <div class="scroll-line"></div>
+        Читать дальше
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+     2. БОЛЬ — «Узнаёте себя?»
+══════════════════════════════════════════ -->
+    <section id="pain" class="pain-section" aria-labelledby="pain-title">
+      <div class="container">
+        <div class="reveal tc">
+          <div class="badge">Узнаёте себя?</div>
+          <h2 class="stitle" id="pain-title">Вы много пробовали.<br>Но что-то всё равно <em>не сдвигается</em></h2>
+        </div>
+
+        <div class="pain-grid">
+          <div class="pain-card reveal rd1">
+            <div class="pain-icon">🧭</div>
+            <h3>«Живу не свою жизнь»</h3>
+            <p>Есть ощущение, что вы двигаетесь по чужому сценарию. Понимаете, что душа хочет чего-то другого — но не
+              знаете, чего именно и как к этому прийти.</p>
+          </div>
+          <div class="pain-card reveal rd2">
+            <div class="pain-icon">💸</div>
+            <h3>Деньги не идут, хотя стараетесь</h3>
+            <p>Работаете много, вкладываете силы — а финансового результата нет. Или деньги приходят и сразу уходят. Как
+              будто невидимый потолок.</p>
+          </div>
+          <div class="pain-card reveal rd3">
+            <div class="pain-icon">💔</div>
+            <h3>В отношениях один и тот же сценарий</h3>
+            <p>Партнёры меняются, а ситуация повторяется. Одиночество, ощущение что «не для меня», или отношения, в
+              которых вы теряете себя.</p>
+          </div>
+          <div class="pain-card reveal rd4">
+            <div class="pain-icon">🌫️</div>
+            <h3>Усталость и потеря смысла</h3>
+            <p>Внешне всё нормально — но внутри пусто. Нет сил на то, что раньше радовало. Ощущение, что живёте «на
+              автопилоте» и это не то, зачем пришли.</p>
+          </div>
+        </div>
+
+        <div class="pain-bottom reveal">
+          <p>Чаще всего причина не в вас лично — а в <strong>родовых программах и кармических задачах Души</strong>,
+            которые работают фоном.<br><strong>Хорошая новость в том, что эти программы можно обнаружить и экологично
+              завершить.</strong></p>
+        </div>
+        <div class="reveal" style="margin-top: clamp(40px,5vw,60px);">
+          <img src="4.webp"
+            alt="Медитирующая женщина у озера с лотосами на рассвете — символ внутреннего покоя и духовного пробуждения"
+            class="img-banner" width="1200" height="630" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+     3. РЕШЕНИЕ — Метод
+══════════════════════════════════════════ -->
+    <section id="solution" class="solution-section" aria-labelledby="sol-title">
+      <div class="container">
+        <div class="reveal tc">
+          <div class="badge">Как это работает</div>
+          <h2 class="stitle" id="sol-title">Два ключа — одна <em>трансформация</em></h2>
+        </div>
+
+        <div class="method-visual">
+          <div class="method-card reveal rd1">
+            <span class="mc-icon">✦</span>
+            <h3>Хроники Акаши</h3>
+            <p>Работаем с <strong>Душой</strong>. Узнаём предназначение, задачи воплощения, кармические блоки и обеты из
+              прошлых жизней. Это ваш личный «Навигатор».</p>
+          </div>
+          <div class="method-plus" aria-hidden="true">+</div>
+          <div class="method-card reveal rd2">
+            <span class="mc-icon">🌿</span>
+            <h3>Системные Расстановки</h3>
+            <p>Работаем с <strong>Родом</strong>. Исцеляем родовые программы, убираем лояльность предкам, которая
+              блокирует ваш успех. Это ремонт вашего «Автомобиля».</p>
+          </div>
+        </div>
+
+        <div class="method-result reveal">
+          <h3>Что происходит, когда они работают вместе</h3>
+          <p>Хроники показывают «куда идти», расстановки убирают всё, что мешало двигаться. Вы получаете не просто
+            понимание — вы получаете ресурс, чтобы действительно изменить жизнь.</p>
+          <div class="method-steps">
+            <div class="mstep">
+              <div class="mstep-num">01</div>
+              <p>Диагностика через Хроники: узнаём задачи Души и корни блоков</p>
+            </div>
+            <div class="mstep">
+              <div class="mstep-num">02</div>
+              <p>Расстановка: исцеляем родовые программы, даём Душе свободу</p>
+            </div>
+            <div class="mstep">
+              <div class="mstep-num">03</div>
+              <p>Интеграция: вы уходите с огромным внутренним ресурсом, четким планом действий и ясностью — что именно и
+                как нужно менять в жизни прямо сейчас.</p>
+            </div>
+          </div>
+        </div>
+        <div class="reveal" style="margin-top: clamp(40px,5vw,60px);">
+          <img src="2.webp"
+            alt="Женщина встречает светлых предков в космическом пространстве — системные расстановки и исцеление рода"
+            class="img-banner" width="1200" height="630" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+     CTA 1 — посередине страницы
+══════════════════════════════════════════ -->
+    <div
+      style="background:var(--deep);padding:clamp(48px,7vw,80px) clamp(20px,5vw,40px);text-align:center;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+      <div class="reveal" style="max-width:600px;margin:0 auto;">
+        <p
+          style="font-family:'Cormorant Garamond',serif;font-size:clamp(18px,3vw,26px);font-style:italic;color:var(--cream);line-height:1.6;margin-bottom:32px;">
+          Готовы узнать, что стоит за вашей ситуацией?
+        </p>
         <a href="https://t.me/sprosiuakashi" target="_blank" rel="noopener noreferrer" class="btn-tg"
           aria-label="Записаться на сессию в Telegram">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path
               d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.888-.662 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
           </svg>
@@ -1958,479 +2120,361 @@
       </div>
     </div>
 
-    <div class="hero-scroll" aria-hidden="true">
-      <div class="scroll-line"></div>
-      Читать дальше
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-     2. БОЛЬ — «Узнаёте себя?»
-══════════════════════════════════════════ -->
-  <section id="pain" class="pain-section" aria-labelledby="pain-title">
-    <div class="container">
-      <div class="reveal tc">
-        <div class="badge">Узнаёте себя?</div>
-        <h2 class="stitle" id="pain-title">Вы много пробовали.<br>Но что-то всё равно <em>не сдвигается</em></h2>
-      </div>
-
-      <div class="pain-grid">
-        <div class="pain-card reveal rd1">
-          <div class="pain-icon">🧭</div>
-          <h3>«Живу не свою жизнь»</h3>
-          <p>Есть ощущение, что вы двигаетесь по чужому сценарию. Понимаете, что душа хочет чего-то другого — но не
-            знаете, чего именно и как к этому прийти.</p>
-        </div>
-        <div class="pain-card reveal rd2">
-          <div class="pain-icon">💸</div>
-          <h3>Деньги не идут, хотя стараетесь</h3>
-          <p>Работаете много, вкладываете силы — а финансового результата нет. Или деньги приходят и сразу уходят. Как
-            будто невидимый потолок.</p>
-        </div>
-        <div class="pain-card reveal rd3">
-          <div class="pain-icon">💔</div>
-          <h3>В отношениях один и тот же сценарий</h3>
-          <p>Партнёры меняются, а ситуация повторяется. Одиночество, ощущение что «не для меня», или отношения, в
-            которых вы теряете себя.</p>
-        </div>
-        <div class="pain-card reveal rd4">
-          <div class="pain-icon">🌫️</div>
-          <h3>Усталость и потеря смысла</h3>
-          <p>Внешне всё нормально — но внутри пусто. Нет сил на то, что раньше радовало. Ощущение, что живёте «на
-            автопилоте» и это не то, зачем пришли.</p>
-        </div>
-      </div>
-
-      <div class="pain-bottom reveal">
-        <p>Чаще всего причина не в вас лично — а в <strong>родовых программах и кармических задачах Души</strong>,
-          которые работают фоном.<br><strong>Хорошая новость в том, что эти программы можно обнаружить и экологично
-            завершить.</strong></p>
-      </div>
-      <div class="reveal" style="margin-top: clamp(40px,5vw,60px);">
-        <img src="4.webp"
-          alt="Медитирующая женщина у озера с лотосами на рассвете — символ внутреннего покоя и духовного пробуждения"
-          class="img-banner" width="1200" height="630" loading="lazy" decoding="async">
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-     3. РЕШЕНИЕ — Метод
-══════════════════════════════════════════ -->
-  <section id="solution" class="solution-section" aria-labelledby="sol-title">
-    <div class="container">
-      <div class="reveal tc">
-        <div class="badge">Как это работает</div>
-        <h2 class="stitle" id="sol-title">Два ключа — одна <em>трансформация</em></h2>
-      </div>
-
-      <div class="method-visual">
-        <div class="method-card reveal rd1">
-          <span class="mc-icon">✦</span>
-          <h3>Хроники Акаши</h3>
-          <p>Работаем с <strong>Душой</strong>. Узнаём предназначение, задачи воплощения, кармические блоки и обеты из
-            прошлых жизней. Это ваш личный «Навигатор».</p>
-        </div>
-        <div class="method-plus" aria-hidden="true">+</div>
-        <div class="method-card reveal rd2">
-          <span class="mc-icon">🌿</span>
-          <h3>Системные Расстановки</h3>
-          <p>Работаем с <strong>Родом</strong>. Исцеляем родовые программы, убираем лояльность предкам, которая
-            блокирует ваш успех. Это ремонт вашего «Автомобиля».</p>
-        </div>
-      </div>
-
-      <div class="method-result reveal">
-        <h3>Что происходит, когда они работают вместе</h3>
-        <p>Хроники показывают «куда идти», расстановки убирают всё, что мешало двигаться. Вы получаете не просто
-          понимание — вы получаете ресурс, чтобы действительно изменить жизнь.</p>
-        <div class="method-steps">
-          <div class="mstep">
-            <div class="mstep-num">01</div>
-            <p>Диагностика через Хроники: узнаём задачи Души и корни блоков</p>
-          </div>
-          <div class="mstep">
-            <div class="mstep-num">02</div>
-            <p>Расстановка: исцеляем родовые программы, даём Душе свободу</p>
-          </div>
-          <div class="mstep">
-            <div class="mstep-num">03</div>
-            <p>Интеграция: вы уходите с огромным внутренним ресурсом, четким планом действий и ясностью — что именно и
-              как нужно менять в жизни прямо сейчас.</p>
-          </div>
-        </div>
-      </div>
-      <div class="reveal" style="margin-top: clamp(40px,5vw,60px);">
-        <img src="2.webp"
-          alt="Женщина встречает светлых предков в космическом пространстве — системные расстановки и исцеление рода"
-          class="img-banner" width="1200" height="630" loading="lazy" decoding="async">
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-     CTA 1 — посередине страницы
-══════════════════════════════════════════ -->
-  <div
-    style="background:var(--deep);padding:clamp(48px,7vw,80px) clamp(20px,5vw,40px);text-align:center;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
-    <div class="reveal" style="max-width:600px;margin:0 auto;">
-      <p
-        style="font-family:'Cormorant Garamond',serif;font-size:clamp(18px,3vw,26px);font-style:italic;color:var(--cream);line-height:1.6;margin-bottom:32px;">
-        Готовы узнать, что стоит за вашей ситуацией?
-      </p>
-      <a href="https://t.me/sprosiuakashi" target="_blank" rel="noopener noreferrer" class="btn-tg">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.888-.662 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
-        </svg>
-        Получить бесплатную консультацию
-      </a>
-    </div>
-  </div>
-
-  <!-- ══════════════════════════════════════════
+    <!-- ══════════════════════════════════════════
      4. КЕЙ — Живой пример
 ══════════════════════════════════════════ -->
-  <section id="case" class="case-section" aria-labelledby="case-title">
-    <div class="container">
-      <div class="reveal tc">
-        <div class="badge">Живой пример</div>
-        <h2 class="stitle" id="case-title">Как это работает <em>на практике</em></h2>
-      </div>
+    <section id="case" class="case-section" aria-labelledby="case-title">
+      <div class="container">
+        <div class="reveal tc">
+          <div class="badge">Живой пример</div>
+          <h2 class="stitle" id="case-title">Как это работает <em>на практике</em></h2>
+        </div>
 
-      <div class="case-wrap reveal rd1">
-        <div class="case-header">
-          <div class="case-label">Ситуация клиентки</div>
-          <p>Мария знала, что её путь — помогать людям. Прошла несколько обучений. Но каждый раз, когда нужно было
-            заявить о себе или назначить цену — её сковывал парализующий страх.</p>
-        </div>
-        <div class="case-body">
-          <div class="case-col">
-            <span class="case-tag">Этап 1 · Хроники Акаши</span>
-            <h4>Диагностика Души</h4>
-            <p>Поле подтвердило огромный потенциал целителя. Навигатор показывал путь — но «автомобиль» стоял на месте.
-              Мария знала «куда», но не понимала, что мешает двигаться.</p>
+        <div class="case-wrap reveal rd1">
+          <div class="case-header">
+            <div class="case-label">Ситуация клиентки</div>
+            <p>Мария знала, что её путь — помогать людям. Прошла несколько обучений. Но каждый раз, когда нужно было
+              заявить о себе или назначить цену — её сковывал парализующий страх.</p>
           </div>
-          <div class="case-col">
-            <span class="case-tag">Этап 2 · Расстановка</span>
-            <h4>Исцеление родовой программы</h4>
-            <p>Расстановка выявила фигуру прабабушки, раскулаченной и сосланной. В подсознании жила программа: <span
-                class="hl">«Быть проявленной и успешной — смертельно опасно»</span>. Душа хотела лететь, но корни тянули
-              назад.</p>
+          <div class="case-body">
+            <div class="case-col">
+              <span class="case-tag">Этап 1 · Хроники Акаши</span>
+              <h4>Диагностика Души</h4>
+              <p>Поле подтвердило огромный потенциал целителя. Навигатор показывал путь — но «автомобиль» стоял на
+                месте.
+                Мария знала «куда», но не понимала, что мешает двигаться.</p>
+            </div>
+            <div class="case-col">
+              <span class="case-tag">Этап 2 · Расстановка</span>
+              <h4>Исцеление родовой программы</h4>
+              <p>Расстановка выявила фигуру прабабушки, раскулаченной и сосланной. В подсознании жила программа: <span
+                  class="hl">«Быть проявленной и успешной — смертельно опасно»</span>. Душа хотела лететь, но корни
+                тянули
+                назад.</p>
+            </div>
           </div>
-        </div>
-        <div class="case-footer">
-          <h4><span class="ci">✓</span> Результат</h4>
-          <p>В поле расстановки мы признали опыт предков и вернули прабабушке её судьбу. Мария получила благословение
-            Рода на собственный успех.</p>
-          <p class="case-quote">Через <strong>три недели после сессии</strong> она открыла частную практику и
-            <strong>собрала первую группу клиентов</strong>, начав зарабатывать на любимом деле без привычного страха и
-            чувства самосаботажа.
-          </p>
+          <div class="case-footer">
+            <h4><span class="ci">✓</span> Результат</h4>
+            <p>В поле расстановки мы признали опыт предков и вернули прабабушке её судьбу. Мария получила благословение
+              Рода на собственный успех.</p>
+            <p class="case-quote">Через <strong>три недели после сессии</strong> она открыла частную практику и
+              <strong>собрала первую группу клиентов</strong>, начав зарабатывать на любимом деле без привычного страха
+              и
+              чувства самосаботажа.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ══════════════════════════════════════════
+    <!-- ══════════════════════════════════════════
      5. ОТЗЫВЫ
 ══════════════════════════════════════════ -->
-  <section id="reviews" class="reviews-section" aria-labelledby="rev-title">
-    <div class="container">
-      <div class="reveal tc">
-        <div class="badge">Отзывы клиентов</div>
-        <h2 class="stitle" id="rev-title">Что говорят <em>после сессий</em></h2>
-      </div>
+    <section id="reviews" class="reviews-section" aria-labelledby="rev-title">
+      <div class="container">
+        <div class="reveal tc">
+          <div class="badge">Отзывы клиентов</div>
+          <h2 class="stitle" id="rev-title">Что говорят <em>после сессий</em></h2>
+        </div>
 
-      <div class="reviews-grid">
-        <div class="review-card reveal rd1">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">«После сессии наконец-то почувствовала, что живу свою жизнь, а не чью-то чужую. Как
-            будто сняли невидимый груз с плеч, который я несла всю жизнь и даже не замечала.»</p>
-          <div class="review-author">
-            <div class="review-name">Анастасия, 34 года</div>
-            <div class="review-topic">Запрос: предназначение</div>
+        <div class="reviews-grid">
+          <div class="review-card reveal rd1">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">«После сессии наконец-то почувствовала, что живу свою жизнь, а не чью-то чужую. Как
+              будто сняли невидимый груз с плеч, который я несла всю жизнь и даже не замечала.»</p>
+            <div class="review-author">
+              <div class="review-name">Анастасия, 34 года</div>
+              <div class="review-topic">Запрос: предназначение</div>
+            </div>
+          </div>
+          <div class="review-card reveal rd2">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">«Три года не могла разобраться, почему деньги приходят и сразу уходят. За одну
+              расстановку поняла откуда это. Через два месяца закрыла долг, который висел пять лет.»</p>
+            <div class="review-author">
+              <div class="review-name">Ольга, 41 год</div>
+              <div class="review-topic">Запрос: блоки в деньгах</div>
+            </div>
+          </div>
+          <div class="review-card reveal rd3">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">«Я думала, что моё одиночество — это просто невезение. Оказалось — родовой сценарий.
+              Елена работает очень бережно. После сессии впервые за долгое время захотелось открыться новым отношениям.»
+            </p>
+            <div class="review-author">
+              <div class="review-name">Марина, 38 лет</div>
+              <div class="review-topic">Запрос: отношения</div>
+            </div>
           </div>
         </div>
-        <div class="review-card reveal rd2">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">«Три года не могла разобраться, почему деньги приходят и сразу уходят. За одну
-            расстановку поняла откуда это. Через два месяца закрыла долг, который висел пять лет.»</p>
-          <div class="review-author">
-            <div class="review-name">Ольга, 41 год</div>
-            <div class="review-topic">Запрос: блоки в деньгах</div>
+
+        <div class="tg-reviews-grid">
+          <div class="tg-review-card reveal rd3">
+            <img src="tg-review-1.webp" alt="Отзыв клиента после сессии в Telegram" loading="lazy" decoding="async"
+              width="511" height="135">
+          </div>
+          <div class="tg-review-card reveal rd4">
+            <img src="tg-review-2.webp" alt="Отзыв клиента после сессии в Telegram" loading="lazy" decoding="async"
+              width="568" height="151">
           </div>
         </div>
-        <div class="review-card reveal rd3">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">«Я думала, что моё одиночество — это просто невезение. Оказалось — родовой сценарий.
-            Елена работает очень бережно. После сессии впервые за долгое время захотелось открыться новым отношениям.»
-          </p>
-          <div class="review-author">
-            <div class="review-name">Марина, 38 лет</div>
-            <div class="review-topic">Запрос: отношения</div>
-          </div>
+
+        <div class="reveal tc" style="margin-top:36px;">
+          <p style="font-size:16px;color:var(--muted);font-style:italic;">Больше отзывов и живых кейсов — в
+            Telegram-канале</p>
         </div>
       </div>
+    </section>
 
-      <div class="tg-reviews-grid">
-        <div class="tg-review-card reveal rd3">
-          <img src="tg-review-1.webp" alt="Отзыв клиента после сессии в Telegram" loading="lazy" decoding="async"
-            width="511" height="135">
-        </div>
-        <div class="tg-review-card reveal rd4">
-          <img src="tg-review-2.webp" alt="Отзыв клиента после сессии в Telegram" loading="lazy" decoding="async"
-            width="568" height="151">
-        </div>
-      </div>
-
-      <div class="reveal tc" style="margin-top:36px;">
-        <p style="font-size:16px;color:var(--muted);font-style:italic;">Больше отзывов и живых кейсов — в
-          Telegram-канале</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
+    <!-- ══════════════════════════════════════════
      6. ОБО МНЕ
 ══════════════════════════════════════════ -->
-  <section id="about" class="about-section" aria-labelledby="about-title">
-    <div class="container">
-      <div class="reveal">
-        <div class="badge">Кто проводит сессии</div>
-        <h2 class="stitle" id="about-title">Меня зовут <em>Елена</em></h2>
-      </div>
+    <section id="about" class="about-section" aria-labelledby="about-title">
+      <div class="container">
+        <div class="reveal">
+          <div class="badge">Кто проводит сессии</div>
+          <h2 class="stitle" id="about-title">Меня зовут <em>Елена</em></h2>
+        </div>
 
-      <div class="about-grid">
-        <div class="reveal" style="order:1;">
-          <div class="about-text">
-            <p>Я — Проводник в Хрониках Акаши и мастер <strong>системных расстановок</strong>. Работаю на стыке двух
-              глубоких методов, которые в паре дают результаты, недостижимые по отдельности.</p>
-            <p>Мои клиенты — это люди, которые уже что-то пробовали: коучинг, психологию, другие практики. Они приходят,
-              когда понимают, что «что-то не пускает» на более глубоком уровне.</p>
-            <p><em>«Я сама прошла через долгий поиск себя, пробуя разные инструменты. Но настоящие изменения в моей
-                жизни случились лишь тогда, когда я соединила чтение Хроник с исцелением родовой системы. Теперь я
-                помогаю пройти этот путь вам — быстрее и безопаснее.»</em></p>
-            <div class="about-quote">
-              <p>«Знание предназначения без исцеления рода — как карта без дороги. Я помогаю увидеть и то, и другое.»
-              </p>
+        <div class="about-grid">
+          <div class="reveal" style="order:1;">
+            <div class="about-text">
+              <p>Я — Проводник в Хрониках Акаши и мастер <strong>системных расстановок</strong>. Работаю на стыке двух
+                глубоких методов, которые в паре дают результаты, недостижимые по отдельности.</p>
+              <p>Мои клиенты — это люди, которые уже что-то пробовали: коучинг, психологию, другие практики. Они
+                приходят,
+                когда понимают, что «что-то не пускает» на более глубоком уровне.</p>
+              <p><em>«Я сама прошла через долгий поиск себя, пробуя разные инструменты. Но настоящие изменения в моей
+                  жизни случились лишь тогда, когда я соединила чтение Хроник с исцелением родовой системы. Теперь я
+                  помогаю пройти этот путь вам — быстрее и безопаснее.»</em></p>
+              <div class="about-quote">
+                <p>«Знание предназначения без исцеления рода — как карта без дороги. Я помогаю увидеть и то, и другое.»
+                </p>
+              </div>
+              <p>Онлайн-сессии провожу для клиентов по всему русскоязычному миру. Формат — индивидуальная работа через
+                видеосвязь.</p>
             </div>
-            <p>Онлайн-сессии провожу для клиентов по всему русскоязычному миру. Формат — индивидуальная работа через
-              видеосвязь.</p>
+          </div>
+          <div class="reveal rd1" style="order:2;">
+            <div class="personal-photo reveal">
+              <img src="i.webp" alt="Фото Елены — Проводник в Хрониках Акаши" loading="lazy" decoding="async"
+                width="800" height="800">
+            </div>
+            <div class="about-stats">
+              <div class="stat-card">
+                <div class="stat-num">100+</div>
+                <div class="stat-label">сессий проведено</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-num">1+</div>
+                <div class="stat-label">года практики</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-num">2</div>
+                <div class="stat-label">метода в синтезе</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-num">100%</div>
+                <div class="stat-label">онлайн, для всего мира</div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="reveal rd1" style="order:2;">
-          <div class="personal-photo reveal">
-            <img src="i.webp" alt="Фото Елены — Проводник в Хрониках Акаши" loading="lazy" decoding="async" width="800"
-              height="800">
-          </div>
-          <div class="about-stats">
-            <div class="stat-card">
-              <div class="stat-num">100+</div>
-              <div class="stat-label">сессий проведено</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-num">1+</div>
-              <div class="stat-label">года практики</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-num">2</div>
-              <div class="stat-label">метода в синтезе</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-num">100%</div>
-              <div class="stat-label">онлайн, для всего мира</div>
-            </div>
-          </div>
-        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ══════════════════════════════════════════
+    <!-- ══════════════════════════════════════════
      7. ФОРМАТЫ РАБОТЫ И СТОИМОСТЬ
 ══════════════════════════════════════════ -->
-  <section id="formats" class="formats-section" aria-labelledby="formats-title">
-    <div class="container">
-      <div class="reveal tc">
-        <div class="badge">Стоимость и варианты</div>
-        <h2 class="stitle" id="formats-title">Форматы <em>работы</em></h2>
-      </div>
-
-      <div class="formats-grid">
-        <div class="format-card reveal rd1">
-          <div class="format-cat">20 минут</div>
-          <h3>Первичная диагностическая сессия</h3>
-          <p>Знакомство, выявление истинного запроса. Поймём, смогу ли я вам помочь и какой алгоритм работы выбрать.</p>
-          <div class="format-price">Бесплатно</div>
+    <section id="formats" class="formats-section" aria-labelledby="formats-title">
+      <div class="container">
+        <div class="reveal tc">
+          <div class="badge">Стоимость и варианты</div>
+          <h2 class="stitle" id="formats-title">Форматы <em>работы</em></h2>
         </div>
-        <div class="format-card reveal rd2">
-          <div class="format-cat">Хроники (30 минут)</div>
-          <h3>Предварительная сессия</h3>
-          <p>Диагностика предназначения и кармических задач через хроники Акаши. Базовая распаковка причин.</p>
-          <div class="format-price">По запросу в Telegram</div>
+
+        <div class="formats-grid">
+          <div class="format-card reveal rd1">
+            <div class="format-cat">20 минут</div>
+            <h3>Первичная диагностическая сессия</h3>
+            <p>Знакомство, выявление истинного запроса. Поймём, смогу ли я вам помочь и какой алгоритм работы выбрать.
+            </p>
+            <div class="format-price">Бесплатно</div>
+          </div>
+          <div class="format-card reveal rd2">
+            <div class="format-cat">Хроники (30 минут)</div>
+            <h3>Предварительная сессия</h3>
+            <p>Диагностика предназначения и кармических задач через хроники Акаши. Базовая распаковка причин.</p>
+            <div class="format-price">По запросу в Telegram</div>
+          </div>
+          <div class="format-card reveal rd3">
+            <div class="format-cat">Расстановка (1.5 - 2 часа)</div>
+            <h3>Глубокая сессия</h3>
+            <p>Полноценная проработка блока. Снятие родовых программ, возвращение ресурса и изменение сценария.</p>
+            <div class="format-price">Обсуждаем после диагностики</div>
+          </div>
         </div>
-        <div class="format-card reveal rd3">
-          <div class="format-cat">Расстановка (1.5 - 2 часа)</div>
-          <h3>Глубокая сессия</h3>
-          <p>Полноценная проработка блока. Снятие родовых программ, возвращение ресурса и изменение сценария.</p>
-          <div class="format-price">Обсуждаем после диагностики</div>
+
+        <div class="format-note reveal">
+          <p>Напишите мне в Telegram кодовое слово <strong>«Диагностика»</strong>.<br>Я вышлю вам анкету, мы
+            познакомимся,
+            и я расскажу, какой формат подойдет под ваш запрос.</p>
         </div>
       </div>
+    </section>
 
-      <div class="format-note reveal">
-        <p>Напишите мне в Telegram кодовое слово <strong>«Диагностика»</strong>.<br>Я вышлю вам анкету, мы познакомимся,
-          и я расскажу, какой формат подойдет под ваш запрос.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
+    <!-- ══════════════════════════════════════════
      8. FAQ
 ══════════════════════════════════════════ -->
-  <section id="faq" class="faq-section" aria-labelledby="faq-title">
-    <div class="container">
-      <div class="reveal tc">
-        <div class="badge">Ответы на вопросы</div>
-        <h2 class="stitle" id="faq-title">Часто спрашивают</h2>
-      </div>
-      <div class="compass-img-wrap reveal">
-        <img src="11.webp"
-          alt="Золотой компас с надписями Soul Journey, Destiny, Wisdom — навигатор по пути Души в Хрониках Акаши"
-          width="1200" height="630" loading="lazy" decoding="async">
-        <div class="faq-list reveal rd1">
-          <div class="faq-item">
-            <button class="faq-trigger" aria-expanded="false">
-              <span>Это безопасно? Я никогда не работала с Акашей</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-body" role="region">
-              <div class="faq-body-inner">Да, абсолютно. Хроники Акаши — это не магия и не спиритизм, а информационное
-                поле. Вы получаете ровно ту информацию, которую ваша психика готова принять прямо сейчас. Ничего
-                лишнего, никакого вмешательства без вашего ведома.</div>
+    <section id="faq" class="faq-section" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="reveal tc">
+          <div class="badge">Ответы на вопросы</div>
+          <h2 class="stitle" id="faq-title">Часто спрашивают</h2>
+        </div>
+        <div class="compass-img-wrap reveal">
+          <img src="11.webp"
+            alt="Золотой компас с надписями Soul Journey, Destiny, Wisdom — навигатор по пути Души в Хрониках Акаши"
+            width="1200" height="630" loading="lazy" decoding="async">
+          <div class="faq-list reveal rd1">
+            <div class="faq-item">
+              <button class="faq-trigger" aria-expanded="false">
+                <span>Это безопасно? Я никогда не работала с Акашей</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-body" role="region">
+                <div class="faq-body-inner">Да, абсолютно. Хроники Акаши — это не магия и не спиритизм, а информационное
+                  поле. Вы получаете ровно ту информацию, которую ваша психика готова принять прямо сейчас. Ничего
+                  лишнего, никакого вмешательства без вашего ведома.</div>
+              </div>
             </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-trigger" aria-expanded="false">
-              <span>Как проходит сессия онлайн? Это так же эффективно?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-body" role="region">
-              <div class="faq-body-inner">Сессия проходит через видеосвязь. Онлайн-формат ничуть не уступает очному —
-                поле Хроник и расстановок работает вне зависимости от расстояния. Клиенты работают со мной из России,
-                Европы, Израиля, США.</div>
+            <div class="faq-item">
+              <button class="faq-trigger" aria-expanded="false">
+                <span>Как проходит сессия онлайн? Это так же эффективно?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-body" role="region">
+                <div class="faq-body-inner">Сессия проходит через видеосвязь. Онлайн-формат ничуть не уступает очному —
+                  поле Хроник и расстановок работает вне зависимости от расстояния. Клиенты работают со мной из России,
+                  Европы, Израиля, США.</div>
+              </div>
             </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-trigger" aria-expanded="false">
-              <span>Как подготовиться? Нужно что-то делать заранее?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-body" role="region">
-              <div class="faq-body-inner">Самое важное — сформулировать искренний запрос. Что болит или не получается
-                прямо сейчас? Чем честнее вопрос, тем точнее ответ. Никакой специальной подготовки, ритуалов или
-                медитаций — не нужно.</div>
+            <div class="faq-item">
+              <button class="faq-trigger" aria-expanded="false">
+                <span>Как подготовиться? Нужно что-то делать заранее?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-body" role="region">
+                <div class="faq-body-inner">Самое важное — сформулировать искренний запрос. Что болит или не получается
+                  прямо сейчас? Чем честнее вопрос, тем точнее ответ. Никакой специальной подготовки, ритуалов или
+                  медитаций — не нужно.</div>
+              </div>
             </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-trigger" aria-expanded="false">
-              <span>Чем отличается ваш подход от обычной психологии?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-body" role="region">
-              <div class="faq-body-inner">Психология работает с сознанием и опытом этой жизни. Хроники Акаши добавляют
-                уровень Души и кармических задач. Расстановки работают с родовой системой — предками и коллективной
-                памятью рода. Вместе это даёт доступ к корням, которые обычная терапия часто не достигает.</div>
+            <div class="faq-item">
+              <button class="faq-trigger" aria-expanded="false">
+                <span>Чем отличается ваш подход от обычной психологии?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-body" role="region">
+                <div class="faq-body-inner">Психология работает с сознанием и опытом этой жизни. Хроники Акаши добавляют
+                  уровень Души и кармических задач. Расстановки работают с родовой системой — предками и коллективной
+                  памятью рода. Вместе это даёт доступ к корням, которые обычная терапия часто не достигает.</div>
+              </div>
             </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-trigger" aria-expanded="false">
-              <span>Сколько сессий нужно для результата?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-body" role="region">
-              <div class="faq-body-inner">Многие клиенты замечают сдвиги уже после первой сессии. Глубокие изменения,
-                как правило, закрепляются после 2–3 встреч. Я не создаю зависимости от сессий — моя цель, чтобы вы ушли
-                с инструментами и ресурсом, а не с потребностью приходить снова и снова.</div>
+            <div class="faq-item">
+              <button class="faq-trigger" aria-expanded="false">
+                <span>Сколько сессий нужно для результата?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-body" role="region">
+                <div class="faq-body-inner">Многие клиенты замечают сдвиги уже после первой сессии. Глубокие изменения,
+                  как правило, закрепляются после 2–3 встреч. Я не создаю зависимости от сессий — моя цель, чтобы вы
+                  ушли
+                  с инструментами и ресурсом, а не с потребностью приходить снова и снова.</div>
+              </div>
             </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-trigger" aria-expanded="false">
-              <span>Как записаться на сессию по Хроникам Акаши?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-body" role="region">
-              <div class="faq-body-inner">Напишите в Telegram-канал <strong>@sprosiuakashi</strong>. Там я отвечаю
-                лично, рассказываю о форматах работы и открываю запись. Подписывайтесь — там же публикую бесплатные
-                ченнелинги и разборы живых кейсов.</div>
+            <div class="faq-item">
+              <button class="faq-trigger" aria-expanded="false">
+                <span>Как записаться на сессию по Хроникам Акаши?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-body" role="region">
+                <div class="faq-body-inner">Напишите в Telegram-канал <strong>@sprosiuakashi</strong>. Там я отвечаю
+                  лично, рассказываю о форматах работы и открываю запись. Подписывайтесь — там же публикую бесплатные
+                  ченнелинги и разборы живых кейсов.</div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-  </section>
+    </section>
 
-  <!-- ══════════════════════════════════════════
+    <!-- ══════════════════════════════════════════
      8. ФИНАЛЬНЫЙ CTA
 ══════════════════════════════════════════ -->
-  <section id="contact" class="cta-section" aria-labelledby="cta-title">
-    <div class="container">
-      <div class="cta-inner">
-        <div class="reveal">
-          <div class="badge" style="justify-content:center;">Сделайте первый шаг</div>
-          <h2 class="cta-title" id="cta-title">
-            Готовы узнать,<br>в чём <em>ваш путь</em>?
-          </h2>
-          <p class="cta-sub">
-            Подпишитесь на мой Telegram-канал и получите <strong>бесплатную консультацию</strong>.<br>Я отвечаю лично и
-            помогу выбрать формат, который подойдёт именно вам.
-          </p>
-          <div class="cta-features">
-            <div class="cta-feat"><span>✓</span>Онлайн — из любой точки мира</div>
-            <div class="cta-feat"><span>✓</span>Индивидуальный подход</div>
-            <div class="cta-feat"><span>✓</span>Бонус за подписку</div>
+    <section id="contact" class="cta-section" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-inner">
+          <div class="reveal">
+            <div class="badge" style="justify-content:center;">Сделайте первый шаг</div>
+            <h2 class="cta-title" id="cta-title">
+              Готовы узнать,<br>в чём <em>ваш путь</em>?
+            </h2>
+            <p class="cta-sub">
+              Подпишитесь на мой Telegram-канал и получите <strong>бесплатную консультацию</strong>.<br>Я отвечаю лично
+              и
+              помогу выбрать формат, который подойдёт именно вам.
+            </p>
+            <div class="cta-features">
+              <div class="cta-feat"><span>✓</span>Онлайн — из любой точки мира</div>
+              <div class="cta-feat"><span>✓</span>Индивидуальный подход</div>
+              <div class="cta-feat"><span>✓</span>Бонус за подписку</div>
+            </div>
+            <!-- ИСПРАВЛЕНО: убран дублирующийся фрагмент SVG path -->
+            <a href="https://t.me/sprosiuakashi" target="_blank" rel="noopener noreferrer" class="btn-tg"
+              aria-label="Записаться на сессию в Telegram @sprosiuakashi">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.888-.662 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
+              </svg>
+              Подписаться и получить консультацию
+            </a>
           </div>
-          <!-- ИСПРАВЛЕНО: убран дублирующийся фрагмент SVG path -->
-          <a href="https://t.me/sprosiuakashi" target="_blank" rel="noopener noreferrer" class="btn-tg"
-            aria-label="Записаться на сессию в Telegram @sprosiuakashi">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.888-.662 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
-            </svg>
-            Подписаться и получить консультацию
-          </a>
-        </div>
-        <div class="footer-line reveal"
-          style="display:flex; justify-content:center; align-items:center; gap: 16px; flex-wrap: wrap;">
-          <span>Спроси у Акаши, 2026 &copy; Все права защищены</span>
-          <a href="policy.html" target="_blank"
-            style="color:var(--muted); text-decoration:underline; font-size:14px;">Политика конфиденциальности</a>
+          <div class="footer-line reveal"
+            style="display:flex; justify-content:center; align-items:center; gap: 16px; flex-wrap: wrap;">
+            <span>Спроси у Акаши, 2026 &copy; Все права защищены</span>
+            <a href="policy.html" target="_blank"
+              style="color:var(--muted); text-decoration:underline; font-size:14px;">Политика конфиденциальности</a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ══════════════════════════════════════════
+    <!-- ══════════════════════════════════════════
      SEO-ТЕКСТОВЫЙ БЛОК (виден поисковику)
 ══════════════════════════════════════════ -->
-  <div class="seo-block">
-    <div style="max-width:860px;margin:0 auto;">
-      <h2>Чтение Хроник Акаши и Системные Расстановки онлайн — как это работает</h2>
-      <p><strong>Хроники Акаши</strong> (или акашические записи) — это информационное поле, которое хранит весь опыт
-        Души через воплощения. Чтение Хроник Акаши онлайн позволяет узнать задачи текущего воплощения, причины
-        блокирующих ситуаций в деньгах, отношениях и реализации, а также кармические обеты или ограничения из прошлых
-        жизней.</p>
-      <p><strong>Системные расстановки по Хеллингеру</strong> — психотерапевтический метод работы с родовой системой. В
-        расстановке мы выявляем скрытые лояльности предкам, родовые программы бедности, одиночества и хронических
-        неудач, которые передаются из поколения в поколение. Онлайн-расстановки работают так же эффективно, как и очные.
-      </p>
-      <p>Метод Елены объединяет оба инструмента в единую сессию: сначала Хроники показывают предназначение и называют
-        корни блоков, затем расстановка убирает родовые сценарии, которые мешают реализации. Это позволяет получить не
-        просто понимание — но и реальный ресурс для изменений.</p>
-      <p>Онлайн-сессии проводятся через видеосвязь для клиентов из России, стран СНГ, Европы, США и Израиля. Запись —
-        через Telegram <a href="https://t.me/sprosiuakashi" rel="noopener noreferrer"
-          target="_blank">@sprosiuakashi</a>.</p>
+    <div class="seo-block">
+      <div style="max-width:860px;margin:0 auto;">
+        <h2>Чтение Хроник Акаши и Системные Расстановки онлайн — как это работает</h2>
+        <p><strong>Хроники Акаши</strong> (или акашические записи) — это информационное поле, которое хранит весь опыт
+          Души через воплощения. Чтение Хроник Акаши онлайн позволяет узнать задачи текущего воплощения, причины
+          блокирующих ситуаций в деньгах, отношениях и реализации, а также кармические обеты или ограничения из прошлых
+          жизней.</p>
+        <p><strong>Системные расстановки по Хеллингеру</strong> — психотерапевтический метод работы с родовой системой.
+          В
+          расстановке мы выявляем скрытые лояльности предкам, родовые программы бедности, одиночества и хронических
+          неудач, которые передаются из поколения в поколение. Онлайн-расстановки работают так же эффективно, как и
+          очные.
+        </p>
+        <p>Метод Елены объединяет оба инструмента в единую сессию: сначала Хроники показывают предназначение и называют
+          корни блоков, затем расстановка убирает родовые сценарии, которые мешают реализации. Это позволяет получить не
+          просто понимание — но и реальный ресурс для изменений.</p>
+        <p>Онлайн-сессии проводятся через видеосвязь для клиентов из России, стран СНГ, Европы, США и Израиля. Запись —
+          через Telegram <a href="https://t.me/sprosiuakashi" rel="noopener noreferrer"
+            target="_blank">@sprosiuakashi</a>.</p>
+      </div>
     </div>
-  </div>
+
+  </main>
 
   <script>
     // ─── ЗВЁЗДЫ ───
