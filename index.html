@@ -3,13 +3,14 @@
 
 <head>
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-16QP49BT7J"></script>
+  <script defer src="https://www.googletagmanager.com/gtag/js?id=G-16QP49BT7J"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-16QP49BT7J');
+    window.onload = function () {
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-16QP49BT7J');
+    };
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1615,9 +1616,9 @@
     .nav-cta-link {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(13px, 1.5vw, 15px);
-      font-weight: 300;
+      font-weight: 500;
       letter-spacing: 0.12em;
-      color: var(--gold);
+      color: #e0ccad;
       text-decoration: none;
       display: flex;
       align-items: center;
@@ -1739,8 +1740,9 @@
       margin-top: 20px;
       border: none;
       font-size: clamp(13px, 3vw, 15px);
+      font-weight: 500;
       font-style: normal;
-      color: var(--gold);
+      color: #e0ccad;
       letter-spacing: 0.1em;
       text-transform: uppercase;
     }
@@ -2443,7 +2445,7 @@
             style="display:flex; justify-content:center; align-items:center; gap: 16px; flex-wrap: wrap;">
             <span>Спроси у Акаши, 2026 &copy; Все права защищены</span>
             <a href="policy.html" target="_blank"
-              style="color:var(--muted); text-decoration:underline; font-size:14px;">Политика конфиденциальности</a>
+              style="color:#ded5ec; text-decoration:underline; font-size:14px;">Политика конфиденциальности</a>
           </div>
         </div>
       </div>
