@@ -1889,6 +1889,88 @@
       top: 0;
       outline: none;
     }
+
+    /* ─── СЕКЦИЯ СТАТЕЙ ─── */
+    .articles-section {
+      background: var(--deep);
+    }
+
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: clamp(36px, 5vw, 56px);
+    }
+
+    @media (max-width: 860px) {
+      .articles-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 500px) {
+      .articles-grid { grid-template-columns: 1fr; }
+    }
+
+    .art-card {
+      display: block;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: clamp(20px, 3vw, 28px);
+      text-decoration: none;
+      transition: all .3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .art-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+
+    .art-card:hover {
+      border-color: rgba(200, 169, 110, 0.45);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,.4);
+    }
+
+    .art-card:hover::before { opacity: 1; }
+
+    .art-icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+      display: block;
+      line-height: 1;
+    }
+
+    .art-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(16px, 2.2vw, 19px);
+      color: var(--cream);
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .art-card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    .art-arrow {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--gold);
+      letter-spacing: .05em;
+    }
+
   </style>
 </head>
 
@@ -1909,6 +1991,7 @@
         <li><a href="#reviews">Отзывы</a></li>
         <li><a href="#about">Обо мне</a></li>
         <li><a href="#faq">Вопросы</a></li>
+        <li><a href="#articles">Статьи</a></li>
       </ul>
 
       <div class="nav-right">
@@ -1932,6 +2015,7 @@
     <a href="#reviews" class="nav-drawer-link">Отзывы</a>
     <a href="#about" class="nav-drawer-link">Обо мне</a>
     <a href="#faq" class="nav-drawer-link">Вопросы</a>
+    <a href="#articles" class="nav-drawer-link">Статьи</a>
     <a href="https://t.me/sprosiuakashi" target="_blank" rel="noopener noreferrer" class="nav-drawer-link mob-cta">✦
       Бесплатная консультация</a>
   </div>
@@ -2510,7 +2594,77 @@
     </section>
 
     <!-- ══════════════════════════════════════════
-     8. ФИНАЛЬНЫЙ CTA
+     9. СТАТЬИ — База знаний
+══════════════════════════════════════════ -->
+    <section id="articles" class="articles-section" aria-labelledby="articles-title">
+      <div class="container">
+        <div class="reveal tc">
+          <div class="badge">База знаний</div>
+          <h2 class="stitle" id="articles-title">Ответы на <em>ваши вопросы</em></h2>
+          <p style="color:var(--muted);font-size:clamp(16px,3vw,18px);max-width:600px;margin:0 auto;font-weight:300;">Всё, что важно знать о Хрониках Акаши — в одном месте.</p>
+        </div>
+
+        <div class="articles-grid">
+          <a href="chto-takoe-hroniki-akashi.html" class="art-card reveal rd1">
+            <span class="art-icon">✦</span>
+            <h3>Что такое Хроники Акаши простыми словами</h3>
+            <p>Объяснение для тех, кто сталкивается с этой темой впервые</p>
+            <span class="art-arrow">Читать →</span>
+          </a>
+          <a href="proshlye-zhizni.html" class="art-card reveal rd2">
+            <span class="art-icon">🔄</span>
+            <h3>Прошлые жизни и Хроники Акаши</h3>
+            <p>Как узнать кем вы были — и зачем это нужно сейчас</p>
+            <span class="art-arrow">Читать →</span>
+          </a>
+          <a href="prednaznachenie.html" class="art-card reveal rd3">
+            <span class="art-icon">🧭</span>
+            <h3>Как найти своё предназначение</h3>
+            <p>Задачи Души, таланты и призвание через Хроники</p>
+            <span class="art-arrow">Читать →</span>
+          </a>
+          <a href="dengi-bloki.html" class="art-card reveal rd1">
+            <span class="art-icon">💸</span>
+            <h3>Блоки на деньги — откуда они берутся</h3>
+            <p>Родовые программы и финансовые сценарии: как найти корень</p>
+            <span class="art-arrow">Читать →</span>
+          </a>
+          <a href="otnosheniya.html" class="art-card reveal rd2">
+            <span class="art-icon">💔</span>
+            <h3>Хроники Акаши об отношениях</h3>
+            <p>Почему нет любви или повторяются одни и те же сценарии</p>
+            <span class="art-arrow">Читать →</span>
+          </a>
+          <a href="voprosy-dlya-khronik.html" class="art-card reveal rd3">
+            <span class="art-icon">❓</span>
+            <h3>Какие вопросы задавать в Хрониках</h3>
+            <p>Список лучших вопросов и вопросы, которые не работают</p>
+            <span class="art-arrow">Читать →</span>
+          </a>
+          <a href="rodovye-programmy.html" class="art-card reveal rd1">
+            <span class="art-icon">🌿</span>
+            <h3>Что такое родовые программы</h3>
+            <p>Как сценарии предков управляют жизнью — и что с этим делать</p>
+            <span class="art-arrow">Читать →</span>
+          </a>
+          <a href="bezopasnost.html" class="art-card reveal rd2">
+            <span class="art-icon">🛡️</span>
+            <h3>Безопасно ли обращаться к Хроникам</h3>
+            <p>Чем Хроники отличаются от магии и спиритизма</p>
+            <span class="art-arrow">Читать →</span>
+          </a>
+          <a href="rasstavnovki-hroniki.html" class="art-card reveal rd3">
+            <span class="art-icon">⚖️</span>
+            <h3>Хроники Акаши vs расстановки</h3>
+            <p>В чём разница и как оба метода работают вместе</p>
+            <span class="art-arrow">Читать →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+     10. ФИНАЛЬНЫЙ CTA
 ══════════════════════════════════════════ -->
     <section id="contact" class="cta-section" aria-labelledby="cta-title">
       <div class="container">
