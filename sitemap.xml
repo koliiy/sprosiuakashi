@@ -3,68 +3,74 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.sprosiuakashi.com/</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.sprosiuakashi.com/"/>
   </url>
   <url>
     <loc>https://www.sprosiuakashi.com/chto-takoe-hroniki-akashi.html</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.sprosiuakashi.com/proshlye-zhizni.html</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.sprosiuakashi.com/prednaznachenie.html</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.sprosiuakashi.com/dengi-bloki.html</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.sprosiuakashi.com/otnosheniya.html</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.sprosiuakashi.com/voprosy-dlya-khronik.html</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.sprosiuakashi.com/kak-vybrat-provodnika.html</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.sprosiuakashi.com/bezopasnost.html</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.sprosiuakashi.com/rasstavnovki-hroniki.html</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.sprosiuakashi.com/rodovye-programmy.html</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.sprosiuakashi.com/otzyvy-khroniki-akashi.html</loc>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
