@@ -62,6 +62,38 @@
         "@type": "Person",
         "name": "Елена",
         "url": "https://www.sprosiuakashi.com/"
+      },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "RU",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": "0",
+          "currency": "EUR"
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "RU"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": "0",
+            "maxValue": "0",
+            "unitCode": "DAY"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": "0",
+            "maxValue": "0",
+            "unitCode": "DAY"
+          }
+        }
       }
     },
     "aggregateRating": {
