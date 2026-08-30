@@ -13,22 +13,22 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Хроники Акаши — расчёт онлайн: как узнать информацию о своей Душе | Спроси у Акаши</title>
-  <meta name="description" content="Хроники Акаши рассчитать онлайн — возможно ли это? Чем чтение Хроник отличается от нумерологии и матрицы судьбы. Индивидуальное чтение онлайн с проводником.">
+  <title>Хроники Акаши рассчитать онлайн — что это на самом деле | Спроси у Акаши</title>
+  <meta name="description" content="Хроники Акаши нельзя рассчитать калькулятором — но можно получить индивидуальное чтение онлайн. Чем отличается от нумерологии и матрицы. Первая сессия — бесплатно.">
   <meta name="author" content="Елена — Спроси у Акаши">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <link rel="canonical" href="https://www.sprosiuakashi.com/hroniki-akashi-raschet-online.html">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <meta property="og:type" content="article">
   <meta property="og:locale" content="ru_RU">
-  <meta property="og:title" content="Хроники Акаши — расчёт онлайн: как узнать информацию о своей Душе">
-  <meta property="og:description" content="Хроники Акаши рассчитать онлайн — возможно ли это? Чем чтение Хроник отличается от нумерологии и матрицы судьбы. Индивидуальное чтение онлайн с проводником.">
+  <meta property="og:title" content="Хроники Акаши рассчитать онлайн — что это на самом деле">
+  <meta property="og:description" content="Хроники Акаши нельзя рассчитать калькулятором — но можно получить индивидуальное чтение онлайн. Чем отличается от нумерологии и матрицы. Первая сессия — бесплатно.">
   <meta property="og:url" content="https://www.sprosiuakashi.com/hroniki-akashi-raschet-online.html">
   <meta property="og:image" content="https://www.sprosiuakashi.com/0.jpg">
   <meta property="og:site_name" content="Спроси у Акаши">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Хроники Акаши — расчёт онлайн: как узнать информацию о своей Душе">
-  <meta name="twitter:description" content="Хроники Акаши рассчитать онлайн — возможно ли это? Чем чтение Хроник отличается от нумерологии и матрицы судьбы. Индивидуальное чтение онлайн с проводником.">
+  <meta name="twitter:title" content="Хроники Акаши рассчитать онлайн — что это на самом деле">
+  <meta name="twitter:description" content="Хроники Акаши нельзя рассчитать калькулятором — но можно получить индивидуальное чтение онлайн. Чем отличается от нумерологии и матрицы. Первая сессия — бесплатно.">
   <meta name="twitter:image" content="https://www.sprosiuakashi.com/0.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,8 +37,8 @@
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Хроники Акаши — расчёт онлайн: как узнать информацию о своей Душе",
-    "description": "Хроники Акаши рассчитать онлайн — возможно ли это? Чем чтение Хроник отличается от нумерологии и матрицы судьбы. Индивидуальное чтение онлайн с проводником.",
+    "headline": "Хроники Акаши рассчитать онлайн — что это на самом деле",
+    "description": "Хроники Акаши нельзя рассчитать калькулятором — но можно получить индивидуальное чтение онлайн. Чем отличается от нумерологии и матрицы. Первая сессия — бесплатно.",
     "author": { "@id": "https://www.sprosiuakashi.com/#elena" },
     "publisher": { "@id": "https://www.sprosiuakashi.com/#website" }
   }
@@ -113,6 +113,114 @@
     .comparison-table th { background: var(--gold-soft); color: var(--cream); padding: 14px 16px; text-align: left; font-weight: 500; border: 1px solid var(--border); }
     .comparison-table td { padding: 12px 16px; border: 1px solid var(--border); color: var(--muted); }
     .comparison-table tr:nth-child(even) td { background: rgba(168,133,79,0.03); }
+  
+    /* --- Interactive Diagnostic Quiz Styles --- */
+    .quiz-card {
+      background: linear-gradient(145deg, #FFFFFF, #FAF5EE);
+      border: 1px solid rgba(168, 133, 79, 0.35);
+      border-radius: var(--radius);
+      padding: clamp(24px, 5vw, 40px);
+      margin: 36px 0 48px;
+      box-shadow: 0 10px 36px rgba(168, 133, 79, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .quiz-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, #A8854F, #D4AF37, #A8854F);
+    }
+    .quiz-badge {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--gold-soft);
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+    .quiz-step { display: none; }
+    .quiz-step.active { display: block; animation: fadeIn .35s ease-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .quiz-options { display: grid; gap: 12px; margin-top: 20px; }
+    .quiz-opt {
+      background: #FFFFFF;
+      border: 1.5px solid rgba(168, 133, 79, 0.20);
+      padding: 16px 20px;
+      border-radius: 14px;
+      cursor: pointer;
+      text-align: left;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      color: var(--text);
+      transition: all .2s ease;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .quiz-opt:hover {
+      border-color: var(--gold);
+      background: var(--gold-soft);
+      transform: translateY(-2px);
+    }
+    .quiz-opt .icon { font-size: 22px; flex-shrink: 0; }
+    .quiz-progress {
+      display: flex; gap: 6px; margin-bottom: 20px;
+    }
+    .quiz-dot {
+      flex: 1; height: 4px; background: rgba(168,133,79,0.15); border-radius: 2px; transition: background .3s;
+    }
+    .quiz-dot.active { background: var(--gold); }
+    .quiz-result {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      margin-top: 16px;
+      text-align: left;
+    }
+    .quiz-result h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--cream); margin-bottom: 10px; }
+    .quiz-result p { font-size: 16px; line-height: 1.7; color: var(--muted); margin-bottom: 20px; }
+    .btn-quiz-tg {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      width: 100%; background: linear-gradient(135deg,#0088cc,#006db3); color: #fff !important;
+      font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 500; padding: 16px 24px;
+      border-radius: 40px; text-decoration: none; transition: all .25s; box-shadow: 0 6px 20px rgba(0,136,204,.25);
+    }
+    .btn-quiz-tg:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,136,204,.35); }
+    .quiz-reset { display: inline-block; margin-top: 14px; font-size: 14px; color: var(--muted); background: none; border: none; cursor: pointer; text-decoration: underline; }
+    
+  
+    /* Floating Mobile Sticky CTA */
+    .mobile-sticky-cta { display: none; }
+    @media (max-width: 768px) {
+      .mobile-sticky-cta {
+        display: flex;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 9999;
+        background: linear-gradient(135deg, #0088cc, #006db3);
+        color: #ffffff !important;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 18px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        box-shadow: 0 8px 24px rgba(0, 136, 204, 0.4);
+        transition: transform .2s, box-shadow .2s;
+      }
+      .mobile-sticky-cta:active { transform: scale(0.95); }
+      .mobile-sticky-cta svg { width: 18px; height: 18px; fill: currentColor; }
+    }
+
   </style>
 </head>
 <body>
@@ -130,6 +238,123 @@
       <div class="definition-card">
         <p><strong>Хроники Акаши</strong> — это не формула и не алгоритм. Это живое энергоинформационное поле, «библиотека» вашей Души. Поэтому их невозможно рассчитать на калькуляторе по дате рождения.</p>
       </div>
+
+
+      <!-- INTERACTIVE DIAGNOSTIC QUIZ -->
+      <section class="quiz-card" id="diagnostic-quiz">
+        <div class="quiz-badge">✦ Экспресс-диагностика Души</div>
+        <div class="quiz-progress">
+          <div class="quiz-dot active" id="dot-1"></div>
+          <div class="quiz-dot" id="dot-2"></div>
+          <div class="quiz-dot" id="dot-3"></div>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="quiz-step active" id="quiz-step-1">
+          <h2 style="margin: 0 0 8px; font-size: clamp(20px, 3.5vw, 26px); color: var(--cream);">Шаг 1: Какая сфера жизни требует ясности прямо сейчас?</h2>
+          <p style="font-size: 15px; margin-bottom: 16px;">Выберите ключевой вопрос, который вы хотите направить в Хроники:</p>
+          <div class="quiz-options">
+            <button type="button" class="quiz-opt" onclick="selectQuiz(1, 'Деньги и изобилие', '💰')">
+              <span class="icon">💰</span>
+              <span><strong>Финансы и доход:</strong> пробить финансовый потолок, убрать блоки</span>
+            </button>
+            <button type="button" class="quiz-opt" onclick="selectQuiz(1, 'Отношения и любовь', '❤️')">
+              <span class="icon">❤️</span>
+              <span><strong>Отношения:</strong> повторяющиеся сценарии, кармические связи с партнером</span>
+            </button>
+            <button type="button" class="quiz-opt" onclick="selectQuiz(1, 'Предназначение Души', '🧭')">
+              <span class="icon">🧭</span>
+              <span><strong>Предназначение:</strong> поиск своего пути, истинных талантов и дела жизни</span>
+            </button>
+            <button type="button" class="quiz-opt" onclick="selectQuiz(1, 'Родовые программы и энергия', '🌳')">
+              <span class="icon">🌳</span>
+              <span><strong>Род и энергия:</strong> снятие деструктивных программ предков, упадок сил</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="quiz-step" id="quiz-step-2">
+          <h2 style="margin: 0 0 8px; font-size: clamp(20px, 3.5vw, 26px); color: var(--cream);">Шаг 2: Какой симптом проявляется сильнее всего?</h2>
+          <p style="font-size: 15px; margin-bottom: 16px;">Что именно мешает вам двигаться дальше?</p>
+          <div class="quiz-options">
+            <button type="button" class="quiz-opt" onclick="selectQuiz(2, 'События повторяются по кругу (день сурка)', '🔄')">
+              <span class="icon">🔄</span>
+              <span>События или сценарии повторяются по кругу, словно хожу по замкнутому кругу</span>
+            </button>
+            <button type="button" class="quiz-opt" onclick="selectQuiz(2, 'Упираюсь в невидимый стеклянный потолок', '🛑')">
+              <span class="icon">🛑</span>
+              <span>Упираюсь в невидимый барьер, хотя прикладываю максимум усилий</span>
+            </button>
+            <button type="button" class="quiz-opt" onclick="selectQuiz(2, 'Чувствую потерю ориентиров и выгорание', '🌫️')">
+              <span class="icon">🌫️</span>
+              <span>Чувствую потерю ориентиров, не понимаю, куда двигаться дальше</span>
+            </button>
+            <button type="button" class="quiz-opt" onclick="selectQuiz(2, 'Страх проявиться и сделать решительный шаг', '⚡')">
+              <span class="icon">⚡</span>
+              <span>Внутренний страх проявления, боязнь осуждения или ошибок</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 3: Result -->
+        <div class="quiz-step" id="quiz-step-3">
+          <div class="quiz-result">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+              <span id="res-icon" style="font-size: 28px;">✨</span>
+              <h3 style="margin: 0;" id="res-title">Ваш персональный запрос сформирован</h3>
+            </div>
+            <p id="res-desc">На основе ваших ответов, основной корень задачи находится на уровне тонких кармических или родовых программ. Такие блоки невозможно рассчитать сухими формулами, но их можно точно диагностировать и мягко трансформировать в сессии чтения Хроник.</p>
+            <div style="background: var(--gold-soft); padding: 14px 18px; border-radius: 10px; margin-bottom: 20px; border-left: 3px solid var(--gold);">
+              <div style="font-size: 13px; color: var(--gold); text-transform: uppercase; letter-spacing: .1em; font-weight: 600; margin-bottom: 4px;">Сформированный фокус запроса:</div>
+              <div id="res-summary" style="font-size: 15px; color: var(--cream); font-weight: 500;">—</div>
+            </div>
+            <a href="#" id="res-btn-tg" target="_blank" rel="noopener noreferrer" class="btn-quiz-tg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.664 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" fill="currentColor"/></svg>
+              <span>Обсудить на бесплатной диагностике в Telegram →</span>
+            </a>
+            <div style="text-align: center;">
+              <button type="button" class="quiz-reset" onclick="resetQuiz()">← Пройти экспресс-тест заново</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <script>
+        let quizState = { sphere: '', symptom: '', icon: '✨' };
+        function selectQuiz(step, val, icon) {
+          if (step === 1) {
+            quizState.sphere = val;
+            quizState.icon = icon;
+            document.getElementById('quiz-step-1').classList.remove('active');
+            document.getElementById('quiz-step-2').classList.add('active');
+            document.getElementById('dot-1').classList.add('active');
+            document.getElementById('dot-2').classList.add('active');
+          } else if (step === 2) {
+            quizState.symptom = val;
+            document.getElementById('quiz-step-2').classList.remove('active');
+            document.getElementById('quiz-step-3').classList.add('active');
+            document.getElementById('dot-3').classList.add('active');
+
+            document.getElementById('res-icon').textContent = quizState.icon;
+            document.getElementById('res-title').textContent = 'Фокус для работы: ' + quizState.sphere;
+            document.getElementById('res-summary').textContent = quizState.sphere + ' · ' + quizState.symptom;
+
+            const msg = 'Здравствуйте, Елена! Прошел(ла) экспресс-тест на сайте. Мой запрос: ' + quizState.sphere + ' (' + quizState.symptom + '). Хочу записаться на бесплатную диагностику.';
+            document.getElementById('res-btn-tg').href = 'https://t.me/sprosiuakashi?text=' + encodeURIComponent(msg);
+          }
+        }
+        function resetQuiz() {
+          quizState = { sphere: '', symptom: '', icon: '✨' };
+          document.getElementById('quiz-step-3').classList.remove('active');
+          document.getElementById('quiz-step-2').classList.remove('active');
+          document.getElementById('quiz-step-1').classList.add('active');
+          document.getElementById('dot-2').classList.remove('active');
+          document.getElementById('dot-3').classList.remove('active');
+        }
+      </script>
+    
+
       <p>Многие путают работу с Хрониками с матрицей судьбы или астрологией. В этих системах действительно есть четкие формулы: вы вводите дату, время и место рождения, и программа выдает готовый текст. В Хрониках так не бывает. Здесь информация всегда считывается индивидуально через проводника — человека, который настраивается на ваши вибрации.</p>
 
       <h2>Чем чтение Хроник Акаши отличается от нумерологии</h2>
@@ -190,12 +415,12 @@
         <li><strong>Родовые программы:</strong> деструктивные сценарии рода, которые можно и нужно исцелить.</li>
       </ul>
 
-      <aside class="author-bio" style="background: rgba(168,133,79,0.06); border-radius: 16px; padding: 20px 24px; margin: 40px 0 32px; font-size: 15px; line-height: 1.6; color: #3E3530;"><strong>Об авторе:</strong> Елена — Проводник в Хрониках Акаши и мастер системных расстановок. Более 100 индивидуальных сессий. <a href="https://t.me/sprosiuakashi" style="color: #A8854F; text-decoration: underline;">Записаться на консультацию →</a></aside>
+      <aside class="author-bio" style="background: rgba(168,133,79,0.06); border-radius: 16px; padding: 20px 24px; margin: 40px 0 32px; font-size: 15px; line-height: 1.6; color: #3E3530;"><strong>Об авторе:</strong> Елена — Проводник в Хрониках Акаши и мастер системных расстановок. Более 100 индивидуальных сессий. <a href="https://t.me/sprosiuakashi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%95%D0%BB%D0%B5%D0%BD%D0%B0%21%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%20%D0%BF%D0%BE%D0%B2%D0%BE%D0%B4%D1%83%20%D1%87%D1%82%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%A5%D1%80%D0%BE%D0%BD%D0%B8%D0%BA%20%D0%90%D0%BA%D0%B0%D1%88%D0%B8%20%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%B1%D0%B5%D1%81%D0%BF%D0%BB%D0%B0%D1%82%D0%BD%D1%83%D1%8E%20%D0%B4%D0%B8%D0%B0%D0%B3%D0%BD%D0%BE%D1%81%D1%82%D0%B8%D0%BA%D1%83." style="color: #A8854F; text-decoration: underline;">Записаться на консультацию →</a></aside>
 
       <div class="cta-block">
         <h2>Хотите узнать, что говорят Хроники о вас?</h2>
         <p>Первая диагностическая сессия — бесплатно.</p>
-        <a href="https://t.me/sprosiuakashi" class="btn-tg">
+        <a href="https://t.me/sprosiuakashi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%95%D0%BB%D0%B5%D0%BD%D0%B0%21%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%20%D0%BF%D0%BE%D0%B2%D0%BE%D0%B4%D1%83%20%D1%87%D1%82%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%A5%D1%80%D0%BE%D0%BD%D0%B8%D0%BA%20%D0%90%D0%BA%D0%B0%D1%88%D0%B8%20%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%B1%D0%B5%D1%81%D0%BF%D0%BB%D0%B0%D1%82%D0%BD%D1%83%D1%8E%20%D0%B4%D0%B8%D0%B0%D0%B3%D0%BD%D0%BE%D1%81%D1%82%D0%B8%D0%BA%D1%83." class="btn-tg">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.664 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" fill="currentColor"/></svg>
           Написать в Telegram
         </a>
@@ -219,5 +444,12 @@
       </p>
     </div>
   </footer>
+
+    <!-- Floating Mobile Sticky CTA -->
+    <a href="https://t.me/sprosiuakashi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%95%D0%BB%D0%B5%D0%BD%D0%B0%21%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%20%D0%BF%D0%BE%D0%B2%D0%BE%D0%B4%D1%83%20%D1%87%D1%82%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%A5%D1%80%D0%BE%D0%BD%D0%B8%D0%BA%20%D0%90%D0%BA%D0%B0%D1%88%D0%B8%20%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%B1%D0%B5%D1%81%D0%BF%D0%BB%D0%B0%D1%82%D0%BD%D1%83%D1%8E%20%D0%B4%D0%B8%D0%B0%D0%B3%D0%BD%D0%BE%D1%81%D1%82%D0%B8%D0%BA%D1%83." target="_blank" rel="noopener noreferrer" class="mobile-sticky-cta" aria-label="Написать проводнику в Telegram">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.888-.662 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      <span>Написать Елене</span>
+    </a>
+    
 </body>
 </html>
