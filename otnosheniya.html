@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="ru" prefix="og: https://ogp.me/ns#">
 <head>
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=112518581', 'ym');
+
+    ym(112518581, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/112518581" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+
   <!-- Google tag (gtag.js) -->
   <script defer src="https://www.googletagmanager.com/gtag/js?id=G-16QP49BT7J"></script>
   <script>
@@ -41,6 +55,13 @@
     "author": {"@id": "https://www.sprosiuakashi.com/#elena"},
     "publisher": {"@id": "https://www.sprosiuakashi.com/#website"},
     "url": "https://www.sprosiuakashi.com/otnosheniya.html",
+        "datePublished": "2026-08-05T10:00:00+03:00",
+    "dateModified": "2026-09-12T11:00:00+03:00",
+    "image": "https://www.sprosiuakashi.com/0.jpg",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.sprosiuakashi.com/otnosheniya.html"
+    },
     "inLanguage": "ru"
   }
   </script>
@@ -129,7 +150,41 @@
       .mobile-sticky-cta svg { width: 18px; height: 18px; fill: currentColor; }
     }
 
+  
+    /* ─── BREADCRUMBS ─── */
+    .breadcrumbs { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 13px; color: var(--muted); margin-bottom: 24px; line-height: 1.4; }
+    .breadcrumbs a { color: var(--muted); text-decoration: none; transition: color .2s; }
+    .breadcrumbs a:hover { color: var(--gold); }
+    .breadcrumbs .sep { color: var(--gold); opacity: 0.6; }
+    .breadcrumbs .current { color: var(--text); }
+
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Главная",
+        "item": "https://www.sprosiuakashi.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "База знаний",
+        "item": "https://www.sprosiuakashi.com/#articles"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Хроники Акаши об отношениях — почему нет любви и повторяются сценарии",
+        "item": "https://www.sprosiuakashi.com/otnosheniya.html"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header>
@@ -137,6 +192,13 @@
   </header>
   <main>
     <article class="page-wrap">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <a href="/">Главная</a>
+      <span class="sep">›</span>
+      <a href="/#articles">База знаний</a>
+      <span class="sep">›</span>
+      <span class="current">Хроники Акаши об отношениях — почему нет любви и пов...</span>
+    </nav>
     <div class="eyebrow">Спроси у Акаши · Отношения</div>
     <h1>Хроники Акаши <em>об отношениях</em> — почему нет любви и повторяются сценарии</h1>
     <p class="geo-summary" style="background: linear-gradient(135deg, rgba(168,133,79,0.08), rgba(168,133,79,0.03)); border-left: 3px solid #A8854F; padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 20px 0 28px; font-size: 17px; line-height: 1.7; color: #3E3530;"><strong>Краткий ответ:</strong> Повторяющиеся сценарии в отношениях часто связаны с родовыми программами или кармическими обетами прошлых жизней. Через Хроники Акаши можно увидеть истинную причину и снять блок на уровне Души.</p>
@@ -208,6 +270,26 @@
       </p>
     </div>
   </footer>
+
+
+    <!-- Conversion Event Tracking -->
+  <script>
+    document.addEventListener('click', function(e) {
+      var link = e.target.closest('a[href*="t.me/sprosiuakashi"]');
+      if (link) {
+        if (typeof gtag === 'function') {
+          gtag('event', 'generate_lead', {
+            'event_category': 'conversion',
+            'event_label': window.location.pathname,
+            'transport_type': 'beacon'
+          });
+        }
+        if (typeof ym === 'function') {
+          ym(112518581, 'reachGoal', 'lead', { path: window.location.pathname });
+        }
+      }
+    });
+  </script>
 
 </body>
 </html>

@@ -2,6 +2,20 @@
 <html lang="ru" prefix="og: https://ogp.me/ns#">
 
 <head>
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=112518581', 'ym');
+
+    ym(112518581, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/112518581" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+
   <!-- Google tag (gtag.js) -->
   <script defer src="https://www.googletagmanager.com/gtag/js?id=G-16QP49BT7J"></script>
   <script>
@@ -14,7 +28,7 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Хроники Акаши онлайн — Чтение и Расстановки | Елена</title>
+  <title>Чтение Хроник Акаши и Системные Расстановки онлайн — Проводник Елена | Спроси у Акаши</title>
   <meta name="description"
     content="Чтение Хроник Акаши и системные расстановки онлайн. Предназначение, деньги, отношения — первая консультация бесплатно. Запись в Telegram.">
   <meta name="author" content="Елена — Спроси у Акаши">
@@ -2688,6 +2702,97 @@
       .mobile-sticky-cta svg { width: 18px; height: 18px; fill: currentColor; }
     }
 
+    /* ─── ENHANCED SITE FOOTER ─── */
+    .site-footer {
+      background: var(--deep);
+      border-top: 1px solid var(--border);
+      padding: clamp(48px, 6vw, 80px) 0 32px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1.2fr 1fr;
+      gap: clamp(24px, 4vw, 48px);
+      margin-bottom: 48px;
+    }
+    @media (max-width: 900px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 560px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      color: var(--cream);
+      font-weight: 400;
+      margin-bottom: 14px;
+    }
+    .footer-desc {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .footer-tg-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      transition: all .25s;
+    }
+    .footer-tg-link:hover {
+      background: var(--gold-soft);
+      border-color: var(--gold);
+    }
+    .footer-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px;
+      color: var(--cream);
+      margin-bottom: 16px;
+      font-weight: 400;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color .2s;
+    }
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+    .footer-bottom {
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 13px;
+      color: rgba(122, 111, 111, 0.8);
+    }
+    .footer-disclaimer {
+      font-size: 12px;
+    }
+
   </style>
 </head>
 
@@ -2708,8 +2813,9 @@
         <li><a href="#solution">Метод</a></li>
         <li><a href="#reviews">Отзывы</a></li>
         <li><a href="#about">Обо мне</a></li>
-        <li><a href="#faq">Вопросы</a></li>
+        <li><a href="stoimost-sessii-hroniki-akashi.html">Стоимость</a></li>
         <li><a href="#articles">Статьи</a></li>
+        <li><a href="#faq">Вопросы</a></li>
       </ul>
 
       <div class="nav-right">
@@ -2733,8 +2839,10 @@
     <a href="#solution" class="nav-drawer-link">Метод</a>
     <a href="#reviews" class="nav-drawer-link">Отзывы</a>
     <a href="#about" class="nav-drawer-link">Обо мне</a>
-    <a href="#faq" class="nav-drawer-link">Вопросы</a>
+    <a href="stoimost-sessii-hroniki-akashi.html" class="nav-drawer-link">Стоимость и цены</a>
+    <a href="hroniki-akashi-raschet-online.html" class="nav-drawer-link">Расчёт онлайн</a>
     <a href="#articles" class="nav-drawer-link">Статьи</a>
+    <a href="#faq" class="nav-drawer-link">Вопросы</a>
     <a href="https://t.me/sprosiuakashi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%95%D0%BB%D0%B5%D0%BD%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%B1%D0%B5%D1%81%D0%BF%D0%BB%D0%B0%D1%82%D0%BD%D1%83%D1%8E%20%D0%B4%D0%B8%D0%B0%D0%B3%D0%BD%D0%BE%D1%81%D1%82%D0%B8%D0%BA%D1%83%20%28%D1%81%20%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0%29." target="_blank" rel="noopener noreferrer" class="nav-drawer-link mob-cta">✦
       Бесплатная консультация</a>
   </div>
@@ -2767,8 +2875,7 @@
       <div class="orb orb-2" aria-hidden="true"></div>
       <div class="stars" id="stars" aria-hidden="true"></div>
       <div class="hero-image-wrap" aria-hidden="true">
-        <img src="0.webp" alt="Проводник в Хрониках Акаши — небесная богиня знаний с книгой мудрости" width="1024"
-          height="1024" loading="eager" fetchpriority="high" decoding="async">
+        <img src="0.webp" alt="Проводник в Хрониках Акаши — небесная богиня знаний с книгой мудрости" width="1024" height="558" loading="eager" fetchpriority="high" decoding="async">
       </div>
 
       <div class="hero-content">
@@ -2989,19 +3096,19 @@
         <div class="tg-reviews-grid">
           <div class="tg-review-card reveal rd1">
             <img src="tg-review-1.webp" alt="Отзыв Натальи Хакимовой о чтении Хроник Акаши" loading="lazy"
-              decoding="async">
+              decoding="async" width="608" height="526">
           </div>
           <div class="tg-review-card reveal rd2">
             <img src="tg-review-2.webp" alt="Отзыв Галины Мельниковой о сессии с Еленой" loading="lazy"
-              decoding="async">
+              decoding="async" width="622" height="343">
           </div>
           <div class="tg-review-card reveal rd3">
             <img src="tg-review-3.webp" alt="Отзыв Натальи Новосельцевой о чтении хроник" loading="lazy"
-              decoding="async">
+              decoding="async" width="632" height="221">
           </div>
           <div class="tg-review-card reveal rd4">
             <img src="tg-review-4.webp" alt="Отзыв Надежды Пискуновой о поддержке Елены" loading="lazy"
-              decoding="async">
+              decoding="async" width="612" height="252">
           </div>
         </div>
 
@@ -3415,6 +3522,48 @@
             <p>Грех ли это, позиция церкви и отличие от оккультизма</p>
             <span class="art-arrow">Читать →</span>
           </a>
+          <a href="stoimost-sessii-hroniki-akashi.html" class="art-card reveal rd3">
+            <span class="art-icon">🪙</span>
+            <h3>Сколько стоит сессия Хроник Акаши</h3>
+            <p>Честные цены, форматы работы, донейшн и бесплатная диагностика</p>
+            <span class="art-arrow">Узнать стоимость →</span>
+          </a>
+          <a href="hroniki-akashi-otzyvy-realnye.html" class="art-card reveal rd1">
+            <span class="art-icon">⭐</span>
+            <h3>Реальные кейсы «До и После»</h3>
+            <p>5 подробных историй клиентов: деньги, отношения и предназначение</p>
+            <span class="art-arrow">Читать кейсы →</span>
+          </a>
+          <a href="kak-podgotovitsya-k-sessii.html" class="art-card reveal rd2">
+            <span class="art-icon">📝</span>
+            <h3>Как подготовиться к сессии</h3>
+            <p>Как сформулировать запрос, настроиться и получить максимум пользы</p>
+            <span class="art-arrow">Читать гид →</span>
+          </a>
+          <a href="chto-proishodit-posle-sessii.html" class="art-card reveal rd3">
+            <span class="art-icon">🌊</span>
+            <h3>Что происходит после сессии</h3>
+            <p>Интеграция информации, сроки изменений и как не слить результат</p>
+            <span class="art-arrow">Читать →</span>
+          </a>
+          <a href="kak-vybrat-provodnika.html" class="art-card reveal rd1">
+            <span class="art-icon">🧭</span>
+            <h3>Как выбрать хорошего проводника</h3>
+            <p>Критерии мастера, красные флаги и как отличить проводника от гадалки</p>
+            <span class="art-arrow">Читать →</span>
+          </a>
+          <a href="sistemnye-rasstanovki-online.html" class="art-card reveal rd2">
+            <span class="art-icon">🌿</span>
+            <h3>Системные расстановки онлайн</h3>
+            <p>Работа с родовой системой по Хеллингеру: сепарация, деньги, сценарии рода</p>
+            <span class="art-arrow">Подробнее о методе →</span>
+          </a>
+          <a href="knigi-hroniki-akashi.html" class="art-card reveal rd3">
+            <span class="art-icon">📚</span>
+            <h3>Лучшие книги по Хроникам Акаши</h3>
+            <p>ТОП-7 книг: Линда Хоу, Эрвин Ласло, Эдгар Кейси — с чего начать чтение</p>
+            <span class="art-arrow">Читать обзор →</span>
+          </a>
         </div>
       </div>
     </section>
@@ -3452,12 +3601,6 @@
               Подписаться и получить консультацию
             </a>
           </div>
-          <footer>
-            <div class="footer-line reveal footer-line-inner">
-              <span>Спроси у Акаши, 2026 &copy; Все права защищены</span>
-              <a href="policy.html" target="_blank" class="footer-link">Политика конфиденциальности</a>
-            </div>
-          </footer>
         </div>
       </div>
     </section>
@@ -3488,6 +3631,62 @@
     </div>
 
   </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">✦ Спроси у Акаши</div>
+          <p class="footer-desc">
+            Пространство осознанности и трансформации. Чтение Хроник Акаши и системные расстановки онлайн с проводником Еленой. Соединяем мудрость Души и силу Рода.
+          </p>
+          <div class="footer-tg">
+            <a href="https://t.me/sprosiuakashi" target="_blank" rel="noopener noreferrer" class="footer-tg-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.888-.662 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+              Telegram @sprosiuakashi
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Услуги и форматы</h4>
+          <ul class="footer-links">
+            <li><a href="stoimost-sessii-hroniki-akashi.html">Стоимость сессий и цены</a></li>
+            <li><a href="sistemnye-rasstanovki-online.html">Системные расстановки онлайн</a></li>
+            <li><a href="#solution">Метод: Хроники + Расстановки</a></li>
+            <li><a href="kak-podgotovitsya-k-sessii.html">Как подготовиться к сессии</a></li>
+            <li><a href="chto-proishodit-posle-sessii.html">Что происходит после сессии</a></li>
+            <li><a href="kak-vybrat-provodnika.html">Как выбрать проводника</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">База знаний и практика</h4>
+          <ul class="footer-links">
+            <li><a href="hroniki-akashi-raschet-online.html">Расчёт онлайн по дате рождения</a></li>
+            <li><a href="chto-takoe-hroniki-akashi.html">Что такое Хроники Акаши</a></li>
+            <li><a href="knigi-hroniki-akashi.html">ТОП-7 книг по Хроникам Акаши</a></li>
+            <li><a href="meditaciya-hroniki-akashi.html">Молитва и медитация входа</a></li>
+            <li><a href="dengi-bloki.html">Финансовые блоки и предки</a></li>
+            <li><a href="otzyvy-khroniki-akashi.html">Отзывы клиентов (переписки)</a></li>
+            <li><a href="hroniki-akashi-otzyvy-realnye.html">Реальные кейсы До и После</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Информация</h4>
+          <ul class="footer-links">
+            <li><a href="#about">О проводнике Елене</a></li>
+            <li><a href="#faq">Частые вопросы (FAQ)</a></li>
+            <li><a href="bezopasnost.html">Безопасность сессий</a></li>
+            <li><a href="hroniki-akashi-i-pravoslavie.html">Хроники и православие</a></li>
+            <li><a href="policy.html">Политика конфиденциальности</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Спроси у Акаши (sprosiuakashi.com). Все права защищены.</p>
+        <p class="footer-disclaimer">Информация на сайте носит консультационный и просветительский характер.</p>
+      </div>
+    </div>
+  </footer>
 
   <script>
      // ─── ЗВЁЗДЫ ───
@@ -3578,6 +3777,26 @@
       <span>Написать Елене</span>
     </a>
     
+
+    <!-- Conversion Event Tracking -->
+  <script>
+    document.addEventListener('click', function(e) {
+      var link = e.target.closest('a[href*="t.me/sprosiuakashi"]');
+      if (link) {
+        if (typeof gtag === 'function') {
+          gtag('event', 'generate_lead', {
+            'event_category': 'conversion',
+            'event_label': window.location.pathname,
+            'transport_type': 'beacon'
+          });
+        }
+        if (typeof ym === 'function') {
+          ym(112518581, 'reachGoal', 'lead', { path: window.location.pathname });
+        }
+      }
+    });
+  </script>
+
 </body>
 
 </html>
