@@ -306,6 +306,25 @@
         <p><strong>Хроники Акаши</strong> — это живое квантовое информационное поле («библиотека Души»). Дата рождения задаёт стартовые координаты земного воплощения, но истинные кармические задачи и совместимость партнеров считываются напрямую через проводника без шаблонных программных формул.</p>
       </div>
 
+      <!-- DATE OF BIRTH KARMIC CALCULATOR -->
+      <section class="calc-dob-card" style="background: #FFFFFF; border: 1.5px solid rgba(168,133,79,0.30); border-radius: var(--radius); padding: clamp(24px, 4vw, 36px); margin: 32px 0 40px; box-shadow: 0 8px 30px rgba(168,133,79,0.06);">
+        <div style="font-size: 13px; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 8px;">✦ Онлайн-расчёт по дате рождения</div>
+        <h2 style="margin: 0 0 12px; font-size: clamp(22px, 4vw, 30px); color: var(--cream);">Рассчитать кармический код души по дате рождения</h2>
+        <p style="font-size: 16px; color: var(--muted); margin-bottom: 20px;">Введите дату своего рождения, чтобы определить стартовую кармическую вибрацию и архетип Души перед исследованием Хроник:</p>
+        
+        <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; align-items: center;">
+          <input type="number" id="dob-day" placeholder="День (1-31)" min="1" max="31" style="width: 120px; padding: 12px 14px; border: 1px solid var(--border); border-radius: 10px; font-size: 16px; font-family: 'DM Sans', sans-serif;">
+          <input type="number" id="dob-month" placeholder="Месяц (1-12)" min="1" max="12" style="width: 130px; padding: 12px 14px; border: 1px solid var(--border); border-radius: 10px; font-size: 16px; font-family: 'DM Sans', sans-serif;">
+          <input type="number" id="dob-year" placeholder="Год (1990)" min="1920" max="2026" style="width: 120px; padding: 12px 14px; border: 1px solid var(--border); border-radius: 10px; font-size: 16px; font-family: 'DM Sans', sans-serif;">
+          <button type="button" onclick="calcKarmaCode()" style="background: linear-gradient(135deg, var(--gold), #8B6D3C); color: #fff; border: none; padding: 14px 28px; border-radius: 30px; font-size: 15px; font-weight: 500; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: transform .2s, box-shadow .2s; box-shadow: 0 4px 16px rgba(168,133,79,0.3);">
+            Рассчитать код души ✨
+          </button>
+        </div>
+
+        <div id="dob-result" style="display: none; background: var(--gold-soft); border-left: 4px solid var(--gold); border-radius: 12px; padding: 22px 24px; margin-top: 20px;">
+          <!-- Populated by calcKarmaCode() -->
+        </div>
+      </section>
 
       <!-- INTERACTIVE DIAGNOSTIC QUIZ -->
       <section class="quiz-card" id="diagnostic-quiz">
@@ -419,6 +438,77 @@
           document.getElementById('dot-2').classList.remove('active');
           document.getElementById('dot-3').classList.remove('active');
         }
+
+        function calcKarmaCode() {
+          const d = parseInt(document.getElementById('dob-day').value, 10);
+          const m = parseInt(document.getElementById('dob-month').value, 10);
+          const y = parseInt(document.getElementById('dob-year').value, 10);
+
+          if (!d || !m || !y || d < 1 || d > 31 || m < 1 || m > 12 || y < 1920 || y > 2026) {
+            alert('Пожалуйста, введите корректный день (1-31), месяц (1-12) и год рождения (например, 1990)');
+            return;
+          }
+
+          const str = '' + d + m + y;
+          let sum = 0;
+          for (let i = 0; i < str.length; i++) {
+            sum += parseInt(str[i], 10);
+          }
+          while (sum > 22) {
+            let temp = 0;
+            const s = '' + sum;
+            for (let i = 0; i < s.length; i++) {
+              temp += parseInt(s[i], 10);
+            }
+            sum = temp;
+          }
+
+          const archetypes = {
+            1: { title: "Код 1: Архетип Первопроходца и Созидателя", desc: "Мощная сила намерения, способность материализовать идеи и открывать новые пути. Урок Души: преодолеть сомнения в себе и эгоизм." },
+            2: { title: "Код 2: Архетип Интуиции и Единства", desc: "Глубокая эмпатия, чувствование тонких планов и тайных смыслов бытия. Урок Души: научиться доверять внутреннему голосу и выходить из дуальности сомнений." },
+            3: { title: "Код 3: Архетип Изобилия и Материи", desc: "Энергия земного процветания, творчества, созидания и плодородия. Урок Души: исцелить отношения с женским началом и принять изобилие без чувства вины." },
+            4: { title: "Код 4: Архетип Мастера и Опоры", desc: "Способность наводить порядок, руководить и создавать прочные структуры. Урок Души: отказаться от тотального контроля и доверять потоку жизни." },
+            5: { title: "Код 5: Архетип Духовного Учителя и Традиций", desc: "Стремление к передаче сакральных знаний, этике и законам мироздания. Урок Души: не поучать других, а вдохновлять личным примером." },
+            6: { title: "Код 6: Архетип Гармонии и Выбора Сердца", desc: "Любовь, красота, союз душ и партнерские отношения. Урок Души: научиться безусловно принимать себя и не искать идеала вовне." },
+            7: { title: "Код 7: Архетип Движения и Победы", desc: "Целеустремленность, лидерство и способность преодолевать любые препятствия. Урок Души: двигаться к целям экологично, без агрессии и борьбы." },
+            8: { title: "Код 8: Архетип Кармического Равновесия", desc: "Понимание причинно-следственных связей судьбы и высшей справедливости. Урок Души: отпустить обиды, претензии к миру и осуждение." },
+            9: { title: "Код 9: Архетип Мудреца и Истины", desc: "Глубокая внутренняя зрелость, философский склад ума и контакт с душой. Урок Души: не изолироваться от мира и щедро делиться своим светом." },
+            10: { title: "Код 10: Архетип Потока и Колеса Судьбы", desc: "Умение быть в правильном месте в правильное время, доверие Вселенной. Урок Души: отпустить суету и позволить потоку жизни нести вас к благу." },
+            11: { title: "Код 11: Архетип Силы и Потенциала", desc: "Колоссальный энергетический ресурс, выносливость и внутренняя мощь. Урок Души: направлять силу на созидание, а не на саморазрушение и давление на других." },
+            12: { title: "Код 12: Архетип Нового Видения и Служения", desc: "Способность видеть мир под уникальным углом, милосердие и чуткость. Урок Души: выйти из сценария жертвенности и научиться любить себя." },
+            13: { title: "Код 13: Архетип Трансформации и Перерождения", desc: "Способность легко отпускать отжившее и начинать жизнь с чистого листа. Урок Души: не бояться перемен и доверять циклам обновления." },
+            14: { title: "Код 14: Архетип Умеренности и Душевного Баланса", desc: "Тонкий контакт с чувствами, целительство словом и гармония. Урок Души: терпение, очищение от эмоциональных крайностей." },
+            15: { title: "Код 15: Архетип Проявления и Внутренней Свободы", desc: "Мощная харизма, видение скрытых теневых сторон людей и финансовый магнетизм. Урок Души: освободиться от зависимостей, гордыни и манипуляций." },
+            16: { title: "Код 16: Архетип Духовного Пробуждения", desc: "Разрушение устаревших иллюзий и построение жизни на истинном духовном фундаменте. Урок Души: опираться на вечные ценности, а не на временную материю." },
+            17: { title: "Код 17: Архетип Звезды и Вдохновения", desc: "Яркость, таланты, признание и способность вдохновлять окружающих. Урок Души: не прятать свои дары и смело проявляться в социуме." },
+            18: { title: "Код 18: Архетип Глубинного Подсознания и Силы Мысли", desc: "Сильнейшая интуиция, вещие сны и мгновенная материализация мыслей. Урок Души: освободить ум от страхов, иллюзий и тревоги." },
+            19: { title: "Код 19: Архетип Солнца и Радости Бытия", desc: "Щедрость, лидерство и способность согревать своим теплом целые коллективы. Урок Души: радоваться простым вещам и не выжигать требовательностью близких." },
+            20: { title: "Код 20: Архетип Родовой Силы и Благословения", desc: "Мощная связь с родовой системой, ясночувствование и поддержка предков. Урок Души: исцелить родовые программы и восстановить мир в семье." },
+            21: { title: "Код 21: Архетип Миротворца и Расширения Границ", desc: "Глобальное восприятие, свобода от шаблонов и любовь ко всему живому. Урок Души: не сужать сознание догмами и страхами нового." },
+            22: { title: "Код 22: Архетип Высшей Свободы и Доверия", desc: "Легкость, радость проживания момента и освобождение от любых оков. Урок Души: истинная свобода в гармонии с ответственностью." }
+          };
+
+          const item = archetypes[sum] || archetypes[1];
+          const resDiv = document.getElementById('dob-result');
+          resDiv.style.display = 'block';
+          const tgText = 'Здравствуйте, Елена! Мой расчёт по дате рождения (' + d + '.' + m + '.' + y + ') показал: ' + item.title + '. Хочу разобрать задачи души и кармические уроки на бесплатной диагностике.';
+          
+          resDiv.innerHTML = '<div style="font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 6px;">Результат расчёта по дате рождения:</div>' +
+            '<div style="font-family: \'Cormorant Garamond\', serif; font-size: 24px; color: var(--cream); font-weight: 600; margin-bottom: 10px;">' + item.title + '</div>' +
+            '<p style="margin: 0 0 14px; font-size: 16px; color: var(--text); line-height: 1.7;">' + item.desc + '</p>' +
+            '<div style="background: rgba(255,255,255,0.85); border-radius: 10px; padding: 14px 18px; font-size: 15px; color: var(--muted); margin-bottom: 18px; border: 1px solid var(--border); line-height: 1.6;">' +
+              '<strong style="color: var(--cream);">Что Хроники Акаши открывают об этом коде:</strong> Дата рождения даёт общие координаты. Но конкретные кармические узлы, контракты с партнерами и первопричины застоя считываются индивидуально через прямое погружение в Хроники с проводником.' +
+            '</div>' +
+            '<div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">' +
+              '<a href="https://t.me/sprosiuakashi?text=' + encodeURIComponent(tgText) + '" target="_blank" rel="noopener noreferrer" class="btn-quiz-tg" style="display: inline-flex; width: auto; padding: 12px 24px;">' +
+                'Разобрать мой код с Еленой в Telegram →' +
+              '</a>' +
+              '<a href="#diagnostic-quiz" style="font-size: 14px; color: var(--gold); text-decoration: underline; padding: 8px 12px;">' +
+                'Сформировать запрос в квизе ниже ↓' +
+              '</a>' +
+            '</div>';
+          resDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
       </script>
     
 
@@ -496,6 +586,12 @@
 
       <aside class="author-bio" style="background: rgba(168,133,79,0.06); border-radius: 16px; padding: 20px 24px; margin: 40px 0 32px; font-size: 15px; line-height: 1.6; color: #3E3530;"><strong>Об авторе:</strong> Елена — Проводник в Хрониках Акаши и мастер системных расстановок. Более 100 индивидуальных сессий. <a href="https://t.me/sprosiuakashi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%95%D0%BB%D0%B5%D0%BD%D0%B0%21%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%20%D0%BF%D0%BE%D0%B2%D0%BE%D0%B4%D1%83%20%D1%87%D1%82%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%A5%D1%80%D0%BE%D0%BD%D0%B8%D0%BA%20%D0%90%D0%BA%D0%B0%D1%88%D0%B8%20%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%B1%D0%B5%D1%81%D0%BF%D0%BB%D0%B0%D1%82%D0%BD%D1%83%D1%8E%20%D0%B4%D0%B8%D0%B0%D0%B3%D0%BD%D0%BE%D1%81%D1%82%D0%B8%D0%BA%D1%83." style="color: #A8854F; text-decoration: underline;">Записаться на консультацию →</a></aside>
 
+      <div style="background: linear-gradient(135deg, rgba(168,133,79,0.10), rgba(168,133,79,0.03)); border: 1px solid var(--border); border-radius: 16px; padding: 22px 26px; margin: 32px 0; display: flex; flex-direction: column; gap: 8px;">
+        <div style="font-size: 13px; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); font-weight: 600;">Отзывы и результаты</div>
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--cream);">Как расчет переходит в реальные изменения?</div>
+        <p style="margin: 0; font-size: 16px; color: var(--muted);">Посмотрите <a href="otzyvy-khroniki-akashi.html" style="color: var(--gold); text-decoration: underline; font-weight: 500;">реальные скриншоты отзывов клиентов после сессий</a> и узнайте <a href="stoimost-sessii-hroniki-akashi.html" style="color: var(--gold); text-decoration: underline; font-weight: 500;">стоимость индивидуальной работы с проводником →</a></p>
+      </div>
+
       <div class="cta-block">
         <h2>Хотите узнать, что говорят Хроники о вас?</h2>
         <p>Первая диагностическая сессия — бесплатно.</p>
@@ -508,6 +604,8 @@
       <div class="related">
         <h3>Вам также может быть интересно:</h3>
         <div class="related-links">
+          <a href="otzyvy-khroniki-akashi.html">Отзывы клиентов после сессий с проводником →</a>
+          <a href="stoimost-sessii-hroniki-akashi.html">Стоимость и форматы чтения Хроник Акаши →</a>
           <a href="chto-takoe-hroniki-akashi.html">Что такое Хроники Акаши простыми словами</a>
           <a href="kak-podgotovitsya-k-sessii.html">Как подготовиться к сессии</a>
           <a href="voprosy-dlya-khronik.html">Какие вопросы можно задавать</a>
