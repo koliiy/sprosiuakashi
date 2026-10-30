@@ -16,16 +16,18 @@
   <!-- /Yandex.Metrika counter -->
 
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-16QP49BT7J"></script>
+  <script defer src="https://www.googletagmanager.com/gtag/js?id=G-16QP49BT7J"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-16QP49BT7J');
+    window.onload = function () {
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-16QP49BT7J');
+    };
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#FDFBFA">
+  <meta name="theme-color" content="#FCFAFF">
   <title>404 — Страница не найдена | Спроси у Акаши</title>
   <meta name="description" content="Страница не найдена. Перейдите на главную страницу сайта Спроси у Акаши, пройдите онлайн-расчет или прочитайте статьи о Хрониках Акаши.">
   <meta name="robots" content="noindex, follow">
@@ -148,7 +150,6 @@
       <a href="/prednaznachenie.html">Поиск предназначения</a>
       <a href="/otzyvy-khroniki-akashi.html">Отзывы клиентов</a>
     </div>
-    <div class="sacred-divider" aria-hidden="true">☽ ✦ ☾</div>
   </main>
 
     <!-- ─── FOOTER ─── -->

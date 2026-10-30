@@ -7,11 +7,11 @@
       <stop offset="100%" stop-color="#050310"/>
     </radialGradient>
 
-    <!-- Золотое свечение центра -->
+    <!-- Лавандовое свечение центра -->
     <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#ffe066" stop-opacity="1"/>
-      <stop offset="40%" stop-color="#c8a96e" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="#8b6a1e" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#f3e8ff" stop-opacity="1"/>
+      <stop offset="40%" stop-color="#cdb4f6" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#7c52b8" stop-opacity="0"/>
     </radialGradient>
 
     <!-- Фиолетовое свечение ауры -->
@@ -20,11 +20,11 @@
       <stop offset="100%" stop-color="#4a1fa8" stop-opacity="0"/>
     </radialGradient>
 
-    <!-- Золотой металлик для лучей -->
+    <!-- Лавандовый сияющий градиент для лучей -->
     <linearGradient id="rayGold" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ffe599"/>
-      <stop offset="50%" stop-color="#c8a96e"/>
-      <stop offset="100%" stop-color="#8b5e1e"/>
+      <stop offset="0%" stop-color="#f3e8ff"/>
+      <stop offset="50%" stop-color="#cdb4f6"/>
+      <stop offset="100%" stop-color="#7c52b8"/>
     </linearGradient>
 
     <!-- Свечение вокруг иконки -->
@@ -45,10 +45,10 @@
   <circle cx="50" cy="50" r="38" fill="url(#auraGlow)" opacity="0.7"/>
 
   <!-- ── Внешнее кольцо с рунами-точками ── -->
-  <circle cx="50" cy="50" r="46" fill="none" stroke="#c8a96e" stroke-width="0.6" stroke-opacity="0.5"/>
+  <circle cx="50" cy="50" r="46" fill="none" stroke="#cdb4f6" stroke-width="0.6" stroke-opacity="0.5"/>
 
   <!-- 12 точек по внешнему кольцу (как часы) -->
-  <g fill="#c8a96e" opacity="0.7">
+  <g fill="#cdb4f6" opacity="0.7">
     <circle cx="50"   cy="4.5"  r="1.1"/>
     <circle cx="72.5" cy="11"   r="0.8"/>
     <circle cx="88.5" cy="28"   r="1.1"/>
@@ -79,7 +79,7 @@
   <!-- ── Шестиконечная звезда Давида / Печать Соломона — пересечение ── -->
   <!-- Центральный шестиугольник от пересечения — тонкая заливка -->
   <polygon points="50,30 60.4,36 60.4,50 50,56 39.6,50 39.6,36"
-    fill="#c8a96e" fill-opacity="0.07" stroke="none"/>
+    fill="#cdb4f6" fill-opacity="0.09" stroke="none"/>
 
   <!-- ── 6-лучевая звезда — главные лучи ── -->
   <!-- Верхний -->
@@ -96,7 +96,7 @@
   <line x1="63.1" y1="78.5" x2="56.5" y2="66.5" stroke="url(#rayGold)" stroke-width="1.1" stroke-linecap="round" filter="url(#softGlow)"/>
 
   <!-- ── Ромбовидные наконечники лучей ── -->
-  <g fill="#ffe066" filter="url(#glow)">
+  <g fill="#f3e8ff" filter="url(#glow)">
     <polygon points="50,10 51.6,15.5 50,18 48.4,15.5" opacity="0.95"/>
     <polygon points="50,90 51.6,84.5 50,82 48.4,84.5" opacity="0.95"/>
     <polygon points="67,19 63,23.5 60.5,22.5 64,18" opacity="0.8"/>
@@ -111,19 +111,19 @@
   <!-- ── Центральная 8-лучевая звезда (малая) ── -->
   <g transform="translate(50,50)" filter="url(#glow)">
     <!-- 4 главных луча -->
-    <polygon points="0,-9 1.5,-1.5 0,9 -1.5,-1.5" fill="#ffe066" opacity="0.95"/>
-    <polygon points="-9,0 -1.5,1.5 9,0 -1.5,-1.5" fill="#ffe066" opacity="0.95"/>
+    <polygon points="0,-9 1.5,-1.5 0,9 -1.5,-1.5" fill="#f3e8ff" opacity="0.95"/>
+    <polygon points="-9,0 -1.5,1.5 9,0 -1.5,-1.5" fill="#f3e8ff" opacity="0.95"/>
     <!-- 4 диагональных -->
-    <polygon points="-6.4,-6.4 -0.9,0.9 6.4,6.4 0.9,-0.9" fill="#c8a96e" opacity="0.75"/>
-    <polygon points="6.4,-6.4 0.9,0.9 -6.4,6.4 -0.9,-0.9" fill="#c8a96e" opacity="0.75"/>
+    <polygon points="-6.4,-6.4 -0.9,0.9 6.4,6.4 0.9,-0.9" fill="#cdb4f6" opacity="0.75"/>
+    <polygon points="6.4,-6.4 0.9,0.9 -6.4,6.4 -0.9,-0.9" fill="#cdb4f6" opacity="0.75"/>
   </g>
 
   <!-- ── Центральная точка ── -->
   <circle cx="50" cy="50" r="2.2" fill="#0d0820"/>
-  <circle cx="50" cy="50" r="1.2" fill="#ffe599"/>
+  <circle cx="50" cy="50" r="1.2" fill="#f3e8ff"/>
 
   <!-- ── Малые звёзды-акценты в углах ── -->
-  <g fill="#c8a96e" opacity="0.5">
+  <g fill="#cdb4f6" opacity="0.5">
     <polygon points="18,18 19,16 20,18 18,17" transform="rotate(15,19,17)"/>
     <polygon points="80,20 81,18 82,20 80,19" transform="rotate(-10,81,19)"/>
     <polygon points="16,80 17,78 18,80 16,79" transform="rotate(5,17,79)"/>
