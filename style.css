@@ -409,14 +409,19 @@ nav.site-nav.scrolled {
   justify-content: flex-start;
   gap: 4px;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity var(--dur-color) var(--ease-out);
+  transition: opacity var(--dur-color) var(--ease-out),
+              visibility 0s linear var(--dur-color);
   overflow-y: auto;
 }
 
 .nav-mobile-drawer.open {
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
+  transition: opacity var(--dur-color) var(--ease-out),
+              visibility 0s linear 0s;
 }
 
 .nav-mobile-drawer a {
