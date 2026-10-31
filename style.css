@@ -1143,7 +1143,7 @@ nav.site-nav.scrolled {
 }
 
 .tagline-word {
-  opacity: 0.25;
+  opacity: 0.52;
   transition: opacity var(--dur-color) var(--ease-out),
               color var(--dur-color) var(--ease-out);
 }
