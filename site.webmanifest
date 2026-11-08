@@ -1,7 +1,10 @@
 {
-  "name": "Спроси у Акаши",
-  "short_name": "Акаши",
-  "description": "Чтение Хроник Акаши и системные расстановки онлайн",
+  "name": "Спроси у Акаши — Чтение Хроник Акаши и расстановки онлайн",
+  "short_name": "Спроси у Акаши",
+  "description": "Индивидуальное чтение Хроник Акаши и системные расстановки онлайн с проводником Еленой",
+  "lang": "ru",
+  "start_url": "/",
+  "scope": "/",
   "icons": [
     {
       "src": "/favicon-32x32.png",
@@ -29,7 +32,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#1E1430",
+  "theme_color": "#FCFAFF",
   "background_color": "#FCFAFF",
   "display": "standalone"
 }

@@ -131,6 +131,30 @@
               "@type": "Answer",
               "text": "Первая диагностическая встреча бесплатна. Полноценная глубокая сессия оплачивается в формате свободного донейшн (оплата по сердцу и ценности полученных осознаний) через сервис Tribute в Telegram картами любых банков мира."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "Что делать, если я боюсь, что во время сессии ничего не почувствую или не увижу?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "От вас не требуется никаких специальных навыков ясновидения или медитации. Информационное поле считывает и переводит на понятный язык проводник, а вы находитесь в комфортном диалоге, задаёте вопросы и сверяете отклик внутри себя."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Останется ли у меня запись сессии и сколько встреч нужно для одного запроса?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Один глубокий запрос (финансовый потолок, повторяющийся сценарий в паре или поиск предназначения) прорабатывается за одну полноценную сессию 60–90 минут. По вашему желанию ведётся аудиозапись, чтобы вы могли переслушивать ключевые ответы и рекомендации."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Совместимо ли чтение Хроник Акаши с религией и традиционным мировоззрением?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Да, работа в Хрониках Акаши строится на молитвенном, благодарном обращении к Высшему замыслу и памяти вашей Души (в христианской традиции этому близко понятие Книги Жизни) — без магии, оккультных ритуалов и конфликта с верой."
+            }
           }
         ]
       }
@@ -225,6 +249,12 @@
               <div class="hero-proof-note">
                 <span class="hero-proof-dot" aria-hidden="true"></span>
                 <span>Первая встреча 15–20 минут в Telegram — бесплатно и без обязательств</span>
+              </div>
+              <div class="contact-backup-row">
+                <button type="button" class="btn-copy-tg" data-copy-tg="@sprosiuakashi" aria-label="Скопировать ник @sprosiuakashi для поиска в Telegram">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  <span>Скопировать ник @sprosiuakashi (если не открывается ссылка)</span>
+                </button>
               </div>
             </div>
           </div>
@@ -457,16 +487,129 @@
               <a href="https://t.me/sprosiuakashi" target="_blank" rel="noopener noreferrer" class="btn-tg" id="home-calc-cta">
                 <span>Разобрать мой код с Еленой на бесплатной диагностике</span>
               </a>
-              <a href="hroniki-akashi-raschet-online.html" class="btn-ghost">
-                <span>Пройти полный тест из 3 шагов →</span>
+              <a href="#home-diagnostic-quiz" class="btn-ghost">
+                <span>Уточнить запрос по сферам (3 шага) ↓</span>
               </a>
+            </div>
+          </div>
+
+          <!-- Unified 3-Step Interactive Diagnostic Quiz -->
+          <div class="calc-quiz-divider" id="home-diagnostic-quiz">
+            <div class="quiz-progress">
+              <span id="home-quiz-step-label">Экспресс-диагностика запроса · Шаг 1 из 3</span>
+              <div class="quiz-bar"><div class="quiz-bar-fill" id="home-quiz-bar-fill"></div></div>
+            </div>
+
+            <!-- Step 1 -->
+            <div class="quiz-step active" id="home-q-step-1">
+              <h3 class="quiz-step-title">1. Какая сфера жизни сейчас больше всего требует ясности?</h3>
+              <p class="quiz-step-sub">Выберите направление, чтобы сфокусировать диагностику и подобрать вопросы к Полю:</p>
+              <div class="quiz-options">
+                <button type="button" class="quiz-opt" data-home-step="1" data-home-val="money">
+                  <span class="quiz-opt-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                  </span>
+                  <span><strong>Деньги и реализация</strong>Невидимый финансовый потолок, долги, страх поднять чек или выгорание</span>
+                </button>
+                <button type="button" class="quiz-opt" data-home-step="1" data-home-val="love">
+                  <span class="quiz-opt-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                  </span>
+                  <span><strong>Отношения и семья</strong>Повторяющиеся типажи партнёров, одиночество, кризис или кармическая связь</span>
+                </button>
+                <button type="button" class="quiz-opt" data-home-step="1" data-home-val="purpose">
+                  <span class="quiz-opt-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+                  </span>
+                  <span><strong>Предназначение и путь Души</strong>Ощущение «живу не свою жизнь», поиск своих истинных даров и масштаба</span>
+                </button>
+                <button type="button" class="quiz-opt" data-home-step="1" data-home-val="ancestry">
+                  <span class="quiz-opt-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  </span>
+                  <span><strong>Родовые сценарии и энергия</strong>Тяжёлые семейные программы, хронический упадок сил и фоновая тревога</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="quiz-step" id="home-q-step-2">
+              <h3 class="quiz-step-title">2. Что вы чувствуете ярче всего в этой ситуации?</h3>
+              <p class="quiz-step-sub">Этот маркер показывает, на каком слое — личном, родовом или кармическом — удерживается блок:</p>
+              <div class="quiz-options">
+                <button type="button" class="quiz-opt" data-home-step="2" data-home-val="День сурка: декорации и люди меняются, а итог всегда один и тот же">
+                  <span class="quiz-opt-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                  </span>
+                  <span><strong>Эффект «Дня сурка»</strong>Люди, работы и обстоятельства меняются, но сценарий завершается одинаково</span>
+                </button>
+                <button type="button" class="quiz-opt" data-home-step="2" data-home-val="Невидимая стена: делаю максимум усилий, но упираюсь в потолок">
+                  <span class="quiz-opt-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  </span>
+                  <span><strong>Невидимая стеклянная стена</strong>Делаю всё правильно и много работаю, но результат упирается в потолок</span>
+                </button>
+                <button type="button" class="quiz-opt" data-home-step="2" data-home-val="Чужой груз: ощущение, что проживаю не свою судьбу или несу ответственность за всех">
+                  <span class="quiz-opt-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </span>
+                  <span><strong>Чужой груз на плечах</strong>Будто проживаю судьбу родителей или тащу ответственность за всю семью</span>
+                </button>
+                <button type="button" class="quiz-opt" data-home-step="2" data-home-val="Страх шага: умом понимаю, что пора менять жизнь, но внутри сковывает тревога">
+                  <span class="quiz-opt-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                  </span>
+                  <span><strong>Внутренний стоп-кран</strong>Умом понимаю, что пора делать шаг, но тело сковывает необъяснимый страх</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="quiz-step" id="home-q-step-3">
+              <h3 class="quiz-step-title">3. Как давно длится этот сценарий?</h3>
+              <p class="quiz-step-sub">Последний шаг для формирования вашей персональной карты вопросов к Хроникам Акаши:</p>
+              <div class="quiz-options">
+                <button type="button" class="quiz-opt" data-home-step="3" data-home-val="Около года (острый кризис или важная развилка выбора)">
+                  <span><strong>Недавно — до 1 года</strong>Острый кризис, потеря ориентиров или сложная развилка выбора прямо сейчас</span>
+                </button>
+                <button type="button" class="quiz-opt" data-home-step="3" data-home-val="От 2 до 5 лет (затяжной потолок, который не берут обычные методы)">
+                  <span><strong>От 2 до 5 лет</strong>Затяжной потолок, который не поддаётся логическому анализу и психологии</span>
+                </button>
+                <button type="button" class="quiz-opt" data-home-step="3" data-home-val="Почти всю сознательную жизнь (глубинный кармический или родовой узел)">
+                  <span><strong>Почти всю сознательную жизнь</strong>Ощущение глубинного сценария, который передаётся из поколения в поколение</span>
+                </button>
+                <button type="button" class="quiz-opt" data-home-step="3" data-home-val="Хочу действовать на опережение и узнать свой истинный потенциал">
+                  <span><strong>Хочу ясности на старте нового этапа</strong>Сверить курс с планом Души перед важным проектом, переездом или решением</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Quiz Result -->
+            <div class="quiz-step" id="home-q-result">
+              <div class="quiz-result">
+                <div class="quiz-res-badge" id="home-res-badge">✦ Диагностический профиль готов</div>
+                <h3 id="home-res-title" class="quiz-res-head">Вероятный источник: кармический и родовой уровень</h3>
+                <p id="home-res-desc"></p>
+                <div class="quiz-res-focus">
+                  <strong class="quiz-res-focus-label">Рекомендуемый фокус вопросов к Хроникам Акаши:</strong>
+                  <div id="home-res-questions" class="quiz-res-focus-val"></div>
+                </div>
+                <div class="calc-result-actions">
+                  <a href="https://t.me/sprosiuakashi" target="_blank" rel="noopener noreferrer" class="btn-tg" id="home-res-tg-btn">
+                    <span>Записаться на бесплатную диагностику с этим разбором</span>
+                  </a>
+                  <button type="button" class="btn-ghost" id="home-quiz-reset-btn">
+                    <span>Пройти тест заново ↺</span>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ─── 6. CASE STUDY SECTION ─── -->
+    <!-- ─── 6. CASE STUDY SECTION (Interactive 4-Sphere Tabs) ─── -->
     <section class="case-section" id="case">
       <div class="container">
         <div class="section-head-split reveal">
@@ -475,36 +618,148 @@
             <h2 class="stitle">Как один разбор в Хрониках Акаши разворачивает многолетний сценарий</h2>
           </div>
           <p class="section-head-desc">
-            Все примеры публикуются с согласия клиентов. Имена и личные детали бережно изменены для сохранения 100% конфиденциальности.
+            Выберите близкую вам сферу ниже. Все истории публикуются с согласия клиентов, имена и личные детали бережно изменены для сохранения 100% конфиденциальности.
           </p>
         </div>
 
+        <div class="case-tabs reveal" role="tablist" aria-label="Примеры кейсов по сферам запроса">
+          <button type="button" class="case-tab-btn active" role="tab" aria-selected="true" aria-controls="case-panel-money" id="case-tab-money" data-case-target="case-panel-money">
+            <span class="case-tab-num">01</span>
+            <span>Финансы и потолок</span>
+          </button>
+          <button type="button" class="case-tab-btn" role="tab" aria-selected="false" aria-controls="case-panel-love" id="case-tab-love" data-case-target="case-panel-love">
+            <span class="case-tab-num">02</span>
+            <span>Отношения и пара</span>
+          </button>
+          <button type="button" class="case-tab-btn" role="tab" aria-selected="false" aria-controls="case-panel-purpose" id="case-tab-purpose" data-case-target="case-panel-purpose">
+            <span class="case-tab-num">03</span>
+            <span>Предназначение Души</span>
+          </button>
+          <button type="button" class="case-tab-btn" role="tab" aria-selected="false" aria-controls="case-panel-ancestry" id="case-tab-ancestry" data-case-target="case-panel-ancestry">
+            <span class="case-tab-num">04</span>
+            <span>Род и энергия</span>
+          </button>
+        </div>
+
         <div class="case-wrap reveal">
-          <div class="case-header">
-            <div class="case-label">Реальный кейс · Финансы, реализация и родовой сценарий</div>
-            <p>Марина, 36 лет — эксперт и предприниматель: 4 года упиралась в один и тот же финансовый потолок и страх поднимать чек</p>
-          </div>
-
-          <div class="case-body">
-            <div class="case-col">
-              <span class="case-tag">Точка А · Запрос клиентки</span>
-              <h3>«Работаю на износ, но боюсь называть достойную цену и выгораю»</h3>
-              <p>При любой попытке выйти на новый уровень дохода или заявить о себе публично начинались психосоматические срывы, тревога или в последний момент срывались крупные контракты. Работа только с мышлением давала временный эффект на 2–3 недели.</p>
+          <!-- Panel 1: Money -->
+          <div class="case-panel active" id="case-panel-money" role="tabpanel" aria-labelledby="case-tab-money">
+            <div class="case-header">
+              <div class="case-label">Кейс 01 · Финансы, реализация и родовой сценарий</div>
+              <p>Марина, 36 лет — эксперт и предприниматель: 4 года упиралась в один и тот же финансовый потолок и страх поднимать чек</p>
             </div>
 
-            <div class="case-col">
-              <span class="case-tag">Что вскрылось в Хрониках Акаши</span>
-              <h3>Старый зарок нестяжательства и переплетение с судьбой прабабушки</h3>
-              <p>В Поле открылись два корня: <span class="hl">обет Души из прошлого воплощения</span> («большие деньги и заметность опасны для жизни») и бессознательная лояльность раскулаченной прабабушке в родовой системе — запрет иметь больше, чем позволяла себе семья.</p>
+            <div class="case-body">
+              <div class="case-col">
+                <span class="case-tag">Точка А · Запрос клиентки</span>
+                <h3>«Работаю на износ, но боюсь называть достойную цену и выгораю»</h3>
+                <p>При любой попытке выйти на новый уровень дохода или заявить о себе публично начинались психосоматические срывы, тревога или в последний момент срывались крупные контракты. Работа только с мышлением давала временный эффект на 2–3 недели.</p>
+              </div>
+
+              <div class="case-col">
+                <span class="case-tag">Что вскрылось в Хрониках Акаши</span>
+                <h3>Старый зарок нестяжательства и переплетение с судьбой прабабушки</h3>
+                <p>В Поле открылись два корня: <span class="hl">обет Души из прошлого воплощения</span> («большие деньги и заметность опасны для жизни») и бессознательная лояльность раскулаченной прабабушке в родовой системе — запрет иметь больше, чем позволяла себе семья.</p>
+              </div>
+            </div>
+
+            <div class="case-footer">
+              <h3><span class="ci" aria-hidden="true">✓</span> Точка Б · Результат через 6 недель после сессии</h3>
+              <p>Мы провели практику завершения старого обета в Хрониках и системную расстановку для разделения личного пути Марины и тяжёлого опыта предков. Ушёл фоновый страх проявленности: Марина спокойно подняла стоимость своих услуг на 60% и вышла на рекордный доход без выгорания.</p>
+              <blockquote class="case-quote">
+                <strong>Из сообщения Марины через месяц:</strong> «Елена, ощущение, будто с плеч сняли чужой бетонный рюкзак, который я тащила всю сознательную жизнь. Впервые я назвала высокий чек совершенно спокойно — и клиент согласился в тот же день!»
+              </blockquote>
             </div>
           </div>
 
-          <div class="case-footer">
-            <h3><span class="ci" aria-hidden="true">✓</span> Точка Б · Результат через 6 недель после сессии</h3>
-            <p>Мы провели практику завершения старого обета в Хрониках и системную расстановку для разделения личного пути Марины и тяжёлого опыта предков. Ушёл фоновый страх проявленности: Марина спокойно подняла стоимость своих услуг на 60% и вышла на рекордный доход без выгорания.</p>
-            <blockquote class="case-quote">
-              <strong>Из сообщения Марины через месяц:</strong> «Елена, ощущение, будто с плеч сняли чужой бетонный рюкзак, который я тащила всю сознательную жизнь. Впервые я назвала высокий чек совершенно спокойно — и клиент согласился в тот же день!»
-            </blockquote>
+          <!-- Panel 2: Relationships -->
+          <div class="case-panel" id="case-panel-love" role="tabpanel" aria-labelledby="case-tab-love">
+            <div class="case-header">
+              <div class="case-label">Кейс 02 · Отношения, эмоциональная зависимость и кармический контракт</div>
+              <p>Мария, 28 лет — архитектор: 6 лет повторяющийся сценарий притяжения эмоционально холодных и недоступных партнёров</p>
+            </div>
+
+            <div class="case-body">
+              <div class="case-col">
+                <span class="case-tag">Точка А · Запрос клиентки</span>
+                <h3>«Каждый новый роман развивается как под копирку — спасаю, жду и остаюсь одна»</h3>
+                <p>Необъяснимое притяжение к мужчинам, которых нужно «отогревать» и заслуживать их внимание. На пике сближения партнёр резко закрывался и уходил, оставляя Марию с разрушенной самооценкой и ощущением собственной ненужности.</p>
+              </div>
+
+              <div class="case-col">
+                <span class="case-tag">Что вскрылось в Хрониках Акаши</span>
+                <h3>Незавершённый клятвенный контракт верности и женский сценарий Рода</h3>
+                <p>Чтение показало <span class="hl">кармическую клятву вечного ожидания</span>, данную в воплощении, где партнёр не вернулся с войны, а также родовую программу по женской линии («любовь всегда равна боли и самопожертвованию»).</p>
+              </div>
+            </div>
+
+            <div class="case-footer">
+              <h3><span class="ci" aria-hidden="true">✓</span> Точка Б · Результат через 2 месяца после сессии</h3>
+              <p>В Поле Акаши мы мягко завершили старый обет ожидания и вернули женщинам Рода их судьбу через расстановочную практику. Прекратилась болезненная тяга к «сложным» партнёрам, вернулось спокойное чувство собственного достоинства и открылось пространство для тёплых взаимных отношений.</p>
+              <blockquote class="case-quote">
+                <strong>Из обратной связи Марии:</strong> «Впервые за много лет внутри наступила тишина. Меня больше не триггерят холодные типажи — я вдруг физически почувствовала, как это: когда тебя выбирают легко, бережно и без драмы».
+              </blockquote>
+            </div>
+          </div>
+
+          <!-- Panel 3: Soul Purpose -->
+          <div class="case-panel" id="case-panel-purpose" role="tabpanel" aria-labelledby="case-tab-purpose">
+            <div class="case-header">
+              <div class="case-label">Кейс 03 · Предназначение Души, выгорание в найме и смена вектора</div>
+              <p>Ольга, 41 год — руководитель отдела в корпорации: внешняя успешность при полном внутреннем опустошении и потере смысла</p>
+            </div>
+
+            <div class="case-body">
+              <div class="case-col">
+                <span class="case-tag">Точка А · Запрос клиентки</span>
+                <h3>«Прекрасная должность и стабильность, но каждое утро просыпаюсь с тоской»</h3>
+                <p>Ольга 14 лет строила карьеру в финансах по совету родителей. Внутри зрело желание развивать собственный образовательный и консультационный проект, но сковывал страх «в 41 год поздно всё менять и начинать с нуля».</p>
+              </div>
+
+              <div class="case-col">
+                <span class="case-tag">Что вскрылось в Хрониках Акаши</span>
+                <h3>Дар наставника и блокирующий страх осуждения за выход из системы</h3>
+                <p>Хроники показали эталонный <span class="hl">профиль Души-Проводника и Учителя</span>, чья энергия гаснет в жёстких бюрократических рамках. Блок держался на памяти прошлого воплощения, где за публичную передачу знаний последовало изгнание из общины.</p>
+              </div>
+            </div>
+
+            <div class="case-footer">
+              <h3><span class="ci" aria-hidden="true">✓</span> Точка Б · Результат через 8 недель после сессии</h3>
+              <p>После исцеления корневого страха и получения чёткой дорожной карты из Поля Ольга не стала рушить всё сгоряча: за два месяца она спокойно запустила первую группу в своём проекте параллельно с работой и безопасно подготовила переход в частную практику.</p>
+              <blockquote class="case-quote">
+                <strong>Из сообщения Ольги:</strong> «Сессия дала мне не просто вдохновение, а взрослую трезвую опору. Когда видишь свой настоящий масштаб глазами Души, сомнения и синдром самозванца просто растворяются».
+              </blockquote>
+            </div>
+          </div>
+
+          <!-- Panel 4: Ancestry & Energy -->
+          <div class="case-panel" id="case-panel-ancestry" role="tabpanel" aria-labelledby="case-tab-ancestry">
+            <div class="case-header">
+              <div class="case-label">Кейс 04 · Системная расстановка, родовая иерархия и возврат жизненной силы</div>
+              <p>Дмитрий, 36 лет — основатель IT-студии: хронический упадок сил, гиперответственность за родственников и ступор перед масштабированием</p>
+            </div>
+
+            <div class="case-body">
+              <div class="case-col">
+                <span class="case-tag">Точка А · Запрос клиента</span>
+                <h3>«Тяну на себе бизнес, родителей и всех вокруг, а на собственную жизнь сил не остаётся»</h3>
+                <p>Постоянное фоновое чувство вины, если он отдыхает или тратит деньги на себя. Любая попытка делегировать задачи или запустить международное направление заканчивалась обострением бессонницы и ощущением «я не справлюсь».</p>
+              </div>
+
+              <div class="case-col">
+                <span class="case-tag">Что вскрылось в Хрониках Акаши</span>
+                <h3>Нарушение закона иерархии в Роду и замещение исключённого деда</h3>
+                <p>На стыке Хроник и системной расстановки выявилась <span class="hl">парентификация (роль «родителя для своих родителей»)</span>: Дмитрий бессознательно занял место рано погибшего деда, пытаясь спасти и прокормить весь клан ценой собственного здоровья.</p>
+              </div>
+            </div>
+
+            <div class="case-footer">
+              <h3><span class="ci" aria-hidden="true">✓</span> Точка Б · Результат через 1 месяц после сессии</h3>
+              <p>В расстановке мы восстановили правильный порядок в семейной системе, вернули предкам уважение и их взрослую силу, а Дмитрию — его законное место младшего. В течение первых двух недель нормализовался сон, ушла навязчивая тревога и подписался первый зарубежный контракт.</p>
+              <blockquote class="case-quote">
+                <strong>Из отзыва Дмитрия:</strong> «Я скептик с техническим складом ума, но то, как точно разложилась вся семейная система и как физически отпустило грудную клетку прямо на сессии — это сильнейший опыт».
+              </blockquote>
+            </div>
           </div>
         </div>
       </div>
@@ -519,7 +774,7 @@
             <h2 class="stitle">Что пишут клиенты в Telegram после сессий чтения Хроник</h2>
           </div>
           <p class="section-head-desc">
-            Ниже — подлинные скриншоты сообщений от людей, прошедших диагностику и глубокие сессии. Ещё больше историй собрано на <a href="otzyvy-khroniki-akashi.html" style="color: var(--gold-strong); font-weight: 600;">отдельной странице отзывов</a>.
+            Ниже — подлинные скриншоты сообщений от людей, прошедших диагностику и глубокие сессии. Ещё больше историй собрано на <a href="otzyvy-khroniki-akashi.html" class="text-gold-link">отдельной странице отзывов</a>.
           </p>
         </div>
 
@@ -672,7 +927,7 @@
             <h2 class="stitle">Прозрачные условия: начните с бесплатной диагностики вашего запроса</h2>
           </div>
           <p class="section-head-desc">
-            Все встречи проходят онлайн в Telegram (аудио- или видеосвязь) и доступны из любой точки мира. Подробнее о философии оплаты читайте на <a href="stoimost-sessii-hroniki-akashi.html" style="color: var(--gold-strong); font-weight: 600;">странице стоимости сессий</a>.
+            Все встречи проходят онлайн в Telegram (аудио- или видеосвязь) и доступны из любой точки мира. Подробнее о философии оплаты читайте на <a href="stoimost-sessii-hroniki-akashi.html" class="text-gold-link">странице стоимости сессий</a>.
           </p>
         </div>
 
@@ -794,12 +1049,48 @@
                 </div>
               </div>
             </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Что делать, если я боюсь, что во время сессии ничего не почувствую или не увижу?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-body">
+                <div class="faq-body-inner">
+                  От вас не требуется никаких специальных навыков медитации или «ясновидения». Информационное поле открывает, считывает и переводит на понятный человеческий язык проводник. Вы находитесь в спокойном, ясном сознании, задаёте вопросы, слушаете разбор и сверяете отклик внутри своего тела и сердца.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Останется ли у меня запись сессии и сколько встреч нужно для одного запроса?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-body">
+                <div class="faq-body-inner">
+                  Мы не растягиваем работу на месяцы: один глубокий запрос (финансовый потолок, сценарий в отношениях или поиск предназначения) полноценно разбирается за одну сессию длительностью 60–90 минут. По вашему желанию сохраняется аудиозапись встречи, чтобы вы могли спокойно переслушивать инсайты и рекомендации по мере их интеграции. Подробнее — в памятке <a href="chto-proishodit-posle-sessii.html" class="faq-link">«Что происходит после сессии»</a>.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Совместимо ли чтение Хроник Акаши с религией и традиционным мировоззрением?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-body">
+                <div class="faq-body-inner">
+                  Да, полностью. Работа в Хрониках Акаши не имеет отношения к магии, приворотам, гаданию или оккультным ритуалам. Это молитвенное, уважительное обращение к Высшему Божественному замыслу и памяти вашей Души (в христианской традиции этому соответствует образ «Книги Жизни»). Подробный разбор читайте в статье <a href="hroniki-akashi-i-pravoslavie.html" class="faq-link">«Хроники Акаши и православие»</a>.
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ─── 11. ARTICLES / KNOWLEDGE BASE (All 21 Real Pages Linked) ─── -->
+    <!-- ─── 11. ARTICLES / KNOWLEDGE BASE (All 21 Real Pages with Category Filter) ─── -->
     <section class="articles-section" id="articles">
       <div class="container">
         <div class="section-head-split reveal">
@@ -808,30 +1099,57 @@
             <h2 class="stitle">Статьи, руководства и исследования о Хрониках Акаши</h2>
           </div>
           <p class="section-head-desc">
-            Подробные материалы без воды и мистического тумана: как устроена библиотека Души, как формулировать вопросы, как работают родовые программы и чем отличается работа с проводником.
+            Подробные материалы без воды и мистического тумана: выберите интересующую рубрику ниже, чтобы быстро перейти к нужным руководствам и ответам.
           </p>
         </div>
 
-        <div class="articles-grid">
-          <a href="hroniki-akashi-raschet-online.html" class="art-card reveal">
+        <div class="articles-filter-bar reveal" role="tablist" aria-label="Фильтр статей базы знаний по темам">
+          <button type="button" class="art-filter-btn active" role="tab" aria-selected="true" data-art-filter="all">
+            <span>Все материалы</span>
+            <span class="art-filter-count">21</span>
+          </button>
+          <button type="button" class="art-filter-btn" role="tab" aria-selected="false" data-art-filter="basics">
+            <span>Основы и метод</span>
+            <span class="art-filter-count">5</span>
+          </button>
+          <button type="button" class="art-filter-btn" role="tab" aria-selected="false" data-art-filter="money-purpose">
+            <span>Деньги и предназначение</span>
+            <span class="art-filter-count">3</span>
+          </button>
+          <button type="button" class="art-filter-btn" role="tab" aria-selected="false" data-art-filter="love-ancestry">
+            <span>Отношения, Род и карма</span>
+            <span class="art-filter-count">5</span>
+          </button>
+          <button type="button" class="art-filter-btn" role="tab" aria-selected="false" data-art-filter="practice">
+            <span>Практика и подготовка</span>
+            <span class="art-filter-count">5</span>
+          </button>
+          <button type="button" class="art-filter-btn" role="tab" aria-selected="false" data-art-filter="reviews-pricing">
+            <span>Отзывы и стоимость</span>
+            <span class="art-filter-count">3</span>
+          </button>
+        </div>
+
+        <div class="articles-grid" id="articles-grid">
+          <a href="hroniki-akashi-raschet-online.html" class="art-card reveal" data-cat="money-purpose">
             <div class="art-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
             </div>
-            <h3>Расчёт Хроник Акаши онлайн по дате рождения и экспресс-тест</h3>
+            <h3>Хроники Акаши по дате рождения: рассчитать онлайн бесплатно</h3>
             <p>Бесплатный калькулятор базового кода Души из 22 архетипов и интерактивный тест из 3 шагов для формирования вашего запроса.</p>
             <span class="art-arrow">Открыть расчёт →</span>
           </a>
 
-          <a href="chto-takoe-hroniki-akashi.html" class="art-card reveal rd1">
+          <a href="chto-takoe-hroniki-akashi.html" class="art-card reveal rd1" data-cat="basics">
             <div class="art-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
             </div>
-            <h3>Что такое Хроники Акаши (акашические записи) простыми словами</h3>
-            <p>Полный гид без мистики: как устроено информационное поле Вселенной, что там хранится и чем чтение отличается от гадания.</p>
+            <h3>Что такое Хроники Акаши (акашические и акашийские записи) простыми словами</h3>
+            <p>Полный гид без мистики: как устроено поле и записи Акаши, что там можно узнать и как с ними работать.</p>
             <span class="art-arrow">Читать статью →</span>
           </a>
 
-          <a href="prednaznachenie.html" class="art-card reveal rd2">
+          <a href="prednaznachenie.html" class="art-card reveal rd2" data-cat="money-purpose">
             <div class="art-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
             </div>
@@ -840,7 +1158,7 @@
             <span class="art-arrow">Читать статью →</span>
           </a>
 
-          <a href="dengi-bloki.html" class="art-card reveal">
+          <a href="dengi-bloki.html" class="art-card reveal" data-cat="money-purpose">
             <div class="art-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
             </div>
@@ -849,7 +1167,7 @@
             <span class="art-arrow">Читать статью →</span>
           </a>
 
-          <a href="otnosheniya.html" class="art-card reveal rd1">
+          <a href="otnosheniya.html" class="art-card reveal rd1" data-cat="love-ancestry">
             <div class="art-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
             </div>
@@ -858,7 +1176,7 @@
             <span class="art-arrow">Читать статью →</span>
           </a>
 
-          <a href="stoimost-sessii-hroniki-akashi.html" class="art-card reveal rd2">
+          <a href="stoimost-sessii-hroniki-akashi.html" class="art-card reveal rd2" data-cat="reviews-pricing">
             <div class="art-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
             </div>
@@ -866,103 +1184,141 @@
             <p>Подробно о форматах работы, бесплатной первой встрече, философии оплаты по сердцу и сервисе Tribute для карт всего мира.</p>
             <span class="art-arrow">Узнать условия →</span>
           </a>
-        </div>
 
-        <div class="articles-more-wrap reveal">
-          <details class="articles-more-details">
-            <summary class="btn-ghost articles-more-btn">Показать все 21 статью Базы знаний ↓</summary>
-            <div class="articles-grid">
-              <a href="voprosy-dlya-khronik.html" class="art-card">
-                <h3>100 вопросов к Хроникам Акаши: примеры сильных формулировок</h3>
-                <p>Готовые списки глубоких вопросов по сферам денег, предназначения, здоровья, отношений и прошлых воплощений.</p>
-                <span class="art-arrow">Читать статью →</span>
-              </a>
-
-              <a href="proshlye-zhizni.html" class="art-card">
-                <h3>Прошлые жизни в Хрониках Акаши: как опыт Души влияет на настоящее</h3>
-                <p>Зачем смотреть прошлые воплощения, откуда берутся необъяснимые страхи и как исцелить старые кармические отпечатки.</p>
-                <span class="art-arrow">Читать статью →</span>
-              </a>
-
-              <a href="rodovye-programmy.html" class="art-card">
-                <h3>Родовые программы и сценарии: диагностика и исцеление</h3>
-                <p>Как переплетения с судьбами предков влияют на ваши деньги, семью и жизненную силу, и как вернуть чужой груз.</p>
-                <span class="art-arrow">Читать статью →</span>
-              </a>
-
-              <a href="rasstavnovki-hroniki.html" class="art-card">
-                <h3>Чем Хроники Акаши отличаются от системных расстановок по Хеллингеру</h3>
-                <p>Сравнение двух методов и почему их объединение в одной сессии даёт самую полную картину и устойчивый результат.</p>
-                <span class="art-arrow">Читать статью →</span>
-              </a>
-
-              <a href="sistemnye-rasstanovki-online.html" class="art-card">
-                <h3>Системные расстановки онлайн: как работает поле на расстоянии</h3>
-                <p>Как проходит индивидуальная онлайн-расстановка, какие родовые запросы она решает и почему расстояние не помеха.</p>
-                <span class="art-arrow">Читать статью →</span>
-              </a>
-
-              <a href="meditaciya-hroniki-akashi.html" class="art-card">
-                <h3>Открывающая и закрывающая молитва в Хроники Акаши и медитация входа</h3>
-                <p>Классический текст Священной молитвы Пути, правила настройки и техника безопасности при соприкосновении с Полем.</p>
-                <span class="art-arrow">Читать статью →</span>
-              </a>
-
-              <a href="hroniki-akashi-samostoyatelno.html" class="art-card">
-                <h3>Как войти в Хроники Акаши самостоятельно и почему не получается</h3>
-                <p>Разбор 7 главных ошибок новичков: как отличить голос Души от игр ума и когда необходим опытный проводник.</p>
-                <span class="art-arrow">Читать статью →</span>
-              </a>
-
-              <a href="bezopasnost.html" class="art-card">
-                <h3>Безопасно ли обращаться к Хроникам Акаши: мифы и реальность</h3>
-                <p>Честный разбор главных страхов, эзотерических предрассудков и правил экологичной работы с информационным полем.</p>
-                <span class="art-arrow">Читать статью →</span>
-              </a>
-
-              <a href="hroniki-akashi-i-pravoslavie.html" class="art-card">
-                <h3>Хроники Акаши и православие: грех ли это и взгляд религии</h3>
-                <p>Как соотносятся понятие Книги Жизни, молитвенный настрой, работа с Душой и христианское мировоззрение.</p>
-                <span class="art-arrow">Читать статью →</span>
-              </a>
-
-              <a href="kak-vybrat-provodnika.html" class="art-card">
-                <h3>Как выбрать проводника (чтеца) Хроник Акаши и не ошибиться</h3>
-                <p>Критерии профессионализма, этики и чистоты канала: зелёные и красные флаги при выборе специалиста.</p>
-                <span class="art-arrow">Читать статью →</span>
-              </a>
-
-              <a href="kak-podgotovitsya-k-sessii.html" class="art-card">
-                <h3>Как подготовиться к сессии чтения Хроник Акаши: памятка клиенту</h3>
-                <p>Пошаговая инструкция перед консультацией: как настроиться, составить список вопросов и организовать пространство.</p>
-                <span class="art-arrow">Читать статью →</span>
-              </a>
-
-              <a href="chto-proishodit-posle-sessii.html" class="art-card">
-                <h3>Что происходит после сессии Хроник Акаши: распаковка и интеграция</h3>
-                <p>Как разворачиваются изменения в теле, эмоциях и событиях в первые недели после чтения и как поддержать себя.</p>
-                <span class="art-arrow">Читать статью →</span>
-              </a>
-
-              <a href="knigi-hroniki-akashi.html" class="art-card">
-                <h3>Лучшие книги по Хроникам Акаши — ТОП-7 для глубокого понимания</h3>
-                <p>Обзор ключевых книг Линды Хоу, Роберта Шварца и Эдгара Кейси: с чего начать знакомство с темой.</p>
-                <span class="art-arrow">Читать статью →</span>
-              </a>
-
-              <a href="otzyvy-khroniki-akashi.html" class="art-card">
-                <h3>Отзывы клиентов после сессий в Хрониках Акаши со скриншотами</h3>
-                <p>Большая подборка живых сообщений из Telegram и подробных историй изменений в деньгах, отношениях и реализации.</p>
-                <span class="art-arrow">Смотреть отзывы →</span>
-              </a>
-
-              <a href="hroniki-akashi-otzyvy-realnye.html" class="art-card">
-                <h3>Хроники Акаши — реальные отзывы людей: правда или развод?</h3>
-                <p>Объективный взгляд на метод, ожидания и реальность, сроки наступления изменений и разбор здорового скепсиса.</p>
-                <span class="art-arrow">Читать разбор →</span>
-              </a>
+          <a href="voprosy-dlya-khronik.html" class="art-card reveal" data-cat="practice">
+            <div class="art-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
             </div>
-          </details>
+            <h3>100 вопросов к Хроникам Акаши: примеры сильных формулировок</h3>
+            <p>Готовые списки глубоких вопросов по сферам денег, предназначения, здоровья, отношений и прошлых воплощений.</p>
+            <span class="art-arrow">Читать статью →</span>
+          </a>
+
+          <a href="proshlye-zhizni.html" class="art-card reveal rd1" data-cat="love-ancestry">
+            <div class="art-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3>Прошлые жизни в Хрониках Акаши: как опыт Души влияет на настоящее</h3>
+            <p>Зачем смотреть прошлые воплощения, откуда берутся необъяснимые страхи и как исцелить старые кармические отпечатки.</p>
+            <span class="art-arrow">Читать статью →</span>
+          </a>
+
+          <a href="rodovye-programmy.html" class="art-card reveal rd2" data-cat="love-ancestry">
+            <div class="art-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>Родовые программы и сценарии: список установок и как с ними работать</h3>
+            <p>Как переплетения с судьбами предков влияют на ваши деньги, семью и жизненную силу, и как вернуть чужой груз.</p>
+            <span class="art-arrow">Читать статью →</span>
+          </a>
+
+          <a href="rasstavnovki-hroniki.html" class="art-card reveal" data-cat="love-ancestry">
+            <div class="art-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            </div>
+            <h3>Чем Хроники Акаши отличаются от системных расстановок по Хеллингеру</h3>
+            <p>Сравнение двух методов и почему их объединение в одной сессии даёт самую полную картину и устойчивый результат.</p>
+            <span class="art-arrow">Читать статью →</span>
+          </a>
+
+          <a href="sistemnye-rasstanovki-online.html" class="art-card reveal rd1" data-cat="love-ancestry">
+            <div class="art-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h3>Системные расстановки онлайн: как работает поле на расстоянии</h3>
+            <p>Как проходит индивидуальная онлайн-расстановка, какие родовые запросы она решает и почему расстояние не помеха.</p>
+            <span class="art-arrow">Читать статью →</span>
+          </a>
+
+          <a href="meditaciya-hroniki-akashi.html" class="art-card reveal rd2" data-cat="practice">
+            <div class="art-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <h3>Открывающая и закрывающая молитва в Хроники Акаши и медитация входа</h3>
+            <p>Классический текст Священной молитвы Пути, правила настройки и техника безопасности при соприкосновении с Полем.</p>
+            <span class="art-arrow">Читать статью →</span>
+          </a>
+
+          <a href="hroniki-akashi-samostoyatelno.html" class="art-card reveal" data-cat="practice">
+            <div class="art-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <h3>Как войти в Хроники Акаши самостоятельно: как получить доступ и подключиться</h3>
+            <p>Пошаговая техника входа, 7 главных ошибок новичков и как отличить голос Души от игр ума.</p>
+            <span class="art-arrow">Читать статью →</span>
+          </a>
+
+          <a href="bezopasnost.html" class="art-card reveal rd1" data-cat="basics">
+            <div class="art-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            </div>
+            <h3>Хроники Акаши: в чём опасность, мифы о вреде и реальная безопасность</h3>
+            <p>Честный разбор главных страхов, реальных ошибок новичков и правил экологичной работы с информационным полем.</p>
+            <span class="art-arrow">Читать статью →</span>
+          </a>
+
+          <a href="hroniki-akashi-i-pravoslavie.html" class="art-card reveal rd2" data-cat="basics">
+            <div class="art-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>
+            </div>
+            <h3>Хроники Акаши и православие: грех ли это и взгляд религии</h3>
+            <p>Как соотносятся понятие Книги Жизни, молитвенный настрой, работа с Душой и христианское мировоззрение.</p>
+            <span class="art-arrow">Читать статью →</span>
+          </a>
+
+          <a href="kak-vybrat-provodnika.html" class="art-card reveal" data-cat="basics">
+            <div class="art-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <h3>Как выбрать проводника (чтеца) Хроник Акаши и не ошибиться</h3>
+            <p>Критерии профессионализма, этики и чистоты канала: зелёные и красные флаги при выборе специалиста.</p>
+            <span class="art-arrow">Читать статью →</span>
+          </a>
+
+          <a href="kak-podgotovitsya-k-sessii.html" class="art-card reveal rd1" data-cat="practice">
+            <div class="art-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            <h3>Как подготовиться к сессии чтения Хроник Акаши: памятка клиенту</h3>
+            <p>Пошаговая инструкция перед консультацией: как настроиться, составить список вопросов и организовать пространство.</p>
+            <span class="art-arrow">Читать статью →</span>
+          </a>
+
+          <a href="chto-proishodit-posle-sessii.html" class="art-card reveal rd2" data-cat="practice">
+            <div class="art-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <h3>Что происходит после сессии Хроник Акаши: распаковка и интеграция</h3>
+            <p>Как разворачиваются изменения в теле, эмоциях и событиях в первые недели после чтения и как поддержать себя.</p>
+            <span class="art-arrow">Читать статью →</span>
+          </a>
+
+          <a href="knigi-hroniki-akashi.html" class="art-card reveal" data-cat="basics">
+            <div class="art-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            </div>
+            <h3>Лучшие книги по Хроникам Акаши — ТОП-7 для глубокого понимания</h3>
+            <p>Обзор ключевых книг Линды Хоу, Роберта Шварца и Эдгара Кейси: с чего начать знакомство с темой.</p>
+            <span class="art-arrow">Читать статью →</span>
+          </a>
+
+          <a href="otzyvy-khroniki-akashi.html" class="art-card reveal rd1" data-cat="reviews-pricing">
+            <div class="art-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h3>Отзывы клиентов после сессий в Хрониках Акаши со скриншотами</h3>
+            <p>Большая подборка живых сообщений из Telegram и подробных историй изменений в деньгах, отношениях и реализации.</p>
+            <span class="art-arrow">Смотреть отзывы →</span>
+          </a>
+
+          <a href="hroniki-akashi-otzyvy-realnye.html" class="art-card reveal rd2" data-cat="reviews-pricing">
+            <div class="art-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+            <h3>Хроники Акаши — реальные и отрицательные отзывы: опыт тех, кто пробовал</h3>
+            <p>Объективный взгляд на метод, почему бывают отрицательные отзывы на форумах и разбор здорового скепсиса.</p>
+            <span class="art-arrow">Читать разбор →</span>
+          </a>
         </div>
       </div>
     </section>
@@ -990,6 +1346,12 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.664 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
               <span>Написать Елене в Telegram (@sprosiuakashi)</span>
             </a>
+            <div class="contact-backup-row">
+              <button type="button" class="btn-copy-tg" data-copy-tg="@sprosiuakashi" aria-label="Скопировать ник @sprosiuakashi для поиска в Telegram">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Не открывается Telegram? Нажмите, чтобы скопировать ник @sprosiuakashi</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -1078,7 +1440,24 @@
     <span>Бесплатная диагностика</span>
   </a>
 
-  <!-- Interactive Scripts (Navigation, FAQ, Tagline Reveal, 22-Archetype Calculator, Scroll Reveal, Analytics Goals) -->
+  <!-- Lightbox Modal for Review Screenshots -->
+  <div class="lightbox-overlay" id="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Просмотр скриншота отзыва" aria-hidden="true">
+    <div class="lightbox-dialog">
+      <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Закрыть изображение">×</button>
+      <img src="tg-review-1.webp" alt="" class="lightbox-img" id="lightbox-img">
+      <p class="lightbox-caption" id="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <!-- Cookie Consent Banner (152-ФЗ / GDPR) -->
+  <div class="cookie-banner" id="cookie-banner" role="region" aria-label="Уведомление об использовании файлов cookie">
+    <p>
+      Мы используем файлы cookie и сервис Яндекс.Метрика для анализа работы сайта и улучшения качества материалов в соответствии с <a href="policy.html">Политикой конфиденциальности</a>.
+    </p>
+    <button type="button" class="cookie-accept-btn" id="cookie-accept-btn">Понятно</button>
+  </div>
+
+  <!-- Interactive Scripts (Navigation, FAQ, Tagline Reveal, 22-Archetype Calculator, Quiz, Case Tabs, Article Filter, Lightbox, Scroll Spy, Analytics Goals) -->
   <script>
     (function() {
       // 1. Floating Navigation Scrolled State & Mobile Drawer
@@ -1190,6 +1569,9 @@
         22: { title: "Код 22 · Архетип Высшей Свободы и Доверия", desc: "Способность легко начинать с нуля, нестандартно мыслить и жить из внутренней радости. Ключевой урок Души: соединить внутреннюю свободу со взрослой опорой и ответственностью." }
       };
 
+      let currentSoulCodeTitle = '';
+      let currentSoulDate = '';
+
       const calcForm = document.getElementById('home-calc-form');
       const dayIn = document.getElementById('home-dob-day');
       const monthIn = document.getElementById('home-dob-month');
@@ -1242,6 +1624,8 @@
           const romanEl = document.getElementById('home-calc-roman');
           const symbolEl = document.getElementById('home-calc-symbol');
           const dateFormatted = (d < 10 ? '0' + d : d) + '.' + (m < 10 ? '0' + m : m) + '.' + y;
+          currentSoulCodeTitle = item.title;
+          currentSoulDate = dateFormatted;
           if (romanEl) romanEl.textContent = romans[sum] || sum;
           if (symbolEl) symbolEl.textContent = '✦ Старший Аркан ' + (romans[sum] || sum) + ' · Вибрация Души';
           if (badgeEl) badgeEl.textContent = 'Дата рождения: ' + dateFormatted + ' · Код воплощения: ' + sum;
@@ -1257,7 +1641,264 @@
         });
       }
 
-      // 5. Scroll Reveal (.reveal -> .visible)
+      // 4b. Unified 3-Step Interactive Diagnostic Quiz
+      const quizData = {
+        money: {
+          sphere: 'Деньги и реализация',
+          badge: '✦ Диагностика сферы: Финансы и масштаб',
+          title: 'Вероятный источник: кармический обет нестяжательства или родовой потолок дохода',
+          desc: 'В Хрониках Акаши финансовый потолок чаще всего связан либо со старым обетом Души («большие деньги опасны»), либо с бессознательной лояльностью сценарию лишений в родовой системе.',
+          questions: '1. Какой кармический обет или родовой запрет блокирует мой финансовый рост?\n2. В каком направлении и масштабе сейчас лежит мой максимальный денежный поток?\n3. Какое конкретное действие поможет пробить стеклянный потолок без выгорания?'
+        },
+        love: {
+          sphere: 'Отношения и семья',
+          badge: '✦ Диагностика сферы: Отношения и союз',
+          title: 'Вероятный источник: незавершённый кармический контракт или женский сценарий Рода',
+          desc: 'Повторяющиеся типажи партнёров и страх близости указывают на незавершённый урок Души из прошлых воплощений или перенятую программу отношений мамы и бабушки.',
+          questions: '1. Какой кармический контракт связывает меня с этим сценарием в отношениях?\n2. Для какого урока пришли эти отношения и как завершить болезненный цикл?\n3. Что мне важно исцелить, чтобы притянуть гармоничный и зрелый союз?'
+        },
+        purpose: {
+          sphere: 'Предназначение и путь Души',
+          badge: '✦ Диагностика сферы: Предназначение и дары',
+          title: 'Вероятный источник: блокировка авторского канала Души и страх проявленности',
+          desc: 'Ощущение «я живу не свою жизнь» возникает, когда вы переросли старую социальную роль, а память Души зовёт к реализации врождённых талантов и передаче опыта.',
+          questions: '1. В чём заключаются главные врождённые дары и задачи моей Души на это воплощение?\n2. Какой глубинный страх мешает мне заявить о себе и выйти в свой масштаб?\n3. Какой вектор развития принесёт мне одновременно и смысл, и достойный доход?'
+        },
+        ancestry: {
+          sphere: 'Родовые сценарии и энергия',
+          badge: '✦ Диагностика сферы: Энергия и Род',
+          title: 'Вероятный источник: системное переплетение и нарушение иерархии в Роду',
+          desc: 'Хронический упадок сил и ощущение чужого груза на плечах показывают, что вы бессознательно несёте тяжёлую судьбу или ответственность за кого-то из старших в родовой системе.',
+          questions: '1. Чью судьбу или незавершённую боль в родовой системе я сейчас бессознательно замещаю?\n2. Где происходит основная утечка моей жизненной энергии?\n3. Как занять своё законное место в Роду и опереться на благословение предков?'
+        }
+      };
+
+      const quizState = { step1: 'money', step2: '', step3: '' };
+      const qStepLabel = document.getElementById('home-quiz-step-label');
+      const qBarFill = document.getElementById('home-quiz-bar-fill');
+      const qSteps = [
+        document.getElementById('home-q-step-1'),
+        document.getElementById('home-q-step-2'),
+        document.getElementById('home-q-step-3'),
+        document.getElementById('home-q-result')
+      ];
+
+      function setQuizStep(idx) {
+        qSteps.forEach(function(el, i) {
+          if (!el) return;
+          el.classList.toggle('active', i === idx);
+        });
+        if (idx < 3) {
+          if (qStepLabel) qStepLabel.textContent = 'Экспресс-диагностика запроса · Шаг ' + (idx + 1) + ' из 3';
+          if (qBarFill) qBarFill.style.width = ((idx + 1) * 33.33) + '%';
+        } else {
+          if (qStepLabel) qStepLabel.textContent = 'Результат экспресс-диагностики вашего запроса';
+          if (qBarFill) qBarFill.style.width = '100%';
+        }
+      }
+
+      document.querySelectorAll('[data-home-step]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const step = parseInt(btn.getAttribute('data-home-step'), 10);
+          const val = btn.getAttribute('data-home-val');
+          if (step === 1) {
+            quizState.step1 = val;
+            setQuizStep(1);
+          } else if (step === 2) {
+            quizState.step2 = val;
+            setQuizStep(2);
+          } else if (step === 3) {
+            quizState.step3 = val;
+            const info = quizData[quizState.step1] || quizData.money;
+            const rBadge = document.getElementById('home-res-badge');
+            const rTitle = document.getElementById('home-res-title');
+            const rDesc = document.getElementById('home-res-desc');
+            const rQuest = document.getElementById('home-res-questions');
+            const rBtn = document.getElementById('home-res-tg-btn');
+
+            if (rBadge) rBadge.textContent = info.badge;
+            if (rTitle) rTitle.textContent = info.title;
+            if (rDesc) rDesc.textContent = info.desc + ' Ваш ключевой маркер («' + quizState.step2 + '») подтверждает, что решение лежит глубже уровня обычной логики.';
+            if (rQuest) {
+              rQuest.innerHTML = info.questions.split('\n').map(function(line) {
+                return '<div>' + line + '</div>';
+              }).join('');
+            }
+            if (rBtn) {
+              const codePart = currentSoulCodeTitle ? ' Мой код Души: ' + currentSoulCodeTitle + ' (' + currentSoulDate + ').' : '';
+              const msg = 'Здравствуйте, Елена! Прошёл(ла) диагностику на сайте.' + codePart + ' Сфера: ' + info.sphere + '. Ощущение: «' + quizState.step2 + '». Хочу записаться на бесплатную 15-минутную диагностику.';
+              rBtn.href = 'https://t.me/sprosiuakashi?text=' + encodeURIComponent(msg);
+            }
+            setQuizStep(3);
+          }
+        });
+      });
+
+      const qResetBtn = document.getElementById('home-quiz-reset-btn');
+      if (qResetBtn) {
+        qResetBtn.addEventListener('click', function() {
+          setQuizStep(0);
+        });
+      }
+
+      // 5. Case Study Interactive 4-Sphere Tabs
+      const caseTabBtns = document.querySelectorAll('.case-tab-btn');
+      const casePanels = document.querySelectorAll('.case-panel');
+      caseTabBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const targetId = btn.getAttribute('data-case-target');
+          caseTabBtns.forEach(function(b) {
+            const active = b === btn;
+            b.classList.toggle('active', active);
+            b.setAttribute('aria-selected', active ? 'true' : 'false');
+          });
+          casePanels.forEach(function(panel) {
+            panel.classList.toggle('active', panel.id === targetId);
+          });
+        });
+      });
+
+      // 6. Knowledge Base Category Filter (21 Articles)
+      const artFilterBtns = document.querySelectorAll('.art-filter-btn');
+      const artCards = document.querySelectorAll('#articles-grid .art-card');
+      artFilterBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const filter = btn.getAttribute('data-art-filter');
+          artFilterBtns.forEach(function(b) {
+            const active = b === btn;
+            b.classList.toggle('active', active);
+            b.setAttribute('aria-selected', active ? 'true' : 'false');
+          });
+          artCards.forEach(function(card) {
+            const cat = card.getAttribute('data-cat');
+            const match = filter === 'all' || cat === filter;
+            card.classList.toggle('is-hidden', !match);
+            if (match) card.classList.add('visible');
+          });
+        });
+      });
+
+      // 7. Scroll-Spy Active Navigation State (IntersectionObserver)
+      const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+      const spySections = [];
+      navLinks.forEach(function(link) {
+        const id = link.getAttribute('href').slice(1);
+        const sec = document.getElementById(id);
+        if (sec) spySections.push({ id: id, el: sec, link: link });
+      });
+
+      function updateActiveNav() {
+        const scrollPos = window.scrollY + 180;
+        let current = null;
+        spySections.forEach(function(item) {
+          if (item.el.offsetTop <= scrollPos) {
+            current = item;
+          }
+        });
+        navLinks.forEach(function(l) {
+          l.classList.remove('active');
+          l.removeAttribute('aria-current');
+        });
+        if (current) {
+          current.link.classList.add('active');
+          current.link.setAttribute('aria-current', 'true');
+        }
+      }
+      window.addEventListener('scroll', updateActiveNav, { passive: true });
+      updateActiveNav();
+
+      // 8. Click-to-Zoom Lightbox for Telegram Review Screenshots
+      const lbOverlay = document.getElementById('lightbox-overlay');
+      const lbImg = document.getElementById('lightbox-img');
+      const lbCaption = document.getElementById('lightbox-caption');
+      const lbClose = document.getElementById('lightbox-close');
+
+      function closeLightbox() {
+        if (!lbOverlay) return;
+        lbOverlay.classList.remove('open');
+        lbOverlay.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('.tg-review-card img').forEach(function(img) {
+        img.setAttribute('tabindex', '0');
+        img.setAttribute('role', 'button');
+        function openImg() {
+          if (!lbOverlay || !lbImg) return;
+          lbImg.src = img.getAttribute('src');
+          lbImg.alt = img.getAttribute('alt') || 'Скриншот отзыва из Telegram';
+          const card = img.closest('.tg-review-card');
+          const author = card ? card.querySelector('.tg-review-author') : null;
+          if (lbCaption) lbCaption.textContent = author ? author.textContent : (img.getAttribute('alt') || '');
+          lbOverlay.classList.add('open');
+          lbOverlay.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+          if (lbClose) lbClose.focus();
+        }
+        img.addEventListener('click', openImg);
+        img.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openImg();
+          }
+        });
+      });
+
+      if (lbClose) lbClose.addEventListener('click', closeLightbox);
+      if (lbOverlay) {
+        lbOverlay.addEventListener('click', function(e) {
+          if (e.target === lbOverlay) closeLightbox();
+        });
+      }
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && lbOverlay && lbOverlay.classList.contains('open')) {
+          closeLightbox();
+        }
+      });
+
+      // 9. Backup Copy Button for @sprosiuakashi
+      document.querySelectorAll('[data-copy-tg]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const handle = btn.getAttribute('data-copy-tg') || '@sprosiuakashi';
+          const span = btn.querySelector('span');
+          const originalText = span ? span.getAttribute('data-orig') || span.textContent : '';
+          if (span && !span.getAttribute('data-orig')) {
+            span.setAttribute('data-orig', originalText);
+          }
+          function showCopied() {
+            btn.classList.add('copied');
+            if (span) span.textContent = '✓ Ник @sprosiuakashi скопирован в буфер обмена';
+            setTimeout(function() {
+              btn.classList.remove('copied');
+              if (span) span.textContent = originalText;
+            }, 3200);
+          }
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(handle).then(showCopied).catch(showCopied);
+          } else {
+            showCopied();
+          }
+        });
+      });
+
+      // 10. Cookie Consent Banner (localStorage)
+      const cookieBanner = document.getElementById('cookie-banner');
+      const cookieAccept = document.getElementById('cookie-accept-btn');
+      try {
+        if (cookieBanner && !localStorage.getItem('akashi_cookie_accepted')) {
+          setTimeout(function() {
+            cookieBanner.classList.add('visible');
+          }, 900);
+        }
+        if (cookieAccept && cookieBanner) {
+          cookieAccept.addEventListener('click', function() {
+            localStorage.setItem('akashi_cookie_accepted', '1');
+            cookieBanner.classList.remove('visible');
+          });
+        }
+      } catch (err) {}
+
+      // 11. Scroll Reveal (.reveal -> .visible)
       const reveals = document.querySelectorAll('.reveal');
       if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver(function(entries) {
@@ -1274,16 +1915,33 @@
         reveals.forEach(function(el) { el.classList.add('visible'); });
       }
 
-      // 6. Conversion Event Tracking (Yandex.Metrika + GA4)
+      // 12. Conversion & Micro-Conversion Event Tracking (Yandex.Metrika + GA4)
+      function trackGoal(goalName) {
+        if (typeof gtag === 'function') {
+          gtag('event', goalName === 'lead' ? 'generate_lead' : goalName, {
+            'event_category': 'conversion',
+            'event_label': window.location.pathname,
+            'transport_type': 'beacon'
+          });
+        }
+        if (typeof ym === 'function') {
+          ym(112518581, 'reachGoal', goalName, { path: window.location.pathname });
+        }
+      }
+
       document.addEventListener('click', function(e) {
-        var link = e.target.closest('a[href*="t.me/sprosiuakashi"]');
-        if (link) {
-          if (typeof gtag === 'function') {
-            gtag('event', 'generate_lead', {
-              'event_category': 'conversion',
-              'event_label': window.location.pathname,
-              'transport_type': 'beacon'
-            });
+        if (e.target.closest('a[href*="t.me/sprosiuakashi"]')) {
+          trackGoal('lead');
+        } else if (e.target.closest('a[href*="t.me/tribute"]')) {
+          trackGoal('tribute_click');
+        } else if (e.target.closest('a[href*="t.me/akashi_read"]')) {
+          trackGoal('channel_click');
+        } else if (e.target.closest('[data-copy-tg]')) {
+          trackGoal('copy_tg_handle');
+        } else if (e.target.closest('.quiz-opt-btn[data-step="3"]')) {
+          trackGoal('quiz_complete');
+        }
+      });
           }
           if (typeof ym === 'function') {
             ym(112518581, 'reachGoal', 'lead', { path: window.location.pathname });

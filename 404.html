@@ -33,6 +33,7 @@
   <meta name="robots" content="noindex, follow">
   <link rel="canonical" href="https://www.sprosiuakashi.com/404.html">
   <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
@@ -46,6 +47,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Перейти к основному содержанию</a>
 
     <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
 
@@ -95,7 +97,7 @@
     <a href="https://t.me/sprosiuakashi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%95%D0%BB%D0%B5%D0%BD%D0%B0!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%B1%D0%B5%D1%81%D0%BF%D0%BB%D0%B0%D1%82%D0%BD%D1%83%D1%8E%20%D0%B4%D0%B8%D0%B0%D0%B3%D0%BD%D0%BE%D1%81%D1%82%D0%B8%D0%BA%D1%83." target="_blank" rel="noopener noreferrer" class="mob-cta">Написать Елене в Telegram</a>
   </div>
 
-  <main class="page-404">
+  <main class="page-404" id="main-content">
     <span class="badge">✦ Вне поля видимости</span>
     <div class="code-404">404</div>
     <h1>Страница не найдена в этой ветке пространства</h1>
@@ -106,7 +108,9 @@
     <div class="actions-grid">
       <a href="/" class="act-card">
         <div>
-          <span class="act-icon">🏠</span>
+          <span class="act-icon-svg" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </span>
           <div class="act-title">Главная страница</div>
           <div class="act-desc">О проводнике Елене, методе чтения Хроник и системных расстановках</div>
         </div>
@@ -115,7 +119,9 @@
 
       <a href="/hroniki-akashi-raschet-online.html" class="act-card">
         <div>
-          <span class="act-icon">🔮</span>
+          <span class="act-icon-svg" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          </span>
           <div class="act-title">Экспресс-расчёт онлайн</div>
           <div class="act-desc">Узнайте кармический фокус и задачи души по вашей дате рождения</div>
         </div>
@@ -124,7 +130,9 @@
 
       <a href="/stoimost-sessii-hroniki-akashi.html" class="act-card">
         <div>
-          <span class="act-icon">🪙</span>
+          <span class="act-icon-svg" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </span>
           <div class="act-title">Стоимость сессий</div>
           <div class="act-desc">Честные цены, бесплатная диагностика и система донейшн</div>
         </div>
@@ -133,7 +141,9 @@
 
       <a href="https://t.me/sprosiuakashi" target="_blank" rel="noopener noreferrer" class="act-card">
         <div>
-          <span class="act-icon">💬</span>
+          <span class="act-icon-svg" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </span>
           <div class="act-title">Telegram @sprosiuakashi</div>
           <div class="act-desc">Задайте вопрос Елене лично или запишитесь на консультацию</div>
         </div>
@@ -213,27 +223,24 @@
     </div>
   </footer>
 
+    <!-- Lightbox Modal for Review Screenshots -->
+  <div class="lightbox-overlay" id="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Просмотр скриншота отзыва" aria-hidden="true">
+    <div class="lightbox-dialog">
+      <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Закрыть изображение">×</button>
+      <img src="/tg-review-1.webp" alt="" class="lightbox-img" id="lightbox-img">
+      <p class="lightbox-caption" id="lightbox-caption"></p>
+    </div>
+  </div>
 
-    <!-- Conversion Event Tracking -->
-  <script>
-    document.addEventListener('click', function(e) {
-      var link = e.target.closest('a[href*="t.me/sprosiuakashi"]');
-      if (link) {
-        if (typeof gtag === 'function') {
-          gtag('event', 'generate_lead', {
-            'event_category': 'conversion',
-            'event_label': window.location.pathname,
-            'transport_type': 'beacon'
-          });
-        }
-        if (typeof ym === 'function') {
-          ym(112518581, 'reachGoal', 'lead', { path: window.location.pathname });
-        }
-      }
-    });
-  </script>
+  <!-- Cookie Consent Banner (152-ФЗ / GDPR) -->
+  <div class="cookie-banner" id="cookie-banner" role="region" aria-label="Уведомление об использовании файлов cookie">
+    <p>
+      Мы используем файлы cookie и сервис Яндекс.Метрика для анализа работы сайта и улучшения качества материалов в соответствии с <a href="/policy.html">Политикой конфиденциальности</a>.
+    </p>
+    <button type="button" class="cookie-accept-btn" id="cookie-accept-btn">Понятно</button>
+  </div>
 
-  <!-- Unified Navigation, Progress Bar & Article TOC -->
+  <!-- Unified Navigation, Progress Bar, Active Nav, Lightbox, Copy Helper, Cookie Banner & Article TOC -->
   <script>
     (function () {
       var nav = document.getElementById('site-nav');
@@ -275,11 +282,30 @@
         });
       }
 
+      // Active Navigation Indicator for Internal Pages
+      var path = window.location.pathname.split('/').pop() || '';
+      var matchedNav = false;
+      document.querySelectorAll('.nav-links a').forEach(function (a) {
+        var href = a.getAttribute('href') || '';
+        if (path && href.indexOf(path) !== -1) {
+          a.classList.add('active');
+          a.setAttribute('aria-current', 'page');
+          matchedNav = true;
+        }
+      });
+      if (!matchedNav && path && path !== '404.html' && path !== 'policy.html') {
+        var kbLink = document.querySelector('.nav-links a[href*="#articles"]');
+        if (kbLink) {
+          kbLink.classList.add('active');
+          kbLink.setAttribute('aria-current', 'true');
+        }
+      }
+
       // Automatic Table of Contents for Articles
       var article = document.querySelector('article.page-wrap');
       if (article && !document.getElementById('article-toc')) {
         var headings = Array.prototype.slice.call(article.querySelectorAll('h2')).filter(function (h) {
-          return !h.closest('.cta-block') && !h.closest('.quiz-card');
+          return !h.closest('.cta-block') && !h.closest('.quiz-card') && !h.closest('.calc-dob-card');
         });
         if (headings.length >= 3) {
           var toc = document.createElement('nav');
@@ -312,6 +338,149 @@
           firstH2.parentNode.insertBefore(toc, firstH2);
         }
       }
+
+      // Click-to-Zoom Lightbox for Telegram Review Screenshots
+      var lbOverlay = document.getElementById('lightbox-overlay');
+      var lbImg = document.getElementById('lightbox-img');
+      var lbCaption = document.getElementById('lightbox-caption');
+      var lbClose = document.getElementById('lightbox-close');
+
+      function closeLightbox() {
+        if (!lbOverlay) return;
+        lbOverlay.classList.remove('open');
+        lbOverlay.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('.tg-review-img img, .tg-review-card img').forEach(function (img) {
+        img.setAttribute('tabindex', '0');
+        img.setAttribute('role', 'button');
+        function openImg() {
+          if (!lbOverlay || !lbImg) return;
+          lbImg.src = img.getAttribute('src');
+          lbImg.alt = img.getAttribute('alt') || 'Скриншот отзыва из Telegram';
+          var card = img.closest('.tg-review-card');
+          var author = card ? (card.querySelector('.tg-review-author') || card.querySelector('.tg-review-title')) : null;
+          if (lbCaption) lbCaption.textContent = author ? author.textContent : (img.getAttribute('alt') || '');
+          lbOverlay.classList.add('open');
+          lbOverlay.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+          if (lbClose) lbClose.focus();
+        }
+        img.addEventListener('click', openImg);
+        img.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openImg();
+          }
+        });
+      });
+
+      if (lbClose) lbClose.addEventListener('click', closeLightbox);
+      if (lbOverlay) {
+        lbOverlay.addEventListener('click', function (e) {
+          if (e.target === lbOverlay) closeLightbox();
+        });
+      }
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && lbOverlay && lbOverlay.classList.contains('open')) {
+          closeLightbox();
+        }
+      });
+
+      // Backup Copy Button for @sprosiuakashi
+      document.querySelectorAll('[data-copy-tg]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var handle = btn.getAttribute('data-copy-tg') || '@sprosiuakashi';
+          var span = btn.querySelector('span');
+          var orig = span ? (span.getAttribute('data-orig') || span.textContent) : '';
+          if (span && !span.getAttribute('data-orig')) span.setAttribute('data-orig', orig);
+          function done() {
+            btn.classList.add('copied');
+            if (span) span.textContent = '✓ Ник @sprosiuakashi скопирован в буфер обмена';
+            setTimeout(function () {
+              btn.classList.remove('copied');
+              if (span) span.textContent = orig;
+            }, 3200);
+          }
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(handle).then(done).catch(done);
+          } else {
+            done();
+          }
+        });
+      });
+
+      // Share URL Copy & Micro-Conversion Tracking
+      document.querySelectorAll('[data-copy-url]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var url = btn.getAttribute('data-copy-url') || window.location.href;
+          var span = btn.querySelector('span');
+          var orig = span ? (span.getAttribute('data-orig') || span.textContent) : '';
+          if (span && !span.getAttribute('data-orig')) span.setAttribute('data-orig', orig);
+          function done() {
+            btn.classList.add('copied');
+            if (span) span.textContent = '✓ Ссылка скопирована';
+            setTimeout(function () {
+              btn.classList.remove('copied');
+              if (span) span.textContent = orig;
+            }, 3000);
+          }
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(url).then(done).catch(done);
+          } else {
+            done();
+          }
+        });
+      });
+
+      function trackGoal(goalName) {
+        if (typeof gtag === 'function') {
+          gtag('event', goalName === 'lead' ? 'generate_lead' : goalName, {
+            'event_category': 'conversion',
+            'event_label': window.location.pathname,
+            'transport_type': 'beacon'
+          });
+        }
+        if (typeof ym === 'function') {
+          ym(112518581, 'reachGoal', goalName, { path: window.location.pathname });
+        }
+      }
+
+      document.addEventListener('click', function (e) {
+        if (e.target.closest('a[href*="t.me/sprosiuakashi"]')) {
+          trackGoal('lead');
+        } else if (e.target.closest('a[href*="t.me/tribute"]')) {
+          trackGoal('tribute_click');
+        } else if (e.target.closest('a[href*="t.me/akashi_read"]')) {
+          trackGoal('channel_click');
+        } else if (e.target.closest('[data-copy-tg]')) {
+          trackGoal('copy_tg_handle');
+        } else if (e.target.closest('.btn-share-tg') || e.target.closest('[data-copy-url]')) {
+          trackGoal('share_article');
+        } else if (e.target.closest('#dob-calc-btn')) {
+          trackGoal('calc_dob');
+        } else if (e.target.closest('.quiz-opt-btn[data-step="3"]')) {
+          trackGoal('quiz_complete');
+        }
+      });
+
+      // Cookie Consent Banner
+      var cookieBanner = document.getElementById('cookie-banner');
+      var cookieAccept = document.getElementById('cookie-accept-btn');
+      try {
+        if (cookieBanner && !localStorage.getItem('akashi_cookie_accepted')) {
+          setTimeout(function () {
+            cookieBanner.classList.add('visible');
+          }, 900);
+        }
+        if (cookieAccept && cookieBanner) {
+          cookieAccept.addEventListener('click', function () {
+            localStorage.setItem('akashi_cookie_accepted', '1');
+            cookieBanner.classList.remove('visible');
+          });
+        }
+      } catch (err) {}
     })();
   </script>
 </body>
