@@ -2202,10 +2202,10 @@ nav.site-nav.scrolled {
   color: var(--muted);
 }
 
-/* ─── 20. SCROLL REVEAL (Spacing-400 = 32px, 700ms on base curve) ─── */
+/* ─── 20. SCROLL REVEAL (Always visible for instant LCP & zero blank-text risk) ─── */
 .reveal {
-  opacity: 0;
-  transform: translateY(32px);
+  opacity: 1;
+  transform: translateY(0);
   transition: opacity 700ms var(--ease-out),
               transform 700ms var(--ease-out);
 }
