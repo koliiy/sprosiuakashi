@@ -355,6 +355,7 @@
               <span><strong>Внутренний стоп-кран</strong>Умом всё понимаю, но перед важным шагом сковывает тревога</span>
             </button>
           </div>
+          <button type="button" class="quiz-reset" onclick="goBackQuiz(1)">← Вернуться к выбору сферы</button>
         </div>
 
         <!-- Step 3 -->
@@ -375,6 +376,7 @@
               <span><strong>Действую на опережение</strong>Хочу сверить курс с планом Души и раскрыть потенциал</span>
             </button>
           </div>
+          <button type="button" class="quiz-reset" onclick="goBackQuiz(2)">← Назад к предыдущему шагу</button>
         </div>
 
         <!-- Step 4: Result -->
@@ -392,6 +394,7 @@
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.664 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
                 <span>Обсудить на бесплатной диагностике в Telegram →</span>
               </a>
+              <button type="button" class="btn-ghost" id="online-quiz-copy-btn" onclick="copyOnlineQuizQuestions()">Скопировать список вопросов</button>
               <button type="button" class="btn-ghost" onclick="resetQuiz()">← Пройти экспресс-тест заново</button>
             </div>
           </div>
@@ -400,14 +403,67 @@
 
       <script>
         let calculatedArcana = '';
-        let quizState = { key: 'money', sphere: '', symptom: '', duration: '' };
+        let quizState = { key: 'money', sphere: '', symptomKey: 'cycle', symptom: '', duration: '' };
 
-        const sphereQuestions = {
-          money: '1. Какой кармический обет или родовой запрет удерживает мой финансовый потолок?\n2. В чём моя точка кратного роста дохода без выгорания?',
-          love: '1. Какой кармический контракт стоит за повторяющимся сценарием в отношениях?\n2. Как завершить старый урок и открыть пространство для гармоничного союза?',
-          purpose: '1. Каковы главные врождённые дары и миссия моей Души на текущее воплощение?\n2. Какой вектор реализации соединит смысл, радость и достойный доход?',
-          ancestry: '1. Чью судьбу в родовой системе я бессознательно замещаю?\n2. Как вернуть чужой груз и восстановить поток собственной жизненной силы?'
+        const sphereRootQuestions = {
+          money: 'Какой кармический обет или родовой запрет удерживает мой финансовый потолок?',
+          love: 'Какой кармический контракт стоит за повторяющимся сценарием в отношениях?',
+          purpose: 'Каковы главные врождённые дары и миссия моей Души на текущее воплощение?',
+          ancestry: 'Чью судьбу в родовой системе я бессознательно замещаю?'
         };
+
+        function buildOnlineQuizQuestions(state) {
+          const root = sphereRootQuestions[state.key] || sphereRootQuestions.money;
+          const list = [root];
+
+          if (state.key === 'purpose' || state.key === 'money') {
+            if (state.symptomKey === 'fear') {
+              list.push('Что блокирует возможность сменить работу?');
+              list.push('Что вызывает выгорание и как из него выйти?');
+            } else if (state.symptomKey === 'burden') {
+              list.push('Что вызывает выгорание и как из него выйти?');
+              list.push('Что блокирует возможность сменить работу?');
+            } else if (state.symptomKey === 'wall') {
+              list.push('Что блокирует возможность сменить работу и пробить стеклянный потолок?');
+              list.push('Что вызывает выгорание и как из него выйти?');
+            } else {
+              list.push('Что вызывает выгорание и как из него выйти?');
+              list.push('Что блокирует возможность сменить работу?');
+            }
+          } else if (state.key === 'love') {
+            if (state.symptomKey === 'cycle') {
+              list.push('Для какого урока приходят эти отношения и как завершить повторяющийся цикл?');
+            } else if (state.symptomKey === 'wall') {
+              list.push('Какой внутренний барьер мешает перейти к тёплому и взаимному союзу?');
+            } else if (state.symptomKey === 'burden') {
+              list.push('Что вызывает эмоциональное выгорание в паре и какую программу Рода я повторяю?');
+            } else {
+              list.push('Какой страх близости или прошлый опыт блокирует создание счастливой семьи?');
+            }
+            list.push('Как завершить старый урок и открыть пространство для гармоничного союза?');
+          } else {
+            list.push('Что вызывает выгорание и как из него выйти?');
+            if (state.symptomKey === 'fear') {
+              list.push('Что блокирует возможность сменить работу и выйти из родового сценария в свою жизнь?');
+            } else {
+              list.push('Как вернуть чужой груз и восстановить поток собственной жизненной силы?');
+            }
+          }
+
+          if (state.duration.indexOf('До 1 года') !== -1) {
+            list.push('Как выйти из того состояния, в котором нахожусь сейчас?');
+          } else if (state.duration.indexOf('От 2 до 5 лет') !== -1) {
+            list.push('Как выйти из того состояния, в котором нахожусь сейчас, и сдвинуть затяжной потолок?');
+          } else if (state.duration.indexOf('Почти всю') !== -1) {
+            list.push('Как выйти из того состояния, в котором нахожусь сейчас, и закрыть этот многолетний сценарий?');
+          } else {
+            list.push('Как выйти из того состояния, в котором нахожусь сейчас, и раскрыть свой истинный потенциал?');
+          }
+
+          return list.map(function(q, i) {
+            return (i + 1) + '. ' + q;
+          }).join('<br>');
+        }
 
         function selectQuiz(step, keyOrVal, label) {
           const pLabel = document.getElementById('quiz-progress-label');
@@ -420,6 +476,7 @@
             if (pLabel) pLabel.textContent = 'Шаг 2 из 3 · Ключевой маркер';
             if (pFill) pFill.style.width = '66.66%';
           } else if (step === 2) {
+            quizState.symptomKey = keyOrVal;
             quizState.symptom = label;
             document.getElementById('quiz-step-2').classList.remove('active');
             document.getElementById('quiz-step-3').classList.add('active');
@@ -432,19 +489,56 @@
             if (pLabel) pLabel.textContent = 'Диагностический профиль сформирован';
 
             document.getElementById('res-title').textContent = 'Фокус для работы: ' + quizState.sphere;
-            const qText = sphereQuestions[quizState.key] || sphereQuestions.money;
+            const qHtml = buildOnlineQuizQuestions(quizState);
+            const qPlain = qHtml.replace(/<br>/g, '\n');
             document.getElementById('res-summary').innerHTML =
               '<div><strong>Сфера и симптом:</strong> ' + quizState.sphere + ' · ' + quizState.symptom + ' (' + quizState.duration + ')</div>' +
-              '<div class="mt-24">' + qText.replace(/\n/g, '<br>') + '</div>';
+              '<div class="mt-24" id="online-quiz-q-list">' + qHtml + '</div>';
 
             const codeInfo = calculatedArcana ? ' Мой рассчитанный код Души: ' + calculatedArcana + '.' : '';
-            const msg = 'Здравствуйте, Елена! Прошёл(ла) экспресс-тест на сайте.' + codeInfo + ' Мой запрос: ' + quizState.sphere + ' (' + quizState.symptom + ', ' + quizState.duration + '). Хочу записаться на бесплатную диагностику.';
+            const msg = 'Здравствуйте, Елена! Прошёл(ла) экспресс-тест на сайте.' + codeInfo + ' Мой запрос: ' + quizState.sphere + ' (' + quizState.symptom + ', ' + quizState.duration + ').\nМои вопросы к Полю:\n' + qPlain + '\nХочу записаться на бесплатную диагностику.';
             document.getElementById('res-btn-tg').href = 'https://t.me/sprosiuakashi?text=' + encodeURIComponent(msg);
           }
         }
 
+        function goBackQuiz(targetStep) {
+          const pLabel = document.getElementById('quiz-progress-label');
+          const pFill = document.getElementById('quiz-bar-fill');
+          document.getElementById('quiz-step-1').classList.toggle('active', targetStep === 1);
+          document.getElementById('quiz-step-2').classList.toggle('active', targetStep === 2);
+          document.getElementById('quiz-step-3').classList.remove('active');
+          document.getElementById('quiz-step-result').classList.remove('active');
+          if (targetStep === 1) {
+            if (pLabel) pLabel.textContent = 'Шаг 1 из 3 · Фокус сферы';
+            if (pFill) pFill.style.width = '33.33%';
+          } else if (targetStep === 2) {
+            if (pLabel) pLabel.textContent = 'Шаг 2 из 3 · Ключевой маркер';
+            if (pFill) pFill.style.width = '66.66%';
+          }
+        }
+
+        function copyOnlineQuizQuestions() {
+          const qEl = document.getElementById('online-quiz-q-list');
+          const btn = document.getElementById('online-quiz-copy-btn');
+          if (!qEl || !btn) return;
+          const text = qEl.innerHTML.replace(/<br\s*\/?>/gi, '\n');
+          const orig = btn.getAttribute('data-orig') || btn.textContent;
+          if (!btn.getAttribute('data-orig')) btn.setAttribute('data-orig', orig);
+          function done() {
+            btn.textContent = '✓ Вопросы скопированы в буфер';
+            setTimeout(function() {
+              btn.textContent = orig;
+            }, 3000);
+          }
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(done).catch(done);
+          } else {
+            done();
+          }
+        }
+
         function resetQuiz() {
-          quizState = { key: 'money', sphere: '', symptom: '', duration: '' };
+          quizState = { key: 'money', sphere: '', symptomKey: 'cycle', symptom: '', duration: '' };
           document.getElementById('quiz-step-result').classList.remove('active');
           document.getElementById('quiz-step-3').classList.remove('active');
           document.getElementById('quiz-step-2').classList.remove('active');
@@ -725,7 +819,7 @@
             <li><a href="/dengi-bloki.html">Деньги и финансовые блоки</a></li>
             <li><a href="/otnosheniya.html">Кармические отношения</a></li>
             <li><a href="/rodovye-programmy.html">Родовые программы и сценарии</a></li>
-            <li><a href="/voprosy-dlya-khronik.html">100 вопросов к Хроникам</a></li>
+            <li><a href="/voprosy-dlya-khronik.html">35+ вопросов к Хроникам</a></li>
           </ul>
         </div>
 

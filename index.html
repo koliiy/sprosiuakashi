@@ -562,6 +562,7 @@
                   <span><strong>Внутренний стоп-кран</strong>Умом понимаю, что пора делать шаг, но тело сковывает необъяснимый страх</span>
                 </button>
               </div>
+              <button type="button" class="quiz-reset" data-home-back="0">← Вернуться к выбору сферы</button>
             </div>
 
             <!-- Step 3 -->
@@ -582,6 +583,7 @@
                   <span><strong>Хочу ясности на старте нового этапа</strong>Сверить курс с планом Души перед важным проектом, переездом или решением</span>
                 </button>
               </div>
+              <button type="button" class="quiz-reset" data-home-back="1">← Назад к предыдущему шагу</button>
             </div>
 
             <!-- Quiz Result -->
@@ -598,6 +600,9 @@
                   <a href="https://t.me/sprosiuakashi" target="_blank" rel="noopener noreferrer" class="btn-tg" id="home-res-tg-btn">
                     <span>Записаться на бесплатную диагностику с этим разбором</span>
                   </a>
+                  <button type="button" class="btn-ghost" id="home-quiz-copy-btn">
+                    <span>Скопировать список вопросов</span>
+                  </button>
                   <button type="button" class="btn-ghost" id="home-quiz-reset-btn">
                     <span>Пройти тест заново ↺</span>
                   </button>
@@ -1021,7 +1026,7 @@
               </button>
               <div class="faq-body">
                 <div class="faq-body-inner">
-                  Вам не нужно готовить идеальные формулировки заранее. Именно для этого существует бесплатная 15-минутная диагностическая встреча: вы просто рассказываете своими словами, что вас беспокоит, а я помогаю выделить корень и составить точные, глубокие вопросы к Полю. Также вы можете заглянуть в подборку <a href="voprosy-dlya-khronik.html" class="faq-link">«100 лучших вопросов к Хроникам Акаши»</a>.
+                  Вам не нужно готовить идеальные формулировки заранее. Именно для этого существует бесплатная 15-минутная диагностическая встреча: вы просто рассказываете своими словами, что вас беспокоит, а я помогаю выделить корень и составить точные, глубокие вопросы к Полю. Также вы можете заглянуть в подборку <a href="voprosy-dlya-khronik.html" class="faq-link">«35+ лучших вопросов к Хроникам Акаши»</a>.
                 </div>
               </div>
             </div>
@@ -1189,7 +1194,7 @@
             <div class="art-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
             </div>
-            <h3>100 вопросов к Хроникам Акаши: примеры сильных формулировок</h3>
+            <h3>35+ вопросов к Хроникам Акаши: примеры сильных формулировок</h3>
             <p>Готовые списки глубоких вопросов по сферам денег, предназначения, здоровья, отношений и прошлых воплощений.</p>
             <span class="art-arrow">Читать статью →</span>
           </a>
@@ -1409,7 +1414,7 @@
             <li><a href="dengi-bloki.html">Деньги и финансовые блоки</a></li>
             <li><a href="otnosheniya.html">Кармические отношения</a></li>
             <li><a href="rodovye-programmy.html">Родовые программы и сценарии</a></li>
-            <li><a href="voprosy-dlya-khronik.html">100 вопросов к Хроникам</a></li>
+            <li><a href="voprosy-dlya-khronik.html">35+ вопросов к Хроникам</a></li>
           </ul>
         </div>
 
@@ -1648,30 +1653,88 @@
           badge: '✦ Диагностика сферы: Финансы и масштаб',
           title: 'Вероятный источник: кармический обет нестяжательства или родовой потолок дохода',
           desc: 'В Хрониках Акаши финансовый потолок чаще всего связан либо со старым обетом Души («большие деньги опасны»), либо с бессознательной лояльностью сценарию лишений в родовой системе.',
-          questions: '1. Какой кармический обет или родовой запрет блокирует мой финансовый рост?\n2. В каком направлении и масштабе сейчас лежит мой максимальный денежный поток?\n3. Какое конкретное действие поможет пробить стеклянный потолок без выгорания?'
+          rootQuestion: 'Какой кармический обет или родовой запрет блокирует мой финансовый рост?'
         },
         love: {
           sphere: 'Отношения и семья',
           badge: '✦ Диагностика сферы: Отношения и союз',
           title: 'Вероятный источник: незавершённый кармический контракт или женский сценарий Рода',
           desc: 'Повторяющиеся типажи партнёров и страх близости указывают на незавершённый урок Души из прошлых воплощений или перенятую программу отношений мамы и бабушки.',
-          questions: '1. Какой кармический контракт связывает меня с этим сценарием в отношениях?\n2. Для какого урока пришли эти отношения и как завершить болезненный цикл?\n3. Что мне важно исцелить, чтобы притянуть гармоничный и зрелый союз?'
+          rootQuestion: 'Какой кармический контракт связывает меня с этим сценарием в отношениях?'
         },
         purpose: {
           sphere: 'Предназначение и путь Души',
           badge: '✦ Диагностика сферы: Предназначение и дары',
           title: 'Вероятный источник: блокировка авторского канала Души и страх проявленности',
           desc: 'Ощущение «я живу не свою жизнь» возникает, когда вы переросли старую социальную роль, а память Души зовёт к реализации врождённых талантов и передаче опыта.',
-          questions: '1. В чём заключаются главные врождённые дары и задачи моей Души на это воплощение?\n2. Какой глубинный страх мешает мне заявить о себе и выйти в свой масштаб?\n3. Какой вектор развития принесёт мне одновременно и смысл, и достойный доход?'
+          rootQuestion: 'В чём заключаются главные врождённые дары и задачи моей Души на это воплощение?'
         },
         ancestry: {
           sphere: 'Родовые сценарии и энергия',
           badge: '✦ Диагностика сферы: Энергия и Род',
           title: 'Вероятный источник: системное переплетение и нарушение иерархии в Роду',
           desc: 'Хронический упадок сил и ощущение чужого груза на плечах показывают, что вы бессознательно несёте тяжёлую судьбу или ответственность за кого-то из старших в родовой системе.',
-          questions: '1. Чью судьбу или незавершённую боль в родовой системе я сейчас бессознательно замещаю?\n2. Где происходит основная утечка моей жизненной энергии?\n3. Как занять своё законное место в Роду и опереться на благословение предков?'
+          rootQuestion: 'Чью судьбу или незавершённую боль в родовой системе я сейчас бессознательно замещаю?'
         }
       };
+
+      function buildQuizQuestions(sphereKey, step2Val, step3Val) {
+        const info = quizData[sphereKey] || quizData.money;
+        const list = [info.rootQuestion];
+
+        const isCycle = step2Val.indexOf('День сурка') !== -1;
+        const isWall = step2Val.indexOf('Невидимая стена') !== -1;
+        const isBurden = step2Val.indexOf('Чужой груз') !== -1;
+        const isFear = step2Val.indexOf('Страх шага') !== -1;
+
+        if (sphereKey === 'purpose' || sphereKey === 'money') {
+          if (isFear) {
+            list.push('Что блокирует возможность сменить работу?');
+            list.push('Что вызывает выгорание и как из него выйти?');
+          } else if (isBurden) {
+            list.push('Что вызывает выгорание и как из него выйти?');
+            list.push('Что блокирует возможность сменить работу?');
+          } else if (isWall) {
+            list.push('Что блокирует возможность сменить работу и пробить стеклянный потолок?');
+            list.push('Что вызывает выгорание и как из него выйти?');
+          } else {
+            list.push('Что вызывает выгорание и как из него выйти?');
+            list.push('Что блокирует возможность сменить работу?');
+          }
+        } else if (sphereKey === 'love') {
+          if (isCycle) {
+            list.push('Для какого урока пришли эти отношения и как завершить болезненный цикл?');
+          } else if (isWall) {
+            list.push('Какой внутренний барьер мешает перейти к тёплому, близкому и взаимному союзу?');
+          } else if (isBurden) {
+            list.push('Что вызывает эмоциональное выгорание в отношениях и какую программу Рода я повторяю?');
+          } else if (isFear) {
+            list.push('Какой страх близости или прошлый опыт блокирует возможность создать счастливую семью?');
+          }
+          list.push('Что мне важно исцелить, чтобы притянуть гармоничный и зрелый союз?');
+        } else {
+          list.push('Что вызывает выгорание и как из него выйти?');
+          if (isFear) {
+            list.push('Что блокирует возможность сменить работу и выйти из родового сценария в свою жизнь?');
+          } else {
+            list.push('Как снять с плеч чужую ответственность и занять своё законное место в Роду?');
+          }
+        }
+
+        if (step3Val.indexOf('Около года') !== -1) {
+          list.push('Как выйти из того состояния, в котором нахожусь сейчас?');
+        } else if (step3Val.indexOf('От 2 до 5 лет') !== -1) {
+          list.push('Как выйти из того состояния, в котором нахожусь сейчас, и сдвинуть затяжной потолок?');
+        } else if (step3Val.indexOf('Почти всю') !== -1) {
+          list.push('Как выйти из того состояния, в котором нахожусь сейчас, и закрыть этот многолетний сценарий?');
+        } else {
+          list.push('Как выйти из того состояния, в котором нахожусь сейчас, и раскрыть свой истинный потенциал?');
+        }
+
+        return list.map(function(q, i) {
+          return (i + 1) + '. ' + q;
+        });
+      }
 
       const quizState = { step1: 'money', step2: '', step3: '' };
       const qStepLabel = document.getElementById('home-quiz-step-label');
@@ -1715,24 +1778,55 @@
             const rDesc = document.getElementById('home-res-desc');
             const rQuest = document.getElementById('home-res-questions');
             const rBtn = document.getElementById('home-res-tg-btn');
+            const dynamicQuestions = buildQuizQuestions(quizState.step1, quizState.step2, quizState.step3);
 
             if (rBadge) rBadge.textContent = info.badge;
             if (rTitle) rTitle.textContent = info.title;
-            if (rDesc) rDesc.textContent = info.desc + ' Ваш ключевой маркер («' + quizState.step2 + '») подтверждает, что решение лежит глубже уровня обычной логики.';
+            if (rDesc) rDesc.textContent = info.desc + ' Ваш ключевой маркер («' + quizState.step2 + '») и длительность сценария («' + quizState.step3 + '») показывают, что решение лежит глубже уровня обычной логики.';
             if (rQuest) {
-              rQuest.innerHTML = info.questions.split('\n').map(function(line) {
+              rQuest.innerHTML = dynamicQuestions.map(function(line) {
                 return '<div>' + line + '</div>';
               }).join('');
             }
             if (rBtn) {
               const codePart = currentSoulCodeTitle ? ' Мой код Души: ' + currentSoulCodeTitle + ' (' + currentSoulDate + ').' : '';
-              const msg = 'Здравствуйте, Елена! Прошёл(ла) диагностику на сайте.' + codePart + ' Сфера: ' + info.sphere + '. Ощущение: «' + quizState.step2 + '». Хочу записаться на бесплатную 15-минутную диагностику.';
+              const msg = 'Здравствуйте, Елена! Прошёл(ла) диагностику на сайте.' + codePart + ' Сфера: ' + info.sphere + '. Ощущение: «' + quizState.step2 + '». Длительность: «' + quizState.step3 + '».\nМои вопросы к Полю:\n' + dynamicQuestions.join('\n') + '\nХочу записаться на бесплатную 15-минутную диагностику.';
               rBtn.href = 'https://t.me/sprosiuakashi?text=' + encodeURIComponent(msg);
             }
             setQuizStep(3);
           }
         });
       });
+
+      document.querySelectorAll('[data-home-back]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const targetIdx = parseInt(btn.getAttribute('data-home-back'), 10);
+          setQuizStep(isNaN(targetIdx) ? 0 : targetIdx);
+        });
+      });
+
+      const qCopyBtn = document.getElementById('home-quiz-copy-btn');
+      if (qCopyBtn) {
+        qCopyBtn.addEventListener('click', function() {
+          const rQuest = document.getElementById('home-res-questions');
+          const textToCopy = rQuest ? Array.prototype.map.call(rQuest.children, function(el) { return el.textContent; }).join('\n') : '';
+          if (!textToCopy) return;
+          const span = qCopyBtn.querySelector('span');
+          const orig = span ? (span.getAttribute('data-orig') || span.textContent) : '';
+          if (span && !span.getAttribute('data-orig')) span.setAttribute('data-orig', orig);
+          function done() {
+            if (span) span.textContent = '✓ Вопросы скопированы в буфер';
+            setTimeout(function() {
+              if (span) span.textContent = orig;
+            }, 3000);
+          }
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(textToCopy).then(done).catch(done);
+          } else {
+            done();
+          }
+        });
+      }
 
       const qResetBtn = document.getElementById('home-quiz-reset-btn');
       if (qResetBtn) {
