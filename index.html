@@ -1872,7 +1872,7 @@
         });
       });
 
-      // 7. Scroll-Spy Active Navigation State (IntersectionObserver)
+      // 7. Scroll-Spy Active Navigation State (CSS scroll-target-group + IntersectionObserver fallback)
       const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
       const spySections = [];
       navLinks.forEach(function(link) {
@@ -1881,25 +1881,40 @@
         if (sec) spySections.push({ id: id, el: sec, link: link });
       });
 
-      function updateActiveNav() {
-        const scrollPos = window.scrollY + 180;
-        let current = null;
-        spySections.forEach(function(item) {
-          if (item.el.offsetTop <= scrollPos) {
-            current = item;
-          }
-        });
-        navLinks.forEach(function(l) {
-          l.classList.remove('active');
-          l.removeAttribute('aria-current');
-        });
-        if (current) {
-          current.link.classList.add('active');
-          current.link.setAttribute('aria-current', 'true');
+      if (CSS.supports('scroll-target-group: auto')) {
+        function syncAriaCurrent() {
+          const currentLink = document.querySelector('.nav-links a:target-current');
+          navLinks.forEach(function(l) {
+            if (l === currentLink) {
+              l.setAttribute('aria-current', 'true');
+            } else {
+              l.removeAttribute('aria-current');
+            }
+          });
         }
+        syncAriaCurrent();
+        document.addEventListener('scrollend', syncAriaCurrent, { passive: true });
+      } else if (spySections.length) {
+        const spyObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (!entry.isIntersecting) return;
+            const id = entry.target.getAttribute('id');
+            spySections.forEach(function(item) {
+              const isActive = item.id === id;
+              item.link.classList.toggle('active', isActive);
+              if (isActive) {
+                item.link.setAttribute('aria-current', 'true');
+              } else {
+                item.link.removeAttribute('aria-current');
+              }
+            });
+          });
+        }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
+
+        spySections.forEach(function(item) {
+          spyObserver.observe(item.el);
+        });
       }
-      window.addEventListener('scroll', updateActiveNav, { passive: true });
-      updateActiveNav();
 
       // 8. Click-to-Zoom Lightbox for Telegram Review Screenshots
       const lbOverlay = document.getElementById('lightbox-overlay');

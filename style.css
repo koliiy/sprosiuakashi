@@ -276,6 +276,7 @@ nav.site-nav.scrolled {
   align-items: center;
   gap: 20px;
   list-style: none;
+  scroll-target-group: auto;
 }
 
 .nav-links li a {
@@ -304,14 +305,14 @@ nav.site-nav.scrolled {
 
 .nav-links li a:hover,
 .nav-links li a[aria-current="page"],
-.nav-links li a.active {
+.nav-links li a:is(:target-current, .active) {
   color: var(--cream);
   font-weight: 600;
 }
 
 .nav-links li a:hover::after,
 .nav-links li a[aria-current="page"]::after,
-.nav-links li a.active::after {
+.nav-links li a:is(:target-current, .active)::after {
   transform: scaleX(1);
 }
 
@@ -443,19 +444,36 @@ nav.site-nav.scrolled {
 }
 
 .nav-mobile-drawer.open a {
+  --stagger-time: 45ms;
   opacity: 1;
   transform: translateY(0);
 }
 
-.nav-mobile-drawer.open a:nth-child(1) { transition-delay: 40ms; }
-.nav-mobile-drawer.open a:nth-child(2) { transition-delay: 100ms; }
-.nav-mobile-drawer.open a:nth-child(3) { transition-delay: 160ms; }
-.nav-mobile-drawer.open a:nth-child(4) { transition-delay: 220ms; }
-.nav-mobile-drawer.open a:nth-child(5) { transition-delay: 280ms; }
-.nav-mobile-drawer.open a:nth-child(6) { transition-delay: 320ms; }
-.nav-mobile-drawer.open a:nth-child(7) { transition-delay: 360ms; }
-.nav-mobile-drawer.open a:nth-child(8) { transition-delay: 380ms; }
-.nav-mobile-drawer.open a:nth-child(9) { transition-delay: 400ms; }
+@supports (transition-delay: calc(sibling-index() * 0.1s)) {
+  .nav-mobile-drawer.open a {
+    transition-delay: calc(sibling-index() * var(--stagger-time));
+  }
+}
+
+@supports not (transition-delay: calc(sibling-index() * 0.1s)) {
+  .nav-mobile-drawer.open a:nth-child(1) { transition-delay: 40ms; }
+  .nav-mobile-drawer.open a:nth-child(2) { transition-delay: 100ms; }
+  .nav-mobile-drawer.open a:nth-child(3) { transition-delay: 160ms; }
+  .nav-mobile-drawer.open a:nth-child(4) { transition-delay: 220ms; }
+  .nav-mobile-drawer.open a:nth-child(5) { transition-delay: 280ms; }
+  .nav-mobile-drawer.open a:nth-child(6) { transition-delay: 320ms; }
+  .nav-mobile-drawer.open a:nth-child(7) { transition-delay: 360ms; }
+  .nav-mobile-drawer.open a:nth-child(8) { transition-delay: 380ms; }
+  .nav-mobile-drawer.open a:nth-child(9) { transition-delay: 400ms; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-mobile-drawer a,
+  .nav-mobile-drawer.open a {
+    transition: none;
+    transition-delay: 0s;
+  }
+}
 
 .nav-mobile-drawer a:hover {
   color: var(--gold-strong);
