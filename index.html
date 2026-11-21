@@ -28,8 +28,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#FCFAFF">
 
-  <title>Хроники Акаши: чтение предназначения, кармических узлов и задач души онлайн | Спроси у Акаши</title>
-  <meta name="description" content="Индивидуальное чтение Хроник Акаши и системные расстановки онлайн с проводником Еленой. Узнайте задачи души, причины повторяющихся сценариев в деньгах и отношениях. Первая диагностика бесплатно.">
+  <title>Хроники Акаши онлайн — чтение и расчёт | Спроси у Акаши</title>
+  <meta name="description" content="Чтение Хроник Акаши и системные расстановки онлайн с проводником Еленой. Первая диагностика 15 мин бесплатно + калькулятор кода Души по дате рождения.">
   <meta name="keywords" content="хроники акаши, чтение хроник акаши, консультация хроники акаши, предназначение души, кармические задачи, системные расстановки онлайн, проводник хроник акаши">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="author" content="Елена — Спроси у Акаши">
@@ -44,8 +44,8 @@
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Спроси у Акаши | Чтение Хроник Акаши и системные расстановки онлайн">
-  <meta property="og:description" content="Находим первопричины тупиков в деньгах, отношениях и реализации через чтение информационного поля души. Первая диагностика 15–20 минут — бесплатно.">
+  <meta property="og:title" content="Хроники Акаши онлайн — чтение и расчёт | Спроси у Акаши">
+  <meta property="og:description" content="Чтение Хроник Акаши и системные расстановки онлайн с проводником Еленой. Первая диагностика 15 мин бесплатно + калькулятор кода Души по дате рождения.">
   <meta property="og:url" content="https://www.sprosiuakashi.com/">
   <meta property="og:site_name" content="Спроси у Акаши">
   <meta property="og:locale" content="ru_RU">
@@ -53,15 +53,15 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Хроники Акаши: чтение предназначения и кармических задач онлайн">
-  <meta name="twitter:description" content="Индивидуальный разбор вашей ситуации через Хроники Акаши с проводником Еленой. Первая диагностическая встреча — бесплатно.">
+  <meta name="twitter:title" content="Хроники Акаши онлайн — чтение и расчёт | Спроси у Акаши">
+  <meta name="twitter:description" content="Чтение Хроник Акаши и системные расстановки онлайн с проводником Еленой. Первая диагностика 15 мин бесплатно + калькулятор кода Души по дате рождения.">
   <meta name="twitter:image" content="https://www.sprosiuakashi.com/i.webp">
 
   <!-- Typography: Manrope -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20261109-2">
+  <link rel="stylesheet" href="style.css?v=20261121-1">
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -463,7 +463,7 @@
               <input type="number" id="home-dob-year" class="calc-input" placeholder="Например, 1989" min="1930" max="2026" required>
             </div>
             <div class="calc-submit-wrap">
-              <button type="submit" class="btn-tg">
+              <button type="submit" class="btn-tg" id="dob-calc-btn">
                 <span>Рассчитать код Души</span>
               </button>
             </div>
@@ -1415,6 +1415,7 @@
             <li><a href="otnosheniya.html">Кармические отношения</a></li>
             <li><a href="rodovye-programmy.html">Родовые программы и сценарии</a></li>
             <li><a href="voprosy-dlya-khronik.html">35+ вопросов к Хроникам</a></li>
+            <li><a href="proshlye-zhizni.html">Прошлые жизни и карма</a></li>
           </ul>
         </div>
 
@@ -1427,6 +1428,8 @@
             <li><a href="bezopasnost.html">Безопасность метода</a></li>
             <li><a href="meditaciya-hroniki-akashi.html">Молитва и медитация входа</a></li>
             <li><a href="knigi-hroniki-akashi.html">ТОП-7 книг об Акаши</a></li>
+            <li><a href="hroniki-akashi-samostoyatelno.html">Как войти самостоятельно</a></li>
+            <li><a href="hroniki-akashi-otzyvy-realnye.html">Разбор отзывов: правда или развод</a></li>
             <li><a href="policy.html">Политика конфиденциальности</a></li>
           </ul>
         </div>
@@ -2047,7 +2050,9 @@
           trackGoal('channel_click');
         } else if (e.target.closest('[data-copy-tg]')) {
           trackGoal('copy_tg_handle');
-        } else if (e.target.closest('.quiz-opt-btn[data-step="3"]')) {
+        } else if (e.target.closest('#dob-calc-btn')) {
+          trackGoal('calc_dob');
+        } else if (e.target.closest('.quiz-opt-btn[data-step="3"], [data-home-step="3"]')) {
           trackGoal('quiz_complete');
         }
       });

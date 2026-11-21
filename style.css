@@ -4599,4 +4599,142 @@ h2 em,
   flex-shrink: 0;
 }
 
+/* ─── 23. RESPONSIVE TABLE WRAPPER & ARCANA DIRECTORY ─── */
+.table-wrap {
+  overflow-x: auto;
+  max-inline-size: 100%;
+  margin: 28px 0 36px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-wrap:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.table-wrap .comparison-table {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  min-width: 520px;
+}
+
+.table-wrap .comparison-table th,
+.table-wrap .comparison-table td {
+  vertical-align: top;
+}
+
+.arcana-directory {
+  background: var(--card);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  margin: 32px 0 40px;
+  box-shadow: var(--shadow-sm);
+}
+
+.arcana-directory > summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 600;
+  color: var(--cream);
+}
+
+.arcana-directory > summary::-webkit-details-marker {
+  display: none;
+}
+
+.arcana-directory > summary::before {
+  content: '▸';
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 28px;
+  block-size: 28px;
+  border-radius: 50%;
+  background: var(--gold-soft);
+  color: var(--gold-strong);
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.arcana-directory[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+.arcana-directory > summary:hover {
+  color: var(--gold-strong);
+}
+
+.arcana-directory::details-content {
+  interpolate-size: allow-keywords;
+  overflow: clip;
+  contain: layout;
+}
+
+.arcana-directory:not([open])::details-content {
+  block-size: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .arcana-directory > summary::before {
+    transition: transform 0.2s var(--ease-out), background var(--dur-color) var(--ease-out);
+  }
+
+  .arcana-directory::details-content {
+    transition: block-size, content-visibility, display;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    transition-behavior: allow-discrete;
+  }
+}
+
+.arcana-directory-body {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.arcana-directory-note {
+  font-size: 15px;
+  line-height: 23px;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.arcana-directory-body .table-wrap {
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .table-wrap .comparison-table th,
+  .table-wrap .comparison-table td {
+    padding: 12px 14px;
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .arcana-directory {
+    padding: 16px;
+  }
+
+  .arcana-directory > summary {
+    font-size: 20px;
+    line-height: 26px;
+  }
+}
+
+
 
