@@ -41,12 +41,15 @@
   <meta property="og:title" content="Хроники Акаши по дате рождения — рассчитать онлайн бесплатно">
   <meta property="og:description" content="Бесплатный онлайн-расчёт Хроник Акаши по дате рождения: узнайте свой стартовый Аркан и кармический код Души за 10 секунд + экспресс-тест из 3 шагов.">
   <meta property="og:url" content="https://www.sprosiuakashi.com/hroniki-akashi-raschet-online.html">
-  <meta property="og:image" content="https://www.sprosiuakashi.com/i.webp">
+  <meta property="og:image" content="https://www.sprosiuakashi.com/og-cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
   <meta property="og:site_name" content="Спроси у Акаши">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Хроники Акаши по дате рождения — рассчитать онлайн бесплатно">
   <meta name="twitter:description" content="Бесплатный онлайн-расчёт Хроник Акаши по дате рождения: узнайте свой стартовый Аркан и кармический код Души за 10 секунд + экспресс-тест из 3 шагов.">
-  <meta name="twitter:image" content="https://www.sprosiuakashi.com/i.webp">
+  <meta name="twitter:image" content="https://www.sprosiuakashi.com/og-cover.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script type="application/ld+json">
@@ -157,7 +160,7 @@
   }
   </script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Manrope:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="style.css?v=20261121-1">
+  <link rel="stylesheet" href="style.css?v=20261122-1">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Перейти к основному содержанию</a>
@@ -243,15 +246,15 @@
         <form class="calc-form" id="dob-calc-form" novalidate>
           <div class="calc-field">
             <label for="dob-day">День рождения</label>
-            <input type="number" id="dob-day" class="calc-input" placeholder="Например, 14" min="1" max="31" required>
+            <input type="number" id="dob-day" name="dob_day" inputmode="numeric" aria-describedby="dob-error" class="calc-input" placeholder="Например, 14" min="1" max="31" required>
           </div>
           <div class="calc-field">
             <label for="dob-month">Месяц</label>
-            <input type="number" id="dob-month" class="calc-input" placeholder="Например, 8" min="1" max="12" required>
+            <input type="number" id="dob-month" name="dob_month" inputmode="numeric" aria-describedby="dob-error" class="calc-input" placeholder="Например, 8" min="1" max="12" required>
           </div>
           <div class="calc-field">
             <label for="dob-year">Год рождения</label>
-            <input type="number" id="dob-year" class="calc-input" placeholder="Например, 1989" min="1920" max="2026" required>
+            <input type="number" id="dob-year" name="dob_year" inputmode="numeric" aria-describedby="dob-error" class="calc-input" placeholder="Например, 1989" min="1920" max="2026" required>
           </div>
           <div class="calc-submit-wrap">
             <button type="submit" class="btn-tg" id="dob-calc-btn">
@@ -521,7 +524,7 @@
           const qEl = document.getElementById('online-quiz-q-list');
           const btn = document.getElementById('online-quiz-copy-btn');
           if (!qEl || !btn) return;
-          const text = qEl.innerHTML.replace(/<br\s*\/?>/gi, '\n');
+          const text = qEl.innerText || qEl.textContent || '';
           const orig = btn.getAttribute('data-orig') || btn.textContent;
           if (!btn.getAttribute('data-orig')) btn.setAttribute('data-orig', orig);
           function done() {
@@ -530,10 +533,36 @@
               btn.textContent = orig;
             }, 3000);
           }
+          function fail() {
+            btn.textContent = 'Выделите и скопируйте список вопросов выше';
+            setTimeout(function() {
+              btn.textContent = orig;
+            }, 3500);
+          }
+          function legacyCopy() {
+            try {
+              const ta = document.createElement('textarea');
+              ta.value = text;
+              ta.setAttribute('readonly', '');
+              ta.style.position = 'fixed';
+              ta.style.top = '-9999px';
+              document.body.appendChild(ta);
+              ta.select();
+              const ok = document.execCommand('copy');
+              document.body.removeChild(ta);
+              return !!ok;
+            } catch (err) {
+              return false;
+            }
+          }
           if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(text).then(done).catch(done);
-          } else {
+            navigator.clipboard.writeText(text).then(done).catch(function() {
+              if (legacyCopy()) { done(); } else { fail(); }
+            });
+          } else if (legacyCopy()) {
             done();
+          } else {
+            fail();
           }
         }
 
@@ -556,27 +585,53 @@
           const yearIn = document.getElementById('dob-year');
           const errEl = document.getElementById('dob-error');
           const resBox = document.getElementById('dob-result');
+          const maxYear = new Date().getFullYear();
 
           if (!form) return;
+          if (yearIn) yearIn.max = String(maxYear);
+
           [dayIn, monthIn, yearIn].forEach(function(inp) {
             if (!inp) return;
             inp.addEventListener('input', function() {
+              inp.removeAttribute('aria-invalid');
               if (errEl) errEl.classList.remove('visible');
             });
           });
 
           form.addEventListener('submit', function(e) {
             e.preventDefault();
-            const d = parseInt(dayIn.value, 10);
-            const m = parseInt(monthIn.value, 10);
-            const y = parseInt(yearIn.value, 10);
+            const rawD = dayIn ? dayIn.value.trim() : '';
+            const rawM = monthIn ? monthIn.value.trim() : '';
+            const rawY = yearIn ? yearIn.value.trim() : '';
+            const d = /^\d+$/.test(rawD) ? parseInt(rawD, 10) : NaN;
+            const m = /^\d+$/.test(rawM) ? parseInt(rawM, 10) : NaN;
+            const y = /^\d+$/.test(rawY) ? parseInt(rawY, 10) : NaN;
 
-            if (!d || !m || !y || d < 1 || d > 31 || m < 1 || m > 12 || y < 1920 || y > 2026) {
-              if (errEl) errEl.classList.add('visible');
+            const dayBad = isNaN(d) || d < 1 || d > 31;
+            const monthBad = isNaN(m) || m < 1 || m > 12;
+            const yearBad = isNaN(y) || y < 1920 || y > maxYear;
+            const dt = (!dayBad && !monthBad && !yearBad) ? new Date(y, m - 1, d) : null;
+            const isRealDate = !!(dt && dt.getFullYear() === y && dt.getMonth() === (m - 1) && dt.getDate() === d);
+
+            if (dayBad || monthBad || yearBad || !isRealDate) {
+              if (dayIn) dayIn.setAttribute('aria-invalid', (dayBad || !isRealDate) ? 'true' : 'false');
+              if (monthIn) monthIn.setAttribute('aria-invalid', (monthBad || !isRealDate) ? 'true' : 'false');
+              if (yearIn) yearIn.setAttribute('aria-invalid', yearBad ? 'true' : 'false');
+              if (errEl) {
+                errEl.textContent = (!dayBad && !monthBad && !yearBad && !isRealDate)
+                  ? 'Такой даты не существует в календаре (проверьте число и месяц, например 30 или 31 февраля).'
+                  : 'Пожалуйста, укажите корректную дату рождения: день (1–31), месяц (1–12) и год (1920–' + maxYear + ').';
+                errEl.classList.add('visible');
+              }
               if (resBox) resBox.classList.remove('visible');
+              const firstInvalid = (dayBad || !isRealDate) ? dayIn : (monthBad ? monthIn : yearIn);
+              if (firstInvalid) firstInvalid.focus();
               return;
             }
 
+            [dayIn, monthIn, yearIn].forEach(function(inp) {
+              if (inp) inp.removeAttribute('aria-invalid');
+            });
             if (errEl) errEl.classList.remove('visible');
             const str = '' + d + m + y;
             let sum = 0;
@@ -632,6 +687,9 @@
             const tgText = 'Здравствуйте, Елена! Мой расчёт по дате рождения (' + dateFormatted + ') показал: ' + item.title + '. Хочу разобрать задачи души и кармические уроки на бесплатной диагностике.';
             document.getElementById('dob-cta').href = 'https://t.me/sprosiuakashi?text=' + encodeURIComponent(tgText);
             resBox.classList.add('visible');
+            if (typeof window.akashiTrackGoal === 'function') {
+              window.akashiTrackGoal('calc_dob', { arcana: sum });
+            }
           });
         })();
       </script>
@@ -902,7 +960,7 @@
   <div class="lightbox-overlay" id="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Просмотр скриншота отзыва" aria-hidden="true">
     <div class="lightbox-dialog">
       <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Закрыть изображение">×</button>
-      <img src="/tg-review-1.webp" alt="" class="lightbox-img" id="lightbox-img">
+      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" class="lightbox-img" id="lightbox-img" fetchpriority="low">
       <p class="lightbox-caption" id="lightbox-caption"></p>
     </div>
   </div>
@@ -1063,6 +1121,39 @@
         }
       });
 
+      function copyTextWithFallback(text, onSuccess, onFail) {
+        function legacyCopy() {
+          try {
+            var ta = document.createElement('textarea');
+            ta.value = text;
+            ta.setAttribute('readonly', '');
+            ta.style.position = 'fixed';
+            ta.style.top = '-9999px';
+            ta.style.left = '-9999px';
+            document.body.appendChild(ta);
+            ta.select();
+            var ok = document.execCommand('copy');
+            document.body.removeChild(ta);
+            return !!ok;
+          } catch (err) {
+            return false;
+          }
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(onSuccess).catch(function () {
+            if (legacyCopy()) {
+              onSuccess();
+            } else {
+              onFail();
+            }
+          });
+        } else if (legacyCopy()) {
+          onSuccess();
+        } else {
+          onFail();
+        }
+      }
+
       // Backup Copy Button for @sprosiuakashi
       document.querySelectorAll('[data-copy-tg]').forEach(function (btn) {
         btn.addEventListener('click', function () {
@@ -1078,11 +1169,14 @@
               if (span) span.textContent = orig;
             }, 3200);
           }
-          if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(handle).then(done).catch(done);
-          } else {
-            done();
+          function fail() {
+            btn.classList.remove('copied');
+            if (span) span.textContent = 'Скопируйте вручную: ' + handle;
+            setTimeout(function () {
+              if (span) span.textContent = orig;
+            }, 4000);
           }
+          copyTextWithFallback(handle, done, fail);
         });
       });
 
@@ -1119,30 +1213,53 @@
               if (span) span.textContent = orig;
             }, 3000);
           }
-          if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(url).then(done).catch(done);
-          } else {
-            done();
+          function fail() {
+            btn.classList.remove('copied');
+            if (span) span.textContent = 'Скопируйте адрес из строки браузера';
+            setTimeout(function () {
+              if (span) span.textContent = orig;
+            }, 3500);
           }
+          copyTextWithFallback(url, done, fail);
         });
       });
 
-      function trackGoal(goalName) {
+      function trackGoal(goalName, extraParams) {
+        var params = Object.assign({ path: window.location.pathname }, extraParams || {});
         if (typeof gtag === 'function') {
-          gtag('event', goalName === 'lead' ? 'generate_lead' : goalName, {
+          gtag('event', goalName === 'lead' ? 'generate_lead' : goalName, Object.assign({
             'event_category': 'conversion',
-            'event_label': window.location.pathname,
+            'event_label': params.cta_location || window.location.pathname,
             'transport_type': 'beacon'
-          });
+          }, extraParams || {}));
         }
         if (typeof ym === 'function') {
-          ym(112518581, 'reachGoal', goalName, { path: window.location.pathname });
+          ym(112518581, 'reachGoal', goalName, params);
         }
+      }
+      window.akashiTrackGoal = trackGoal;
+
+      function getCtaLocation(link) {
+        if (link.closest('#nav-mobile-drawer')) return 'mobile_drawer';
+        if (link.closest('#site-nav')) return 'nav';
+        if (link.closest('.mobile-sticky-cta')) return 'mobile_sticky';
+        if (link.closest('.hero')) return 'hero';
+        if (link.closest('#calculator, #dob-calculator')) return 'calculator';
+        if (link.closest('#home-diagnostic-quiz, #diagnostic-quiz')) return 'quiz';
+        if (link.closest('#formats')) return 'formats';
+        if (link.closest('#faq, .faq-block')) return 'faq';
+        if (link.closest('#contact')) return 'final_cta';
+        if (link.closest('.cta-block')) return 'article_cta';
+        if (link.closest('.site-footer')) return 'footer';
+        return 'article_inline';
       }
 
       document.addEventListener('click', function (e) {
-        if (e.target.closest('a[href*="t.me/sprosiuakashi"]')) {
-          trackGoal('lead');
+        var tgLink = e.target.closest('a[href*="t.me/sprosiuakashi"]');
+        if (tgLink) {
+          var ctaLocation = getCtaLocation(tgLink);
+          trackGoal('lead', { cta_location: ctaLocation });
+          trackGoal('lead_' + ctaLocation, { cta_location: ctaLocation });
         } else if (e.target.closest('a[href*="t.me/tribute"]')) {
           trackGoal('tribute_click');
         } else if (e.target.closest('a[href*="t.me/akashi_read"]')) {
@@ -1151,8 +1268,6 @@
           trackGoal('copy_tg_handle');
         } else if (e.target.closest('.btn-share-tg') || e.target.closest('[data-copy-url]')) {
           trackGoal('share_article');
-        } else if (e.target.closest('#dob-calc-btn')) {
-          trackGoal('calc_dob');
         } else if (e.target.closest('.quiz-opt-btn[data-step="3"], #quiz-step-3 .quiz-opt')) {
           trackGoal('quiz_complete');
         }

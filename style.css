@@ -1248,6 +1248,18 @@ nav.site-nav.scrolled {
   background: var(--card);
 }
 
+.calc-input:focus-visible {
+  outline: 2px solid var(--gold-strong);
+  outline-offset: 2px;
+  border-color: var(--gold-strong);
+  background: var(--card);
+}
+
+.calc-input[aria-invalid="true"] {
+  border-color: #C94A4A;
+  background: rgba(201, 74, 74, 0.04);
+}
+
 .calc-submit-wrap {
   padding-top: 24px;
 }
@@ -1533,7 +1545,7 @@ nav.site-nav.scrolled {
 }
 
 @media (min-width: 601px) {
-  .tg-reviews-grid > .tg-review-card:last-child:nth-child(odd) {
+  .tg-reviews-grid > .tg-review-card:last-child:nth-child(odd):not(.is-collapsed-more) {
     grid-column: 1 / -1;
     display: grid;
     grid-template-columns: 0.95fr 1.05fr;
@@ -1541,13 +1553,13 @@ nav.site-nav.scrolled {
     align-items: center;
   }
 
-  .tg-reviews-grid > .tg-review-card:last-child:nth-child(odd) .tg-review-body {
+  .tg-reviews-grid > .tg-review-card:last-child:nth-child(odd):not(.is-collapsed-more) .tg-review-body {
     display: flex;
     flex-direction: column;
     gap: 16px;
   }
 
-  .tg-reviews-grid > .tg-review-card:last-child:nth-child(odd) img {
+  .tg-reviews-grid > .tg-review-card:last-child:nth-child(odd):not(.is-collapsed-more) img {
     margin-top: 0;
   }
 
@@ -2196,6 +2208,9 @@ nav.site-nav.scrolled {
 }
 
 .footer-links a {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 0;
   color: var(--muted);
   text-decoration: none;
   font-size: 14px;
@@ -2205,6 +2220,17 @@ nav.site-nav.scrolled {
 
 .footer-links a:hover {
   color: var(--gold-strong);
+}
+
+@media (max-width: 768px), (pointer: coarse) {
+  .footer-links {
+    gap: 2px;
+  }
+
+  .footer-links a {
+    min-block-size: 44px;
+    padding: 10px 0;
+  }
 }
 
 .footer-bottom {
@@ -2259,6 +2285,9 @@ nav.site-nav.scrolled {
 }
 
 @media (max-width: 768px) {
+  html {
+    scroll-padding-bottom: 84px;
+  }
   .mobile-sticky-cta {
     display: inline-flex;
     position: fixed;
@@ -4222,8 +4251,30 @@ h2 em,
   color: var(--gold-light);
 }
 
-.art-card.is-hidden {
+.art-card.is-hidden,
+.is-collapsed-more {
   display: none !important;
+}
+
+.section-more-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.quiz-section {
+  background: var(--deep);
+  border-bottom: 1px solid var(--border);
+  padding: 48px 0 64px;
+}
+
+.quiz-standalone-body.calc-quiz-divider {
+  margin-top: 0;
+  padding-top: 24px;
+  border-top: 0;
 }
 
 /* 24.5 Unified Calculator + 3-Step Quiz SVG Icons & Layout (2.2 & 4.2) */

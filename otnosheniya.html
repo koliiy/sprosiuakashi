@@ -41,12 +41,15 @@
   <meta property="og:title" content="Кармические отношения в Хрониках Акаши: как разорвать круг">
   <meta property="og:description" content="Почему в любви повторяются болезненные сценарии, измены или одиночество? Как развязать кармические узлы и исцелить отношения через Хроники Акаши.">
   <meta property="og:url" content="https://www.sprosiuakashi.com/otnosheniya.html">
-  <meta property="og:image" content="https://www.sprosiuakashi.com/i.webp">
+  <meta property="og:image" content="https://www.sprosiuakashi.com/og-cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
   <meta property="og:site_name" content="Спроси у Акаши">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Кармические отношения в Хрониках Акаши: как разорвать круг">
   <meta name="twitter:description" content="Почему в любви повторяются болезненные сценарии, измены или одиночество? Как развязать кармические узлы и исцелить отношения через Хроники Акаши.">
-  <meta name="twitter:image" content="https://www.sprosiuakashi.com/i.webp">
+  <meta name="twitter:image" content="https://www.sprosiuakashi.com/og-cover.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script type="application/ld+json">
@@ -141,7 +144,7 @@
   }
   </script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="style.css?v=20261121-1">
+  <link rel="stylesheet" href="style.css?v=20261122-1">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Перейти к основному содержанию</a>
@@ -409,7 +412,7 @@
   <div class="lightbox-overlay" id="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Просмотр скриншота отзыва" aria-hidden="true">
     <div class="lightbox-dialog">
       <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Закрыть изображение">×</button>
-      <img src="/tg-review-1.webp" alt="" class="lightbox-img" id="lightbox-img">
+      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" class="lightbox-img" id="lightbox-img" fetchpriority="low">
       <p class="lightbox-caption" id="lightbox-caption"></p>
     </div>
   </div>
@@ -570,6 +573,39 @@
         }
       });
 
+      function copyTextWithFallback(text, onSuccess, onFail) {
+        function legacyCopy() {
+          try {
+            var ta = document.createElement('textarea');
+            ta.value = text;
+            ta.setAttribute('readonly', '');
+            ta.style.position = 'fixed';
+            ta.style.top = '-9999px';
+            ta.style.left = '-9999px';
+            document.body.appendChild(ta);
+            ta.select();
+            var ok = document.execCommand('copy');
+            document.body.removeChild(ta);
+            return !!ok;
+          } catch (err) {
+            return false;
+          }
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(onSuccess).catch(function () {
+            if (legacyCopy()) {
+              onSuccess();
+            } else {
+              onFail();
+            }
+          });
+        } else if (legacyCopy()) {
+          onSuccess();
+        } else {
+          onFail();
+        }
+      }
+
       // Backup Copy Button for @sprosiuakashi
       document.querySelectorAll('[data-copy-tg]').forEach(function (btn) {
         btn.addEventListener('click', function () {
@@ -585,11 +621,14 @@
               if (span) span.textContent = orig;
             }, 3200);
           }
-          if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(handle).then(done).catch(done);
-          } else {
-            done();
+          function fail() {
+            btn.classList.remove('copied');
+            if (span) span.textContent = 'Скопируйте вручную: ' + handle;
+            setTimeout(function () {
+              if (span) span.textContent = orig;
+            }, 4000);
           }
+          copyTextWithFallback(handle, done, fail);
         });
       });
 
@@ -626,30 +665,53 @@
               if (span) span.textContent = orig;
             }, 3000);
           }
-          if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(url).then(done).catch(done);
-          } else {
-            done();
+          function fail() {
+            btn.classList.remove('copied');
+            if (span) span.textContent = 'Скопируйте адрес из строки браузера';
+            setTimeout(function () {
+              if (span) span.textContent = orig;
+            }, 3500);
           }
+          copyTextWithFallback(url, done, fail);
         });
       });
 
-      function trackGoal(goalName) {
+      function trackGoal(goalName, extraParams) {
+        var params = Object.assign({ path: window.location.pathname }, extraParams || {});
         if (typeof gtag === 'function') {
-          gtag('event', goalName === 'lead' ? 'generate_lead' : goalName, {
+          gtag('event', goalName === 'lead' ? 'generate_lead' : goalName, Object.assign({
             'event_category': 'conversion',
-            'event_label': window.location.pathname,
+            'event_label': params.cta_location || window.location.pathname,
             'transport_type': 'beacon'
-          });
+          }, extraParams || {}));
         }
         if (typeof ym === 'function') {
-          ym(112518581, 'reachGoal', goalName, { path: window.location.pathname });
+          ym(112518581, 'reachGoal', goalName, params);
         }
+      }
+      window.akashiTrackGoal = trackGoal;
+
+      function getCtaLocation(link) {
+        if (link.closest('#nav-mobile-drawer')) return 'mobile_drawer';
+        if (link.closest('#site-nav')) return 'nav';
+        if (link.closest('.mobile-sticky-cta')) return 'mobile_sticky';
+        if (link.closest('.hero')) return 'hero';
+        if (link.closest('#calculator, #dob-calculator')) return 'calculator';
+        if (link.closest('#home-diagnostic-quiz, #diagnostic-quiz')) return 'quiz';
+        if (link.closest('#formats')) return 'formats';
+        if (link.closest('#faq, .faq-block')) return 'faq';
+        if (link.closest('#contact')) return 'final_cta';
+        if (link.closest('.cta-block')) return 'article_cta';
+        if (link.closest('.site-footer')) return 'footer';
+        return 'article_inline';
       }
 
       document.addEventListener('click', function (e) {
-        if (e.target.closest('a[href*="t.me/sprosiuakashi"]')) {
-          trackGoal('lead');
+        var tgLink = e.target.closest('a[href*="t.me/sprosiuakashi"]');
+        if (tgLink) {
+          var ctaLocation = getCtaLocation(tgLink);
+          trackGoal('lead', { cta_location: ctaLocation });
+          trackGoal('lead_' + ctaLocation, { cta_location: ctaLocation });
         } else if (e.target.closest('a[href*="t.me/tribute"]')) {
           trackGoal('tribute_click');
         } else if (e.target.closest('a[href*="t.me/akashi_read"]')) {
@@ -658,8 +720,6 @@
           trackGoal('copy_tg_handle');
         } else if (e.target.closest('.btn-share-tg') || e.target.closest('[data-copy-url]')) {
           trackGoal('share_article');
-        } else if (e.target.closest('#dob-calc-btn')) {
-          trackGoal('calc_dob');
         } else if (e.target.closest('.quiz-opt-btn[data-step="3"]')) {
           trackGoal('quiz_complete');
         }
