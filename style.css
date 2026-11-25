@@ -2172,12 +2172,13 @@ nav.site-nav.scrolled {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  min-height: 44px;
   color: var(--cream);
   background: var(--gold-soft);
   text-decoration: none;
   font-weight: 600;
   font-size: 14px;
-  padding: 8px 16px;
+  padding: 10px 18px;
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-pill);
   transition: background var(--dur-color) var(--ease-out),
